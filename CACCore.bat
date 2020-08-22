@@ -16,7 +16,7 @@ echo.
 :END
 
 title Arma 3 CAC Launcher
-echo VERSION: 1.0
+echo VERSION: 1.0.1
 echo.
 echo Choose CAC Server
 echo.
