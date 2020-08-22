@@ -70,7 +70,7 @@ start "" arma3_x64 -connect=89.103.168.25 -port=2372 -skipIntro -noSplash -world
 GOTO End
 
 :KingofTheHill
-start "" /normal arma3_x64 -connect=89.103.168.25 -port=2322 -useBE -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort" 
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2322 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort" 
 GOTO End
 
 :End
