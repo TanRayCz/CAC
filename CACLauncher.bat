@@ -1,7 +1,7 @@
 @echo off
 set local=1.0
 set localtwo=%local%
-set link=https://raw.githubusercontent.com/TanRayCz/CAC/master/CACCore2.bat
+set link=https://raw.githubusercontent.com/TanRayCz/CAC/master/CACCore.bat
 :check
 IF EXIST "CACCore.bat" DEL /Q "CACCore.bat"
 goto :download
