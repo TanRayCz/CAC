@@ -54,7 +54,7 @@ start "" /normal arma3_x64 -connect=89.103.168.25 -port=2702 -skipIntro -noSplas
 GOTO End
 
 :ExileTanoaZ
-start "" /normal arma3_x64 -connect=89.103.168.25 -port=2362 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@ARM;Mods\@ShackTacUI"
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2382 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@ARM;Mods\@ShackTacUI"
 GOTO End
 
 :RavageMalden
