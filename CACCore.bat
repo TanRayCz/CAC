@@ -1,5 +1,5 @@
 @echo off
-set local=1.2
+set local=1.0
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto YES
 color 4
@@ -16,7 +16,7 @@ echo.
 :END
 
 title Arma 3 CAC Launcher
-echo VERSION: 1.2
+echo VERSION: 1.0
 echo.
 echo Choose CAC Server
 echo.
