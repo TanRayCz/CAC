@@ -15,6 +15,8 @@ echo.
 :END
 
 title Arma 3 CAC Launcher 0.1 PROTOTYPE
+echo VERSION: 0.1
+echo.
 echo Choose CAC Server
 echo.
 echo  1 Exile Altis
