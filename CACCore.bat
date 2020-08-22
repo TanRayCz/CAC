@@ -16,7 +16,7 @@ echo.
 :END
 
 title Arma 3 CAC Launcher
-echo VERSION: 1.0
+echo VERSION: 1.0.1
 echo.
 echo Choose CAC Server
 echo.
@@ -50,7 +50,7 @@ start "" /normal arma3_x64 -connect=89.103.168.25 -port=2602 -skipIntro -noSplas
 GOTO End
 
 :Coop
-start "" /normal "arma3_x64" -connect=89.103.168.25 -port=2702 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@ShackTacUI;Mods\@ARM;Mods\@VET_Unflipping;Mods\@TaskForceRadio"
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2702 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@ShackTacUI;Mods\@ARM;Mods\@VET_Unflipping;Mods\@TaskForceRadio"
 GOTO End
 
 :ExileTanoaZ
@@ -66,11 +66,11 @@ start "" /normal arma3_x64 -connect=89.103.168.25 -port=2352 -skipIntro -noSplas
 GOTO End
 
 :ExileEscape
-start "" arma3_x64 -connect=89.103.168.25 -port=2372 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM"
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2372 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM"
 GOTO End
 
 :KingofTheHill
-start "" /normal arma3_x64 -connect=89.103.168.25 -port=2322 -useBE -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort" 
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2322 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort" 
 GOTO End
 
 :End
