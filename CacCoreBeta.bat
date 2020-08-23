@@ -1,4 +1,5 @@
 @echo off
+cls
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto RUNNING
 color 4
