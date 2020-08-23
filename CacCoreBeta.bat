@@ -15,7 +15,7 @@ echo STEAM IS RUNNING
 echo. 
 :END
 
-title Arma 3 CAC Launcher
+title Arma 3 CAC Launcher BETA
 echo VERSION: 1.0.2
 echo.
 echo Choose CAC Server
