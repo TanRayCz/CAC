@@ -6,6 +6,7 @@ echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 start C:\"Program Files (x86)"\Steam\steam.exe
 timeout /t 8
+cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto SUCCESS
 echo.
 echo FAILED TO LAUNCH STEAM, EXITING. PLEASE LAUNCH STEAM MANUALLY.
@@ -23,8 +24,8 @@ echo.
 echo STEAM SUCCESSFULLY LAUNCHED
 echo.
 :END
-title Arma 3 CAC Launcher BETA
-echo VERSION: BETA
+title Arma 3 CAC Launcher
+echo VERSION: 1.1.0
 echo.
 echo Choose CAC Server
 echo.
