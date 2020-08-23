@@ -1,22 +1,30 @@
 @echo off
-set local=1.0
 set EXE=SteamService.exe
-FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto YES
+FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto RUNNING
 color 4
 echo.
-echo STEAM IS NOT RUNNING, PLEASE START STEAM!
+echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
+start C:\"Program Files (x86)"\Steam\steam.exe
+timeout /t 8
+FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto SUCCESS
+echo.
+echo FAILED TO LAUNCH STEAM, EXITING. PLEASE LAUNCH STEAM MANUALLY.
 timeout /t 5
 exit
-goto END
-:YES
+:RUNNING
 color 2
 echo.
 echo STEAM IS RUNNING
-echo. 
+echo.
+goto END
+:SUCCESS
+color 2
+echo.
+echo STEAM SUCCESSFULLY LAUNCHED
+echo.
 :END
-
 title Arma 3 CAC Launcher BETA
-echo VERSION: 1.0.2
+echo VERSION: BETA
 echo.
 echo Choose CAC Server
 echo.
