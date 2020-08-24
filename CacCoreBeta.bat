@@ -3,7 +3,7 @@ set EXE=SteamService.exe
 cls
 color 6
 echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
-if exist "" "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
+if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
 if exist "memory.txt" goto CUSTOM
 where /r C:\ steam.exe > memory.txt
 if exist "memory.txt" goto FIRST
@@ -21,6 +21,7 @@ goto CUSTOM
 
 
 :DEFAULT
+cls
 color 4
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
