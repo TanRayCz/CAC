@@ -33,6 +33,7 @@ goto FAIL
 
 
 :CUSTOM
+cls
 color 4
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
