@@ -1,4 +1,5 @@
-echo off
+@echo off
+set EXE=SteamService.exe
 cls
 color 6
 echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
