@@ -1,28 +1,23 @@
-@echo off
-set EXE=SteamService.exe
+echo off
 cls
-color 6
-echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
+set EXE=SteamService.exe
+FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
+color 6
+echo.
+echo SEARCHING FOR STEAM DIRECTORY ON C:\ DRIVE, PLEASE WAIT
 if exist "memory.txt" goto CUSTOM
 where /r C:\ steam.exe > memory.txt
-if exist "memory.txt" goto FIRST
-FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
-goto FAIL2
-
-:FIRST
-cls
 color 2
 echo.
-echo STEAM FOUND, LAUNCHING...
+echo STEAM FOUND AT
+type memory.txt
+timeout /t 3
 goto CUSTOM
-
-
-
 
 :DEFAULT
 cls
-color 4
+color 6
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 start "" "C:\Program Files (x86)\Steam\steam.exe" -silent
@@ -31,39 +26,25 @@ cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
 
-
-
 :CUSTOM
 cls
-color 4
+color 6
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
-set SteamPath=<memory.txt
+set /p SteamPath=<memory.txt
 start "" "%SteamPath%" -silent
 timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
 
-
-
 :FAIL
+color 4
 cls
 echo.
 echo FAILED TO LAUNCH STEAM, EXITING. PLEASE LAUNCH STEAM MANUALLY.
 timeout /t 5
 exit
-
-
-
-:FAIL2
-cls
-echo.
-echo FAILED TO FIND STEAM. PLEASE LAUNCH STEAM MANUALLY.
-timeout /t 5
-exit
-
-
 
 :READY2
 cls
@@ -73,8 +54,6 @@ echo STEAM LAUNCHED SUCCESSFULLY
 echo.
 goto START
 
-
-
 :READY
 cls
 color 2
@@ -83,15 +62,9 @@ echo STEAM IS RUNNING
 echo.
 goto START
 
-
-
-
-
-
-
 :START
 title Arma 3 CAC Launcher
-echo VERSION: 1.1.3
+echo VERSION: 1.2.0
 echo.
 echo Choose CAC Server
 echo.
