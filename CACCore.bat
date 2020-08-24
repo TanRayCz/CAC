@@ -5,7 +5,7 @@ FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto 
 color 4
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
-start C:\"Program Files (x86)"\Steam\steam.exe
+start "" "C:\Program Files (x86)\Steam\steam.exe" -silent
 timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto SUCCESS
