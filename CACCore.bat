@@ -18,13 +18,13 @@ color 2
 echo.
 echo STEAM IS RUNNING
 echo.
-goto END
+goto START
 :SUCCESS
 color 2
 echo.
 echo STEAM LAUNCHED SUCCESSFULLY
 echo.
-:END
+:START
 title Arma 3 CAC Launcher
 echo VERSION: 1.1.3
 echo.
