@@ -3,10 +3,10 @@ cls
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
+if exist "memory.txt" goto CUSTOM
 color 6
 echo.
 echo SEARCHING FOR STEAM DIRECTORY ON C:\ DRIVE, PLEASE WAIT
-if exist "memory.txt" goto CUSTOM
 where /r C:\ steam.exe > memory.txt
 color 2
 echo.
@@ -64,7 +64,7 @@ goto START
 
 :START
 title Arma 3 CAC Launcher
-echo VERSION: 1.2.0
+echo VERSION: 1.2.1
 echo.
 echo Choose CAC Server
 echo.
