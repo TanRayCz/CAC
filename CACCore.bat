@@ -26,7 +26,7 @@ echo STEAM LAUNCHED SUCCESSFULLY
 echo.
 :END
 title Arma 3 CAC Launcher
-echo VERSION: 1.1.2
+echo VERSION: 1.1.3
 echo.
 echo Choose CAC Server
 echo.
