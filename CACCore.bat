@@ -64,7 +64,9 @@ goto START
 
 :START
 title Arma 3 CAC Launcher
-echo VERSION: 1.2.1
+
+echo VERSION: 1.0.2
+
 echo.
 echo Choose CAC Server
 echo.
