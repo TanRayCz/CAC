@@ -65,7 +65,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.0.2
+echo VERSION: 1.0.3
 
 echo.
 echo Choose CAC Server
@@ -95,7 +95,7 @@ GOTO End
 start "" /normal arma3_x64 -connect=89.103.168.25 -port=2602 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank"
 GOTO End
 :Coop
-start "" /normal arma3_x64 -connect=89.103.168.25 -port=2702 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@ShackTacUI;Mods\@ARM;Mods\@VET_Unflipping;Mods\@TaskForceRadio"
+start "" /normal arma3_x64 -connect=89.103.168.25 -port=2702 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@ShackTacUI;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@TaskForceRadio"
 GOTO End
 :ExileTanoaZ
 start "" /normal arma3_x64 -connect=89.103.168.25 -port=2382 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@ARM;Mods\@ShackTacUI"
