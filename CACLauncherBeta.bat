@@ -1,4 +1,3 @@
 @echo off
-IF EXIST "CACCore.bat" DEL /Q "CACCore.bat"
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/CACCore.bat > CACCore.bat
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/CACCore.bat > CACCore.bat 2> nul
 call CACCore.bat
