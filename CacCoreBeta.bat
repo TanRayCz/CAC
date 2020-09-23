@@ -1,3 +1,5 @@
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/CacCoreBeta.bat > CACCoreBeta.bat
+call CACCoreBeta.bat
 echo off
 cls
 set EXE=SteamService.exe
@@ -64,7 +66,7 @@ goto START
 
 :START
 title Arma 3 CAC Launcher
-echo VERSION: 1.2.2
+echo VERSION: BETA
 echo.
 echo Choose CAC Server
 echo.
