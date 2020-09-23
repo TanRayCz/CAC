@@ -6,13 +6,20 @@ if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
 if exist "memory.txt" goto CUSTOM
 color 6
 echo.
-echo SEARCHING FOR STEAM DIRECTORY ON C:\ DRIVE, PLEASE WAIT
-where /r C:\ steam.exe > memory.txt || goto FINDFAIL
+echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
+(
+   for %%a in ( a b c d e f g h i j k l m n o p q r s t u v w x y z ) do (
+      if exist "%%a:\" dir "%%a:\Steam.exe" /b /s /a-d
+   )
+)>"memory.txt"
+cls
+set /p SteamPath=<memory.txt
+if not exist "%SteamPath%" goto FINDFAIL
 color 2
 echo.
 echo STEAM FOUND AT
 type memory.txt
-timeout /t 3
+timeout /t 4
 goto CUSTOM
 
 :DEFAULT
@@ -74,7 +81,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.2.3
+echo VERSION: 1.4.0 BETA
 
 echo.
 echo Choose CAC Server
