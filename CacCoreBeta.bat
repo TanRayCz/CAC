@@ -1,5 +1,3 @@
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/CacCoreBeta.bat > CACCoreBeta.bat
-call CACCoreBeta.bat
 @echo off
 cls
 set EXE=SteamService.exe
