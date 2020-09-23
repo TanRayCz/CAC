@@ -84,7 +84,7 @@ echo  2 Exile Tanoa
 echo  3 Coop
 echo  4 Exile TanoaZ
 echo  5 Ravage Malden
-echo  6 Ravage Tanoa
+echo  6 Ravage Tanoa - OFFLINE
 echo  7 Exile Escape
 echo  8 King of The Hill
 echo.
@@ -113,7 +113,10 @@ GOTO End
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
 GOTO End
 :RavageTanoa
-start "" /normal arma3_x64 -connect=89.176.229.157 -port=2352 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
+::start "" /normal arma3_x64 -connect=89.176.229.157 -port=2352 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
+cls
+echo. & echo Ravage Tanoa has been shutdown. Choose different server & echo.
+goto START
 GOTO End
 :ExileEscape
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2372 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM"
