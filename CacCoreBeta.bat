@@ -1,6 +1,6 @@
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/CacCoreBeta.bat > CACCoreBeta.bat
 call CACCoreBeta.bat
-echo off
+@echo off
 cls
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
