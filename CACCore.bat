@@ -6,13 +6,20 @@ if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
 if exist "memory.txt" goto CUSTOM
 color 6
 echo.
-echo SEARCHING FOR STEAM DIRECTORY ON C:\ DRIVE, PLEASE WAIT
-where /r C:\ steam.exe > memory.txt
+echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
+(
+   for %%a in ( a b c d e f g h i j k l m n o p q r s t u v w x y z ) do (
+      if exist "%%a:\" dir "%%a:\Steam.exe" /b /s /a-d
+   )
+)>"memory.txt"
+cls
+set /p SteamPath=<memory.txt
+if not exist "%SteamPath%" goto FINDFAIL
 color 2
 echo.
 echo STEAM FOUND AT
 type memory.txt
-timeout /t 3
+timeout /t 4
 goto CUSTOM
 
 :DEFAULT
@@ -46,6 +53,15 @@ echo FAILED TO LAUNCH STEAM, EXITING. PLEASE LAUNCH STEAM MANUALLY.
 timeout /t 5
 exit
 
+:FINDFAIL
+IF EXIST "memory.txt" DEL /Q "memory.txt"
+color 4
+cls
+echo.
+echo FAILED TO FIND STEAM, EXITING. PLEASE ENTER STEAM PATH IN memory.txt
+timeout /t 10
+exit
+
 :READY2
 cls
 color 2
@@ -65,7 +81,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.2.3
+echo VERSION: 1.4.0
 
 echo.
 echo Choose CAC Server
@@ -75,7 +91,7 @@ echo  2 Exile Tanoa
 echo  3 Coop
 echo  4 Exile TanoaZ
 echo  5 Ravage Malden
-echo  6 Ravage Tanoa
+echo  6 Ravage Tanoa - OFFLINE
 echo  7 Exile Escape
 echo  8 King of The Hill
 echo.
@@ -104,7 +120,10 @@ GOTO End
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
 GOTO End
 :RavageTanoa
-start "" /normal arma3_x64 -connect=89.176.229.157 -port=2352 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
+::start "" /normal arma3_x64 -connect=89.176.229.157 -port=2352 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
+cls
+echo. & echo Ravage Tanoa has been shutdown. Choose different server & echo.
+goto START
 GOTO End
 :ExileEscape
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2372 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM"
