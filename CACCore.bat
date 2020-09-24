@@ -1,5 +1,6 @@
 @echo off
 cls
+if not exist "hosts.txt" curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
@@ -55,11 +56,23 @@ exit
 
 :FINDFAIL
 IF EXIST "memory.txt" DEL /Q "memory.txt"
-color 4
 cls
+color 6
 echo.
-echo FAILED TO FIND STEAM, EXITING. PLEASE ENTER STEAM PATH IN memory.txt
-timeout /t 10
+echo FAILED TO FIND STEAM
+echo.
+echo  1 Enter Steam.exe path
+echo  2 Exit
+echo.
+choice /C 12 
+IF ERRORLEVEL 2 GOTO FINDEXIT
+IF ERRORLEVEL 1 GOTO MANUAL
+:MANUAL
+cls
+echo. & echo Please enter path of your steam.exe. (Example: "C:\Steam.exe") & echo.
+set /p UserInput=Steam Directory: (Please use "" brackets): 
+(echo=%UserInput%) > "memory.txt"
+:FINDEXIT
 exit
 
 :READY2
@@ -81,7 +94,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.4.0
+echo VERSION: 1.4.2
 
 echo.
 echo Choose CAC Server
