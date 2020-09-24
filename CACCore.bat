@@ -10,7 +10,7 @@ echo.
 echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
 (
    for %%a in ( a b c d e f g h i j k l m n o p q r s t u v w x y z ) do (
-      if exist "%%a:\" dir "%%a:\Steam.exe" /b /s /a-d
+      if exist "%%a:\" dir "%%a:\Steam.exe" /b /s /a-d 2> nul
    )
 )>"memory.txt"
 cls
@@ -57,7 +57,6 @@ exit
 :FINDFAIL
 IF EXIST "memory.txt" DEL /Q "memory.txt"
 cls
-color 6
 echo.
 echo FAILED TO FIND STEAM
 echo.
@@ -94,7 +93,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.4.2
+echo VERSION: 1.4.2b
 
 echo.
 echo Choose CAC Server
