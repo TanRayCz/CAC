@@ -93,7 +93,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.4.3
+echo VERSION: 1.4.3b
 
 echo.
 echo Choose CAC Server
@@ -110,7 +110,7 @@ echo.
 choice /C 12345678 /M "Enter your server"
 IF ERRORLEVEL 8 GOTO KingofTheHill
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO RavageTanoa
+IF ERRORLEVEL 6 GOTO Chernarus
 IF ERRORLEVEL 5 GOTO RavageMalden
 IF ERRORLEVEL 4 GOTO ExileTanoaZ
 IF ERRORLEVEL 3 GOTO Coop
@@ -131,7 +131,7 @@ GOTO End
 :RavageMalden
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
 GOTO End
-:RavageTanoa
+:Chernarus
 start "" /normal arma3_x64 -connect=89.176.229.157  -port=3302 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement;Mods\@JSRS_SOUNDMOD"
 GOTO End
 :ExileEscape
