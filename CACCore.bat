@@ -103,7 +103,7 @@ echo  2 Exile Tanoa
 echo  3 Coop
 echo  4 Exile TanoaZ
 echo  5 Ravage Malden
-echo  6 Ravage Tanoa - OFFLINE
+echo  6 Exile Chernarus
 echo  7 Exile Escape
 echo  8 King of The Hill
 echo.
