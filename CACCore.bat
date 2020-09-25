@@ -93,7 +93,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.4.2b
+echo VERSION: 1.4.3
 
 echo.
 echo Choose CAC Server
@@ -132,10 +132,7 @@ GOTO End
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
 GOTO End
 :RavageTanoa
-::start "" /normal arma3_x64 -connect=89.176.229.157 -port=2352 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
-cls
-echo. & echo Ravage Tanoa has been shutdown. Choose different server & echo.
-goto START
+start "" /normal arma3_x64 -connect=89.176.229.157  -port=3302 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement;Mods\@JSRS_SOUNDMOD"
 GOTO End
 :ExileEscape
 start "" /normal arma3_x64 -connect=89.176.229.157 -port=2372 -skipIntro -noSplash -world=empty -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM"
