@@ -1,6 +1,6 @@
 @echo off
 cls
-if exist "hosts.txt" DEL /Q "hosts.txt"  ::curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
 set EXE=SteamService.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
@@ -93,7 +93,7 @@ goto START
 :START
 title Arma 3 CAC Launcher
 
-echo VERSION: 1.4.3d
+echo VERSION: 1.4.3e
 
 echo.
 echo Choose CAC Server
