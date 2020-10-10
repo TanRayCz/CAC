@@ -1,8 +1,8 @@
-89.176.229.133:2302
-89.176.229.133:2602
-89.176.229.133:2702
-89.176.229.133:3402
-89.176.229.133:2342
-89.176.229.133:3302
-89.176.229.133:2372
-89.176.229.133:2322
+cacservers.ddns.net:2302
+cacservers.ddns.net:2602
+cacservers.ddns.net:2702
+cacservers.ddns.net:3402
+cacservers.ddns.net:2342
+cacservers.ddns.net:3302
+cacservers.ddns.net:2372
+cacservers.ddns.net:2322
