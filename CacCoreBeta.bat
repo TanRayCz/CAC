@@ -81,7 +81,6 @@ cls
 color 2
 echo.
 echo STEAM LAUNCHED SUCCESSFULLY
-echo.
 goto START
 
 :READY
@@ -89,12 +88,13 @@ cls
 color 2
 echo.
 echo STEAM IS RUNNING
-echo.
 goto START
 
 :START
+
 color 2
 title Arma 3 CAC Launcher
+echo.
 echo VERSION: 1.5.0 unfinished untested
 echo CHANGES: CAC filesystem; status disable/enable (no implemented practical use so far); DNS instead of IP
 echo PLANNED: loop steam launch fail instead of exit; somewhat optimized mod selector (if %Status%==ENABLED); move KOTH to 4
