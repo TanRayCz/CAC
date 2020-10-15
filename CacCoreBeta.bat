@@ -97,8 +97,8 @@ color 2
 title Arma 3 CAC Launcher
 echo VERSION: 1.5.0 unfinished untested
 echo CHANGES: CAC filesystem; status disable/enable (no implemented practical use so far); DNS instead of IP
-echo PLANNED: loop steam launch fail instead of exit; somewhat optimized mod selector (if %Status%==ENABLED); move KOTH 4
-echo potential .bat to cmd update, splitting github caclauncher in 2 for temporary legacy support
+echo PLANNED: loop steam launch fail instead of exit; somewhat optimized mod selector (if %Status%==ENABLED); move KOTH to 4
+echo potential .bat to cmd update, splitting github caclauncher in 2 for temporary legacy support (cmd and bat)
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -162,8 +162,8 @@ GOTO End
 :StatusChanger
 color 6
 cls
-echo  1 ENABLE OPTIONAL MODS
-echo  2 DISABLE OPTIONAL MODS
+echo  1 ENABLE
+echo  2 DISABLE
 echo.
 choice /C 12
 IF ERRORLEVEL 2 GOTO MODDISABLE
