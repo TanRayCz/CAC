@@ -92,10 +92,11 @@ echo STEAM IS RUNNING
 goto START
 
 :START
-set A1=start "" /normal arma3_x64 -connect=cacservers.ddns.net
-set A2=-skipIntro -noSplash -world=empty -exThreads=7 -enableHT
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net
 set o1=;Mods\@ARM
 set o2=;Mods\@JSRS_SOUNDMOD
+set o3=;Mods\@ShackTacUI
+set o4=;Mods\@ZeusEnhanced
 cls
 color 2
 title Arma 3 CAC Launcher
@@ -132,7 +133,7 @@ IF ERRORLEVEL 1 GOTO ExileAltis
 :ExileAltis
 set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileAltisEXTENDED
-%1% -connect=cacservers.ddns.net -port=2302 %2% "%ExileAltis%"
+%A1% -port=2302 "%ExileAltis%"
 GOTO End
 :ExileAltisEXTENDED
 cls
@@ -147,21 +148,21 @@ IF ERRORLEVEL 2 goto ExileAltisEXTENDED_2
 IF ERRORLEVEL 1 goto ExileAltisEXTENDED_1
 
 :ExileAltisEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2302 %2% "%ExileAltis%;Mods\@ARM"
+%A1% -port=2302 "%ExileAltis%%o1%"
 GOTO End
 :ExileAltisEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2302 %2% "%ExileAltis%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2302 "%ExileAltis%%o2%"
 GOTO End
 :ExileAltisEXTENDED_3
-echo %1% -connect=cacservers.ddns.net -port=2302 %2% "%ExileAltis%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+echo %A1% -port=2302 "%ExileAltis%%o1%%o2%"
 pause
-%1% -connect=cacservers.ddns.net -port=2302 %2% "%ExileAltis%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2302 "%ExileAltis%%o1%%o2%"
 GOTO End
 
 :ExileTanoa
 set ExileTanoa=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%1% -connect=cacservers.ddns.net -port=2602 %2% "%ExileTanoa%"
+%A1% -port=2602 "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
 cls
@@ -176,19 +177,19 @@ IF ERRORLEVEL 2 goto ExileTanoaEXTENDED_2
 IF ERRORLEVEL 1 goto ExileTanoaEXTENDED_1
 
 :ExileTanoaEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2602 %2% "%ExileTanoa%;Mods\@ARM"
+%A1% -port=2602 "%ExileTanoa%%o1%"
 GOTO End
 :ExileTanoaEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2602 %2% "%ExileTanoa%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2602 "%ExileTanoa%%o2%"
 GOTO End
 :ExileTanoaEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=2602 %2% "%ExileTanoa%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2602 "%ExileTanoa%%o1%%o2%"
 GOTO End
 
 :Coop
-set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@ShackTacUI;Mods\@CHViewDistance;Mods\@VET_Unflipping
+set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta%o3%;Mods\@CHViewDistance;Mods\@VET_Unflipping
 if %Status%==ENABLED goto CoopEXTENDED
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%"
+%A1% -port=2702 "%Coop%"
 GOTO End
 
 :CoopEXTENDED
@@ -218,49 +219,49 @@ IF ERRORLEVEL 2 goto CoopEXTENDED_2
 IF ERRORLEVEL 1 goto CoopEXTENDED_1
 
 CoopEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ARM"
+%A1% -port=2702 "%Coop%%o1%"
 GOTO End
 
 CoopEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2702 "%Coop%%o2%"
 GOTO End
 
 CoopEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2702 "%Coop%%o1%%o2%"
 GOTO End
 
 CoopEXTENDED_4
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ARM;Mods\@ShackTacUI"
+%A1% -port=2702 "%Coop%%o1%%o3%"
 GOTO End
 
 CoopEXTENDED_5
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@JSRS_SOUNDMOD;Mods\@ShackTacUI"
+%A1% -port=2702 "%Coop%%o2%%o3%"
 GOTO End
 
 CoopEXTENDED_6
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ARM;Mods\@JSRS_SOUNDMOD;Mods\@ShackTacUI"
+%A1% -port=2702 "%Coop%%o1%%o2%%o3%"
 GOTO End
 
 CoopEXTENDED_7
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ZeusEnhanced"
+%A1% -port=2702 "%Coop%%o4%"
 GOTO End
 
 CoopEXTENDED_8
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@ShackTacUI;Mods\@ZeusEnhanced"
+%A1% -port=2702 "%Coop%%o3%%o4%"
 GOTO End
 
 CoopEXTENDED_9
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@JSRS_SOUNDMOD;Mods\@ZeusEnhanced"
+%A1% -port=2702 "%Coop%%o2%%o4%"
 GOTO End
 
 CoopEXTENDED_10
-%1% -connect=cacservers.ddns.net -port=2702 %2% "%Coop%;Mods\@JSRS_SOUNDMOD;Mods\@ShackTacUI;Mods\@ZeusEnhanced"
+%A1% -port=2702 "%Coop%%o2%%o3%%o4%"
 GOTO End
 
 :ExileTanoaZ
 set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileTanoaZEXTENDED
-%1% -connect=cacservers.ddns.net -port=3402 %2% "%ExileTanoaZ%"
+%A1% -port=3402 "%ExileTanoaZ%"
 GOTO End
 
 :ExileTanoaZEXTENDED
@@ -276,19 +277,19 @@ IF ERRORLEVEL 2 goto ExileTanoaZEXTENDED_2
 IF ERRORLEVEL 1 goto ExileTanoaZEXTENDED_1
 
 ExileTanoaZEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=3402 %2% "%ExileTanoaZ%;Mods\@ARM"
+%A1% -port=3402 "%ExileTanoaZ%%o1%"
 GOTO End
 ExileTanoaZEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=3402 %2% "%ExileTanoaZ%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=3402 "%ExileTanoaZ%%o2%"
 GOTO End
 ExileTanoaZEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=3402 %2% "%ExileTanoaZ%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o2%"
 GOTO End
 
 :RavageMalden
 set RavageMalden=-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement
 if %Status%==ENABLED goto RavageMaldenEXTENDED
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%"
+%A1% -port=2342 "%RavageMalden%"
 GOTO End
 
 :RavageMaldenEXTENDED
@@ -313,37 +314,37 @@ IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
 IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
 
 :ChernarusEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%";Mods\@ARM
+%A1% -port=2342 "%RavageMalden%"%o1%
 GOTO End
 
 :ChernarusEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2342 "%RavageMalden%%o2%"
 GOTO End
 
 :ChernarusEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@ShackTacUI"
+%A1% -port=2342 "%RavageMalden%%o3%"
 GOTO End
 
 :ChernarusEXTENDED_4
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2342 "%RavageMalden%%o1%%o2%"
 GOTO End
 
 :ChernarusEXTENDED_5
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@ShackTacUI;Mods\@ARM"
+%A1% -port=2342 "%RavageMalden%%o3%%o1%"
 GOTO End
 
 :ChernarusEXTENDED_6
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@ShackTacUI;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2342 "%RavageMalden%%o3%%o2%"
 GOTO End
 
 :ChernarusEXTENDED_7
-%1% -connect=cacservers.ddns.net -port=2342 %2% "%RavageMalden%;Mods\@ShackTacUI;Mods\@JSRS_SOUNDMOD;Mods\@ARM"
+%A1% -port=2342 "%RavageMalden%%o3%%o2%%o1%"
 GOTO End
 
 :Chernarus
 set Chernarus=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement
 if %Status%==ENABLED goto ChernarusEXTENDED
-%1% -connect=cacservers.ddns.net -port=3302 %2% "%Chernarus%"
+%A1% -port=3302 "%Chernarus%"
 GOTO End
 
 :ChernarusEXTENDED
@@ -359,19 +360,19 @@ IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
 IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
 
 :ChernarusEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=3302 %2% "%Chernarus%;Mods\@ARM"
+%A1% -port=3302 "%Chernarus%%o1%"
 GOTO End
 :ChernarusEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=3302 %2% "%Chernarus%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=3302 "%Chernarus%%o2%"
 GOTO End
 :ChernarusEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=3302 %2% "%Chernarus%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=3302 "%Chernarus%%o1%%o2%"
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@ARM
+set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement%o1%
 if %Status%==ENABLED goto ExileEscapeEXTENDED
-%1% -connect=cacservers.ddns.net -port=2372 %2% "%ExileEscape%"
+%A1% -port=2372 "%ExileEscape%"
 GOTO End
 
 :ExileEscapeEXTENDED
@@ -387,19 +388,19 @@ IF ERRORLEVEL 2 goto ExileEscapeEXTENDED_2
 IF ERRORLEVEL 1 goto ExileEscapeEXTENDED_1
 
 :ExileEscapeEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2372 %2% "%ExileEscape%;Mods\@ARM"
+%A1% -port=2372 "%ExileEscape%%o1%"
 GOTO End
 :ExileEscapeEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2372 %2% "%ExileEscape%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2372 "%ExileEscape%%o2%"
 GOTO End
 :ExileEscapeEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=2372 %2% "%ExileEscape%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2372 "%ExileEscape%%o1%%o2%"
 GOTO End
 
 :KingofTheHill
 set KOTH=-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort
 if %Status%==ENABLED goto KOTHEXTENDED
-%1% -connect=cacservers.ddns.net -port=2322 %2% "%KOTH%" 
+%A1% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
 cls
@@ -414,13 +415,13 @@ IF ERRORLEVEL 2 goto KOTHEXTENDED_2
 IF ERRORLEVEL 1 goto KOTHEXTENDED_1
 
 :KOTHEXTENDED_1
-%1% -connect=cacservers.ddns.net -port=2322 %2% "%KOTH%;Mods\@ARM"
+%A1% -port=2322 "%KOTH%%o1%"
 GOTO End
 :KOTHEXTENDED_2
-%1% -connect=cacservers.ddns.net -port=2322 %2% "%KOTH%;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2322 "%KOTH%%o2%"
 GOTO End
 :KOTHEXTENDED_3
-%1% -connect=cacservers.ddns.net -port=2322 %2% "%KOTH%;Mods\@ARM;Mods\@JSRS_SOUNDMOD"
+%A1% -port=2322 "%KOTH%%o1%%o2%"
 GOTO End
 
 :StatusChanger
