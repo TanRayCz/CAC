@@ -154,8 +154,6 @@ GOTO End
 %A1% -port=2302 "%ExileAltis%%o2%"
 GOTO End
 :ExileAltisEXTENDED_3
-echo %A1% -port=2302 "%ExileAltis%%o1%%o2%"
-pause
 %A1% -port=2302 "%ExileAltis%%o1%%o2%"
 GOTO End
 
@@ -187,7 +185,7 @@ GOTO End
 GOTO End
 
 :Coop
-set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta%o3%;Mods\@CHViewDistance;Mods\@VET_Unflipping
+set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping%o3%
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
@@ -218,43 +216,45 @@ IF ERRORLEVEL 3 goto CoopEXTENDED_3
 IF ERRORLEVEL 2 goto CoopEXTENDED_2
 IF ERRORLEVEL 1 goto CoopEXTENDED_1
 
-CoopEXTENDED_1
+:CoopEXTENDED_1
 %A1% -port=2702 "%Coop%%o1%"
 GOTO End
 
-CoopEXTENDED_2
+:CoopEXTENDED_2
 %A1% -port=2702 "%Coop%%o2%"
+echo %A1% -port=2702 "%Coop%%o2%"
+pause
 GOTO End
 
-CoopEXTENDED_3
+:CoopEXTENDED_3
+%A1% -port=2702 "%Coop%%o3%"
+GOTO End
+
+:CoopEXTENDED_4
 %A1% -port=2702 "%Coop%%o1%%o2%"
 GOTO End
 
-CoopEXTENDED_4
-%A1% -port=2702 "%Coop%%o1%%o3%"
-GOTO End
-
-CoopEXTENDED_5
+:CoopEXTENDED_5
 %A1% -port=2702 "%Coop%%o2%%o3%"
 GOTO End
 
-CoopEXTENDED_6
+:CoopEXTENDED_6
 %A1% -port=2702 "%Coop%%o1%%o2%%o3%"
 GOTO End
 
-CoopEXTENDED_7
+:CoopEXTENDED_7
 %A1% -port=2702 "%Coop%%o4%"
 GOTO End
 
-CoopEXTENDED_8
+:CoopEXTENDED_8
 %A1% -port=2702 "%Coop%%o3%%o4%"
 GOTO End
 
-CoopEXTENDED_9
+:CoopEXTENDED_9
 %A1% -port=2702 "%Coop%%o2%%o4%"
 GOTO End
 
-CoopEXTENDED_10
+:CoopEXTENDED_10
 %A1% -port=2702 "%Coop%%o2%%o3%%o4%"
 GOTO End
 
@@ -293,7 +293,6 @@ if %Status%==ENABLED goto RavageMaldenEXTENDED
 GOTO End
 
 :RavageMaldenEXTENDED
-:: THERE IS NO OPTION FOR ALL OPTIONAL MODS
 cls
 color 6
 echo Ravage Malden
