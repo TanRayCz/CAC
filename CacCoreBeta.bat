@@ -3,7 +3,7 @@ for /f "usebackq delims=" %%A in (CACCore\memory2.txt) do %%A
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
 set EXE=SteamService.exe
 if not exist "CACCore" md "CACCore"
-if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt & cls
+if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 :LOAD
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
@@ -304,39 +304,39 @@ echo  5 - Advanced Render Manager + ShackTac User Interface
 echo  6 - ShackTac User Interface + JSRS_SOUNDMOD
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
 choice /C 1234567 /M "Choose your mods"
-IF ERRORLEVEL 7 goto ChernarusEXTENDED_7
-IF ERRORLEVEL 6 goto ChernarusEXTENDED_6
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_5
-IF ERRORLEVEL 4 goto ChernarusEXTENDED_4
-IF ERRORLEVEL 3 goto ChernarusEXTENDED_3
-IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
-IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
+IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_7
+IF ERRORLEVEL 6 goto RavageMaldenEXTENDED_6
+IF ERRORLEVEL 5 goto RavageMaldenEXTENDED_5
+IF ERRORLEVEL 4 goto RavageMaldenEXTENDED_4
+IF ERRORLEVEL 3 goto RavageMaldenEXTENDED_3
+IF ERRORLEVEL 2 goto RavageMaldenEXTENDED_2
+IF ERRORLEVEL 1 goto RavageMaldenEXTENDED_1
 
-:ChernarusEXTENDED_1
+:RavageMaldenEXTENDED_1
 %A1% -port=2342 "%RavageMalden%"%o1%
 GOTO End
 
-:ChernarusEXTENDED_2
+:RavageMaldenEXTENDED_2
 %A1% -port=2342 "%RavageMalden%%o2%"
 GOTO End
 
-:ChernarusEXTENDED_3
+:RavageMaldenEXTENDED_3
 %A1% -port=2342 "%RavageMalden%%o3%"
 GOTO End
 
-:ChernarusEXTENDED_4
+:RavageMaldenEXTENDED_4
 %A1% -port=2342 "%RavageMalden%%o1%%o2%"
 GOTO End
 
-:ChernarusEXTENDED_5
+:RavageMaldenEXTENDED_5
 %A1% -port=2342 "%RavageMalden%%o3%%o1%"
 GOTO End
 
-:ChernarusEXTENDED_6
+:RavageMaldenEXTENDED_6
 %A1% -port=2342 "%RavageMalden%%o3%%o2%"
 GOTO End
 
-:ChernarusEXTENDED_7
+:RavageMaldenEXTENDED_7
 %A1% -port=2342 "%RavageMalden%%o3%%o2%%o1%"
 GOTO End
 
