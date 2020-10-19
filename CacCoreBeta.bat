@@ -3,7 +3,7 @@ for /f "usebackq delims=" %%A in (CACCore\memory2.txt) do %%A
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
 set EXE=SteamService.exe
 if not exist "CACCore" md "CACCore"
-if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
+if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt & cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY
 :LOAD
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
