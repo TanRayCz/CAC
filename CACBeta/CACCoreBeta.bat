@@ -287,7 +287,7 @@ ExileTanoaZEXTENDED_3
 GOTO End
 
 :RavageMalden
-set RavageMalden=-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement
+set RavageMalden=-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement
 if %Status%==ENABLED goto RavageMaldenEXTENDED
 %A1% -port=2342 "%RavageMalden%"
 GOTO End
