@@ -94,7 +94,7 @@ goto START
 title Arma 3 CAC Launcher
 
 
-echo VERSION: 1.4.3h
+echo VERSION: 1.4.3i
 
 
 echo.
@@ -131,7 +131,7 @@ GOTO End
 start "" /normal arma3_x64 -connect=cacservers.ddns.net -port=3402 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@ARM;Mods\@ShackTacUI"
 GOTO End
 :RavageMalden
-start "" /normal arma3_x64 -connect=cacservers.ddns.net -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@VA_Beta;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
+start "" /normal arma3_x64 -connect=cacservers.ddns.net -port=2342 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@ShackTacUI;Mods\@ARM"
 GOTO End
 :Chernarus
 start "" /normal arma3_x64 -connect=cacservers.ddns.net -port=3302 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT "-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement;Mods\@JSRS_SOUNDMOD"
