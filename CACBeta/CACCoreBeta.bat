@@ -96,14 +96,14 @@ set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7
 set o1=;Mods\@ARM
 set o2=;Mods\@JSRS_SOUNDMOD
 set o3=;Mods\@ShackTacUI
-set o4=;Mods\@ZeusEnhanced
+set o4=;Mods\@Blastcore
 cls
 color 2
 title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.0
+echo VERSION: 1.5.1
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -141,8 +141,17 @@ color 6
 echo  Exile Altis
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
-echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+
 choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_7
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_6
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_5
+IF ERRORLEVEL 4 goto ExileAltisEXTENDED_4
 IF ERRORLEVEL 3 goto ExileAltisEXTENDED_3
 IF ERRORLEVEL 2 goto ExileAltisEXTENDED_2
 IF ERRORLEVEL 1 goto ExileAltisEXTENDED_1
@@ -154,7 +163,19 @@ GOTO End
 %A1% -port=2302 "%ExileAltis%%o2%"
 GOTO End
 :ExileAltisEXTENDED_3
+%A1% -port=2302 "%ExileAltis%%o4%"
+GOTO End
+:ExileAltisEXTENDED_4
 %A1% -port=2302 "%ExileAltis%%o1%%o2%"
+GOTO End
+:ExileAltisEXTENDED_5
+%A1% -port=2302 "%ExileAltis%%o1%%o4%"
+GOTO End
+:ExileAltisEXTENDED_6
+%A1% -port=2302 "%ExileAltis%%o2%%o4%"
+GOTO End
+:ExileAltisEXTENDED_7
+%A1% -port=2302 "%ExileAltis%%o1%%o2%%o4%"
 GOTO End
 
 :ExileTanoa
@@ -168,8 +189,16 @@ color 6
 echo Exile Tanoa
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
-echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_7
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_6
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_5
+IF ERRORLEVEL 4 goto ExileTanoaEXTENDED_4
 IF ERRORLEVEL 3 goto ExileTanoaEXTENDED_3
 IF ERRORLEVEL 2 goto ExileTanoaEXTENDED_2
 IF ERRORLEVEL 1 goto ExileTanoaEXTENDED_1
@@ -181,8 +210,19 @@ GOTO End
 %A1% -port=2602 "%ExileTanoa%%o2%"
 GOTO End
 :ExileTanoaEXTENDED_3
+%A1% -port=2602 "%ExileTanoa%%o5%"
+GOTO End
+:ExileTanoaEXTENDED_4
 %A1% -port=2602 "%ExileTanoa%%o1%%o2%"
 GOTO End
+:ExileTanoaEXTENDED_5
+%A1% -port=2602 "%ExileTanoa%%o1%%o4%"
+GOTO End
+:ExileTanoaEXTENDED_6
+%A1% -port=2602 "%ExileTanoa%%o2%%o4%"
+GOTO End
+:ExileTanoaEXTENDED_7
+%A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%"
 
 :Coop
 set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping%o3%
@@ -200,10 +240,10 @@ echo  3 - ShackTac User Interface
 echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - JSRS_SOUNDMOD + ShackTac User Interface
 echo  6 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
-echo  7 - Zeus Enhanced
-echo  8 - ShackTac User Interface + Zeus Enhanced
-echo  9 - JSRS_SOUNDMOD + Zeus Enhanced
-echo  0 - JSRS_SOUNDMOD + ShackTac User Interface + Zeus Enhanced
+echo  7 - Blastcore
+echo  8 - ShackTac User Interface + Blastcore
+echo  9 - JSRS_SOUNDMOD + Blastcore
+echo  0 - JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
 choice /C 1234567890 /M "Choose your mods"
 IF ERRORLEVEL 0 goto CoopEXTENDED_10
 IF ERRORLEVEL 9 goto CoopEXTENDED_9
@@ -270,8 +310,16 @@ color 6
 echo Exile TanoaZ
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
-echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_7
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_6
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_5
+IF ERRORLEVEL 4 goto ExileTanoaZEXTENDED_4
 IF ERRORLEVEL 3 goto ExileTanoaZEXTENDED_3
 IF ERRORLEVEL 2 goto ExileTanoaZEXTENDED_2
 IF ERRORLEVEL 1 goto ExileTanoaZEXTENDED_1
@@ -282,8 +330,20 @@ GOTO End
 ExileTanoaZEXTENDED_2
 %A1% -port=3402 "%ExileTanoaZ%%o2%"
 GOTO End
-ExileTanoaZEXTENDED_3
+:ExileTanoaZEXTENDED_3
+%A1% -port=3402 "%ExileTanoaZ%%o4%"
+GOTO End
+:ExileTanoaZEXTENDED_4
 %A1% -port=3402 "%ExileTanoaZ%%o1%%o2%"
+GOTO End
+:ExileTanoaZEXTENDED_5
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o4%"
+GOTO End
+:ExileTanoaZEXTENDED_6
+%A1% -port=3402 "%ExileTanoaZ%%o2%%o4%"
+GOTO End
+:ExileTanoaZEXTENDED_7
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
 GOTO End
 
 :RavageMalden
@@ -299,11 +359,17 @@ echo Ravage Malden
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
 echo  3 - ShackTac User Interface
-echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
-echo  5 - Advanced Render Manager + ShackTac User Interface
-echo  6 - ShackTac User Interface + JSRS_SOUNDMOD
-echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
+echo  4 - Blastcore
+echo  5 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  6 - Advanced Render Manager + ShackTac User Interface
+echo  7 - ShackTac User Interface + JSRS_SOUNDMOD
+echo  8 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
+echo  9 - JSRS_SOUNDMOD + Blastcore + ShackTac User Interface
+echo  0 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
 choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_0
+IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_9
+IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_8
 IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_7
 IF ERRORLEVEL 6 goto RavageMaldenEXTENDED_6
 IF ERRORLEVEL 5 goto RavageMaldenEXTENDED_5
@@ -325,19 +391,31 @@ GOTO End
 GOTO End
 
 :RavageMaldenEXTENDED_4
-%A1% -port=2342 "%RavageMalden%%o1%%o2%"
+%A1% -port=2342 "%RavageMalden%%o4%"
 GOTO End
 
 :RavageMaldenEXTENDED_5
-%A1% -port=2342 "%RavageMalden%%o3%%o1%"
+%A1% -port=2342 "%RavageMalden%%o1%%o2%"
 GOTO End
 
 :RavageMaldenEXTENDED_6
-%A1% -port=2342 "%RavageMalden%%o3%%o2%"
+%A1% -port=2342 "%RavageMalden%%o3%%o1%"
 GOTO End
 
 :RavageMaldenEXTENDED_7
-%A1% -port=2342 "%RavageMalden%%o3%%o2%%o1%"
+%A1% -port=2342 "%RavageMalden%%o3%%o2%"
+GOTO End
+
+:RavageMaldenEXTENDED_8
+%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
+GOTO End
+
+:RavageMaldenEXTENDED_9
+%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%"
+GOTO End
+
+:RavageMaldenEXTENDED_0
+%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
 GOTO End
 
 :Chernarus
@@ -352,8 +430,16 @@ color 6
 echo Exile Chernarus Isles
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
-echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ChernarusEXTENDED_7
+IF ERRORLEVEL 5 goto ChernarusEXTENDED_6
+IF ERRORLEVEL 5 goto ChernarusEXTENDED_5
+IF ERRORLEVEL 4 goto ChernarusEXTENDED_4
 IF ERRORLEVEL 3 goto ChernarusEXTENDED_3
 IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
 IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
@@ -365,7 +451,19 @@ GOTO End
 %A1% -port=3302 "%Chernarus%%o2%"
 GOTO End
 :ChernarusEXTENDED_3
+%A1% -port=3302 "%Chernarus%%o4%"
+GOTO End
+:ChernarusEXTENDED_4
 %A1% -port=3302 "%Chernarus%%o1%%o2%"
+GOTO End
+:ChernarusEXTENDED_5
+%A1% -port=3302 "%Chernarus%%o1%%o4%"
+GOTO End
+:ChernarusEXTENDED_6
+%A1% -port=3302 "%Chernarus%%o2%%o4%"
+GOTO End
+:ChernarusEXTENDED_7
+%A1% -port=3302 "%Chernarus%%o1%%o2%%o4%"
 GOTO End
 
 :ExileEscape
@@ -407,8 +505,16 @@ color 6
 echo King of The Hill
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
-echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 5 goto KOTHEXTENDED_7
+IF ERRORLEVEL 5 goto KOTHEXTENDED_6
+IF ERRORLEVEL 5 goto KOTHEXTENDED_5
+IF ERRORLEVEL 4 goto KOTHEXTENDED_4
 IF ERRORLEVEL 3 goto KOTHEXTENDED_3
 IF ERRORLEVEL 2 goto KOTHEXTENDED_2
 IF ERRORLEVEL 1 goto KOTHEXTENDED_1
@@ -420,7 +526,19 @@ GOTO End
 %A1% -port=2322 "%KOTH%%o2%"
 GOTO End
 :KOTHEXTENDED_3
+%A1% -port=2322 "%KOTH%%o4%"
+GOTO End
+:KOTHEXTENDED_4
 %A1% -port=2322 "%KOTH%%o1%%o2%"
+GOTO End
+:KOTHEXTENDED_5
+%A1% -port=2322 "%KOTH%%o1%%o4%"
+GOTO End
+:KOTHEXTENDED_6
+%A1% -port=2322 "%KOTH%%o2%%o4%"
+GOTO End
+:KOTHEXTENDED_7
+%A1% -port=2322 "%KOTH%%o1%%o2%%o4%"
 GOTO End
 
 :StatusChanger
