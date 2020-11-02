@@ -194,7 +194,7 @@ echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
-choice /C 12345 /M "Choose your mods"
+choice /C 1234567 /M "Choose your mods"
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_7
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_6
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_5
