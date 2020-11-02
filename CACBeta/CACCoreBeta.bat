@@ -1,6 +1,6 @@
 @echo off
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
-set EXE=SteamService.exe
+set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
 if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
 for /f "usebackq delims=" %%A in (CACCore\memory2.txt) do %%A
