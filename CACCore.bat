@@ -103,7 +103,7 @@ title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.1
+echo VERSION: 1.5.1a
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -147,7 +147,7 @@ echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 
-choice /C 123 /M "Choose your mods"
+choice /C 1234567 /M "Choose your mods"
 IF ERRORLEVEL 5 goto ExileAltisEXTENDED_7
 IF ERRORLEVEL 5 goto ExileAltisEXTENDED_6
 IF ERRORLEVEL 5 goto ExileAltisEXTENDED_5
@@ -194,7 +194,7 @@ echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
-choice /C 123 /M "Choose your mods"
+choice /C 12345 /M "Choose your mods"
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_7
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_6
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_5
@@ -315,7 +315,7 @@ echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
-choice /C 123 /M "Choose your mods"
+choice /C 1234567 /M "Choose your mods"
 IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_7
 IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_6
 IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_5
@@ -366,7 +366,7 @@ echo  7 - ShackTac User Interface + JSRS_SOUNDMOD
 echo  8 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
 echo  9 - JSRS_SOUNDMOD + Blastcore + ShackTac User Interface
 echo  0 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
-choice /C 1234567 /M "Choose your mods"
+choice /C 1234567890 /M "Choose your mods"
 IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_0
 IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_9
 IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_8
@@ -435,7 +435,7 @@ echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
-choice /C 123 /M "Choose your mods"
+choice /C 1234567 /M "Choose your mods"
 IF ERRORLEVEL 5 goto ChernarusEXTENDED_7
 IF ERRORLEVEL 5 goto ChernarusEXTENDED_6
 IF ERRORLEVEL 5 goto ChernarusEXTENDED_5
@@ -510,7 +510,7 @@ echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
 echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
-choice /C 123 /M "Choose your mods"
+choice /C 1234567 /M "Choose your mods"
 IF ERRORLEVEL 5 goto KOTHEXTENDED_7
 IF ERRORLEVEL 5 goto KOTHEXTENDED_6
 IF ERRORLEVEL 5 goto KOTHEXTENDED_5
