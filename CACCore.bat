@@ -103,7 +103,7 @@ title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.1a
+echo VERSION: 1.5.2
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -299,7 +299,7 @@ GOTO End
 GOTO End
 
 :ExileTanoaZ
-set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
+set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileTanoaZEXTENDED
 %A1% -port=3402 "%ExileTanoaZ%"
 GOTO End
@@ -347,7 +347,7 @@ GOTO End
 GOTO End
 
 :RavageMalden
-set RavageMalden=-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement
+set RavageMalden=-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
 if %Status%==ENABLED goto RavageMaldenEXTENDED
 %A1% -port=2342 "%RavageMalden%"
 GOTO End
@@ -467,7 +467,7 @@ GOTO End
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement%o1%
+set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework%o1%
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
@@ -495,7 +495,7 @@ GOTO End
 GOTO End
 
 :KingofTheHill
-set KOTH=-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort
+set KOTH=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort
 if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
