@@ -419,7 +419,7 @@ GOTO End
 GOTO End
 
 :Chernarus
-set Chernarus=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement
+set Chernarus=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
 if %Status%==ENABLED goto ChernarusEXTENDED
 %A1% -port=3302 "%Chernarus%"
 GOTO End
