@@ -103,16 +103,16 @@ title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.2
+echo VERSION: 1.5.3
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
-echo  3 Coop
-echo  4 King of The Hill
-echo  5 Ravage Malden
+echo  3 Coop PVE
+echo  4 King of The Hill TVT
+echo  5 Domination PVPVE
 echo  6 Exile Chernarus Isles
 echo  7 Exile Escape
 echo  8 Exile TanoaZ
@@ -124,7 +124,7 @@ IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Chernarus
-IF ERRORLEVEL 5 GOTO RavageMalden
+IF ERRORLEVEL 5 GOTO Domination
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
@@ -346,16 +346,16 @@ GOTO End
 %A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
 GOTO End
 
-:RavageMalden
-set RavageMalden=-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
-if %Status%==ENABLED goto RavageMaldenEXTENDED
-%A1% -port=2342 "%RavageMalden%"
+:Domination
+set Domination=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@VET_Unflipping
+if %Status%==ENABLED goto DominationEXTENDED
+%A1% -port=2342 "%Domination%"
 GOTO End
 
-:RavageMaldenEXTENDED
+:DominationEXTENDED
 cls
 color 6
-echo Ravage Malden
+echo Domination
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
 echo  3 - ShackTac User Interface
@@ -367,55 +367,55 @@ echo  8 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
 echo  9 - JSRS_SOUNDMOD + Blastcore + ShackTac User Interface
 echo  0 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
 choice /C 1234567890 /M "Choose your mods"
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_0
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_9
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_8
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_7
-IF ERRORLEVEL 6 goto RavageMaldenEXTENDED_6
-IF ERRORLEVEL 5 goto RavageMaldenEXTENDED_5
-IF ERRORLEVEL 4 goto RavageMaldenEXTENDED_4
-IF ERRORLEVEL 3 goto RavageMaldenEXTENDED_3
-IF ERRORLEVEL 2 goto RavageMaldenEXTENDED_2
-IF ERRORLEVEL 1 goto RavageMaldenEXTENDED_1
+IF ERRORLEVEL 7 goto DominationEXTENDED_0
+IF ERRORLEVEL 7 goto DominationEXTENDED_9
+IF ERRORLEVEL 7 goto DominationEXTENDED_8
+IF ERRORLEVEL 7 goto DominationEXTENDED_7
+IF ERRORLEVEL 6 goto DominationEXTENDED_6
+IF ERRORLEVEL 5 goto DominationEXTENDED_5
+IF ERRORLEVEL 4 goto DominationEXTENDED_4
+IF ERRORLEVEL 3 goto DominationEXTENDED_3
+IF ERRORLEVEL 2 goto DominationEXTENDED_2
+IF ERRORLEVEL 1 goto DominationEXTENDED_1
 
-:RavageMaldenEXTENDED_1
-%A1% -port=2342 "%RavageMalden%"%o1%
+:DominationEXTENDED_1
+%A1% -port=2342 "%Domination%"%o1%
 GOTO End
 
-:RavageMaldenEXTENDED_2
-%A1% -port=2342 "%RavageMalden%%o2%"
+:DominationEXTENDED_2
+%A1% -port=2342 "%Domination%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_3
-%A1% -port=2342 "%RavageMalden%%o3%"
+:DominationEXTENDED_3
+%A1% -port=2342 "%Domination%%o3%"
 GOTO End
 
-:RavageMaldenEXTENDED_4
-%A1% -port=2342 "%RavageMalden%%o4%"
+:DominationEXTENDED_4
+%A1% -port=2342 "%Domination%%o4%"
 GOTO End
 
-:RavageMaldenEXTENDED_5
-%A1% -port=2342 "%RavageMalden%%o1%%o2%"
+:DominationEXTENDED_5
+%A1% -port=2342 "%Domination%%o1%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_6
-%A1% -port=2342 "%RavageMalden%%o3%%o1%"
+:DominationEXTENDED_6
+%A1% -port=2342 "%Domination%%o3%%o1%"
 GOTO End
 
-:RavageMaldenEXTENDED_7
-%A1% -port=2342 "%RavageMalden%%o3%%o2%"
+:DominationEXTENDED_7
+%A1% -port=2342 "%Domination%%o3%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_8
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
+:DominationEXTENDED_8
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
 GOTO End
 
-:RavageMaldenEXTENDED_9
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%"
+:DominationEXTENDED_9
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_0
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
+:DominationEXTENDED_0
+%A1% -port=2342 "%Dominationn%%o4%%o3%%o2%%o1%"
 GOTO End
 
 :Chernarus
