@@ -103,7 +103,7 @@ title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.4
+echo VERSION: 1.5.5
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -113,7 +113,7 @@ echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
 echo  5 Domination PVPVE
-echo  6 Exile Chernarus Isles
+echo  6 Antistasi
 echo  7 Exile Escape
 echo  8 Exile TanoaZ
 echo.
@@ -123,7 +123,7 @@ choice /C 123456789 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO Chernarus
+IF ERRORLEVEL 6 GOTO Antistasi
 IF ERRORLEVEL 5 GOTO Domination
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
@@ -418,16 +418,16 @@ GOTO End
 %A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
 GOTO End
 
-:Chernarus
-set Chernarus=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
-if %Status%==ENABLED goto ChernarusEXTENDED
-%A1% -port=3302 "%Chernarus%"
+:Antistasi
+set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
+if %Status%==ENABLED goto AntistasisEXTENDED
+%A1% -port=3302 "%Antistasi%"
 GOTO End
 
-:ChernarusEXTENDED
+:AntistasiEXTENDED
 cls
 color 6
-echo Exile Chernarus Isles
+echo Antistasi
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
 echo  3 - Blastcore
@@ -436,34 +436,34 @@ echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 1234567 /M "Choose your mods"
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_7
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_6
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_5
-IF ERRORLEVEL 4 goto ChernarusEXTENDED_4
-IF ERRORLEVEL 3 goto ChernarusEXTENDED_3
-IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
-IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_7
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_6
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_5
+IF ERRORLEVEL 4 goto AntistasiEXTENDED_4
+IF ERRORLEVEL 3 goto AntistasiEXTENDED_3
+IF ERRORLEVEL 2 goto AntistasiEXTENDED_2
+IF ERRORLEVEL 1 goto AntistasiEXTENDED_1
 
-:ChernarusEXTENDED_1
-%A1% -port=3302 "%Chernarus%%o1%"
+:AntistasiEXTENDED_1
+%A1% -port=3302 "%Antistasi%%o1%"
 GOTO End
-:ChernarusEXTENDED_2
-%A1% -port=3302 "%Chernarus%%o2%"
+:AntistasiEXTENDED_2
+%A1% -port=3302 "%Antistasi%%o2%"
 GOTO End
-:ChernarusEXTENDED_3
-%A1% -port=3302 "%Chernarus%%o4%"
+:AntistasiEXTENDED_3
+%A1% -port=3302 "%Antistasi%%o4%"
 GOTO End
-:ChernarusEXTENDED_4
-%A1% -port=3302 "%Chernarus%%o1%%o2%"
+:AntistasiEXTENDED_4
+%A1% -port=3302 "%Antistasi%%o1%%o2%"
 GOTO End
-:ChernarusEXTENDED_5
-%A1% -port=3302 "%Chernarus%%o1%%o4%"
+:AntistasiEXTENDED_5
+%A1% -port=3302 "%Antistasi%%o1%%o4%"
 GOTO End
-:ChernarusEXTENDED_6
-%A1% -port=3302 "%Chernarus%%o2%%o4%"
+:AntistasiEXTENDED_6
+%A1% -port=3302 "%Antistasi%%o2%%o4%"
 GOTO End
-:ChernarusEXTENDED_7
-%A1% -port=3302 "%Chernarus%%o1%%o2%%o4%"
+:AntistasiEXTENDED_7
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
 GOTO End
 
 :ExileEscape
