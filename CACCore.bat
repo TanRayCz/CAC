@@ -103,7 +103,7 @@ title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.6b
+echo VERSION: 1.5.6c
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -115,7 +115,7 @@ echo  4 King of The Hill TVT
 echo  5 Domination PVPVE
 echo  6 Antistasi
 echo  7 Exile Escape
-echo  8 Exile TanoaZ
+::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
@@ -419,7 +419,7 @@ GOTO End
 GOTO End
 
 :Antistasi
-set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ACENomedical;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF
+set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF
 if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
