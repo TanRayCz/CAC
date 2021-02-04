@@ -23,7 +23,7 @@ color 2
 echo.
 echo STEAM FOUND AT
 type CACCore\memory.txt
-timeout /t 4
+timeout /t 3
 goto CUSTOM
 
 :DEFAULT
@@ -32,7 +32,7 @@ color 6
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 start "" "C:\Program Files (x86)\Steam\steam.exe" -silent
-timeout /t 8
+::timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -44,7 +44,7 @@ echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 set /p SteamPath=<CACCore\memory.txt
 start "" "%SteamPath%" -silent
-timeout /t 8
+::timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -54,7 +54,7 @@ color 4
 cls
 echo.
 echo FAILED TO LAUNCH STEAM, TRYING AGAIN... LAUNCH STEAM MANUALLY IF ISSUE PERSISTS.
-timeout /t 5
+timeout /t 3
 goto LOAD
 
 :FINDFAIL
@@ -97,41 +97,40 @@ set o1=;Mods\@ARM
 set o2=;Mods\@JSRS_SOUNDMOD
 set o3=;Mods\@ShackTacUI
 set o4=;Mods\@Blastcore
-cls
 color 2
 title Arma 3 CAC Launcher
 echo.
 echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.1a
+echo VERSION: 1.5.8 BETA
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
-echo  3 Coop
-echo  4 King of The Hill
-echo  5 Ravage Malden
-echo  6 Exile Chernarus Isles
+echo  3 Coop PVE
+echo  4 King of The Hill TVT
+echo  5 Domination PVPVE
+echo  6 Antistasi
 echo  7 Exile Escape
-echo  8 Exile TanoaZ
+::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 123456789 /M "Choose CAC Server"
+choice /C 12345679 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO Chernarus
-IF ERRORLEVEL 5 GOTO RavageMalden
+IF ERRORLEVEL 6 GOTO Antistasi
+IF ERRORLEVEL 5 GOTO Domination
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
-set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
+set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 "%ExileAltis%"
 GOTO End
@@ -179,7 +178,7 @@ GOTO End
 GOTO End
 
 :ExileTanoa
-set ExileTanoa=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
+set ExileTanoa=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2602 "%ExileTanoa%"
 GOTO End
@@ -225,7 +224,7 @@ GOTO End
 %A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%"
 
 :Coop
-set Coop=-mod=Mods\@Ace3;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping%o3%
+set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@AdvancedRappelling
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
@@ -299,7 +298,7 @@ GOTO End
 GOTO End
 
 :ExileTanoaZ
-set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
+set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileTanoaZEXTENDED
 %A1% -port=3402 "%ExileTanoaZ%"
 GOTO End
@@ -346,16 +345,16 @@ GOTO End
 %A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
 GOTO End
 
-:RavageMalden
-set RavageMalden=-mod=Mods\@CBA_A3;Mods\@Vandeanson'sApocalypse;Mods\@Ravage;Mods\@ACE_No_medical;Mods\@VET_Unflipping;Mods\@EnhancedMovement
-if %Status%==ENABLED goto RavageMaldenEXTENDED
-%A1% -port=2342 "%RavageMalden%"
+:Domination
+set Domination=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@VET_Unflipping
+if %Status%==ENABLED goto DominationEXTENDED
+%A1% -port=2342 "%Domination%"
 GOTO End
 
-:RavageMaldenEXTENDED
+:DominationEXTENDED
 cls
 color 6
-echo Ravage Malden
+echo Domination
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
 echo  3 - ShackTac User Interface
@@ -367,67 +366,67 @@ echo  8 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
 echo  9 - JSRS_SOUNDMOD + Blastcore + ShackTac User Interface
 echo  0 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
 choice /C 1234567890 /M "Choose your mods"
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_0
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_9
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_8
-IF ERRORLEVEL 7 goto RavageMaldenEXTENDED_7
-IF ERRORLEVEL 6 goto RavageMaldenEXTENDED_6
-IF ERRORLEVEL 5 goto RavageMaldenEXTENDED_5
-IF ERRORLEVEL 4 goto RavageMaldenEXTENDED_4
-IF ERRORLEVEL 3 goto RavageMaldenEXTENDED_3
-IF ERRORLEVEL 2 goto RavageMaldenEXTENDED_2
-IF ERRORLEVEL 1 goto RavageMaldenEXTENDED_1
+IF ERRORLEVEL 7 goto DominationEXTENDED_0
+IF ERRORLEVEL 7 goto DominationEXTENDED_9
+IF ERRORLEVEL 7 goto DominationEXTENDED_8
+IF ERRORLEVEL 7 goto DominationEXTENDED_7
+IF ERRORLEVEL 6 goto DominationEXTENDED_6
+IF ERRORLEVEL 5 goto DominationEXTENDED_5
+IF ERRORLEVEL 4 goto DominationEXTENDED_4
+IF ERRORLEVEL 3 goto DominationEXTENDED_3
+IF ERRORLEVEL 2 goto DominationEXTENDED_2
+IF ERRORLEVEL 1 goto DominationEXTENDED_1
 
-:RavageMaldenEXTENDED_1
-%A1% -port=2342 "%RavageMalden%"%o1%
+:DominationEXTENDED_1
+%A1% -port=2342 "%Domination%"%o1%
 GOTO End
 
-:RavageMaldenEXTENDED_2
-%A1% -port=2342 "%RavageMalden%%o2%"
+:DominationEXTENDED_2
+%A1% -port=2342 "%Domination%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_3
-%A1% -port=2342 "%RavageMalden%%o3%"
+:DominationEXTENDED_3
+%A1% -port=2342 "%Domination%%o3%"
 GOTO End
 
-:RavageMaldenEXTENDED_4
-%A1% -port=2342 "%RavageMalden%%o4%"
+:DominationEXTENDED_4
+%A1% -port=2342 "%Domination%%o4%"
 GOTO End
 
-:RavageMaldenEXTENDED_5
-%A1% -port=2342 "%RavageMalden%%o1%%o2%"
+:DominationEXTENDED_5
+%A1% -port=2342 "%Domination%%o1%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_6
-%A1% -port=2342 "%RavageMalden%%o3%%o1%"
+:DominationEXTENDED_6
+%A1% -port=2342 "%Domination%%o3%%o1%"
 GOTO End
 
-:RavageMaldenEXTENDED_7
-%A1% -port=2342 "%RavageMalden%%o3%%o2%"
+:DominationEXTENDED_7
+%A1% -port=2342 "%Domination%%o3%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_8
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
+:DominationEXTENDED_8
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
 GOTO End
 
-:RavageMaldenEXTENDED_9
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%"
+:DominationEXTENDED_9
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%"
 GOTO End
 
-:RavageMaldenEXTENDED_0
-%A1% -port=2342 "%RavageMalden%%o4%%o3%%o2%%o1%"
+:DominationEXTENDED_0
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
 GOTO End
 
-:Chernarus
-set Chernarus=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@ChernarusIsles;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@CUPUnits;Mods\@CUPVehicles;Mods\@CUPWeapons;Mods\@Extended_Base_Mod;Mods\@DualArms;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@EnhancedMovement
-if %Status%==ENABLED goto ChernarusEXTENDED
-%A1% -port=3302 "%Chernarus%"
+:Antistasi
+set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF
+if %Status%==ENABLED goto AntistasiEXTENDED
+%A1% -port=3302 "%Antistasi%"
 GOTO End
 
-:ChernarusEXTENDED
+:AntistasiEXTENDED
 cls
 color 6
-echo Exile Chernarus Isles
+echo Antistasi
 echo  1 - Advanced Render Manager
 echo  2 - JSRS_SOUNDMOD
 echo  3 - Blastcore
@@ -436,38 +435,38 @@ echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 1234567 /M "Choose your mods"
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_7
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_6
-IF ERRORLEVEL 5 goto ChernarusEXTENDED_5
-IF ERRORLEVEL 4 goto ChernarusEXTENDED_4
-IF ERRORLEVEL 3 goto ChernarusEXTENDED_3
-IF ERRORLEVEL 2 goto ChernarusEXTENDED_2
-IF ERRORLEVEL 1 goto ChernarusEXTENDED_1
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_7
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_6
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_5
+IF ERRORLEVEL 4 goto AntistasiEXTENDED_4
+IF ERRORLEVEL 3 goto AntistasiEXTENDED_3
+IF ERRORLEVEL 2 goto AntistasiEXTENDED_2
+IF ERRORLEVEL 1 goto AntistasiEXTENDED_1
 
-:ChernarusEXTENDED_1
-%A1% -port=3302 "%Chernarus%%o1%"
+:AntistasiEXTENDED_1
+%A1% -port=3302 "%Antistasi%%o1%"
 GOTO End
-:ChernarusEXTENDED_2
-%A1% -port=3302 "%Chernarus%%o2%"
+:AntistasiEXTENDED_2
+%A1% -port=3302 "%Antistasi%%o2%"
 GOTO End
-:ChernarusEXTENDED_3
-%A1% -port=3302 "%Chernarus%%o4%"
+:AntistasiEXTENDED_3
+%A1% -port=3302 "%Antistasi%%o4%"
 GOTO End
-:ChernarusEXTENDED_4
-%A1% -port=3302 "%Chernarus%%o1%%o2%"
+:AntistasiEXTENDED_4
+%A1% -port=3302 "%Antistasi%%o1%%o2%"
 GOTO End
-:ChernarusEXTENDED_5
-%A1% -port=3302 "%Chernarus%%o1%%o4%"
+:AntistasiEXTENDED_5
+%A1% -port=3302 "%Antistasi%%o1%%o4%"
 GOTO End
-:ChernarusEXTENDED_6
-%A1% -port=3302 "%Chernarus%%o2%%o4%"
+:AntistasiEXTENDED_6
+%A1% -port=3302 "%Antistasi%%o2%%o4%"
 GOTO End
-:ChernarusEXTENDED_7
-%A1% -port=3302 "%Chernarus%%o1%%o2%%o4%"
+:AntistasiEXTENDED_7
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement%o1%
+set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework%o1%
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
@@ -495,7 +494,7 @@ GOTO End
 GOTO End
 
 :KingofTheHill
-set KOTH=-mod=Mods\@EnhancedMovement;Mods\@MfHealAbort
+set KOTH=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort
 if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
