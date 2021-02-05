@@ -107,7 +107,7 @@ title Arma 3 CAC Launcher
 ::echo.
 ::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.81
+echo VERSION: 1.5.82
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -123,7 +123,7 @@ echo  7 Exile Escape
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 12345679 /M "Choose CAC Server"
+choice /C 123456789 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
