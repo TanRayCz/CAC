@@ -1,5 +1,6 @@
 @echo off
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
+set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
 if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
@@ -23,7 +24,7 @@ color 2
 echo.
 echo STEAM FOUND AT
 type CACCore\memory.txt
-timeout /t 4
+timeout /t 3
 goto CUSTOM
 
 :DEFAULT
@@ -32,7 +33,7 @@ color 6
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 start "" "C:\Program Files (x86)\Steam\steam.exe" -silent
-timeout /t 8
+::timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -44,7 +45,7 @@ echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 set /p SteamPath=<CACCore\memory.txt
 start "" "%SteamPath%" -silent
-timeout /t 8
+::timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -54,7 +55,7 @@ color 4
 cls
 echo.
 echo FAILED TO LAUNCH STEAM, TRYING AGAIN... LAUNCH STEAM MANUALLY IF ISSUE PERSISTS.
-timeout /t 5
+timeout /t 3
 goto LOAD
 
 :FINDFAIL
@@ -81,12 +82,16 @@ exit
 cls
 color 2
 echo.
+%title%
+echo.
 echo STEAM LAUNCHED SUCCESSFULLY
 goto START
 
 :READY
 cls
 color 2
+echo.
+%title%
 echo.
 echo STEAM IS RUNNING
 goto START
@@ -97,13 +102,12 @@ set o1=;Mods\@ARM
 set o2=;Mods\@JSRS_SOUNDMOD
 set o3=;Mods\@ShackTacUI
 set o4=;Mods\@Blastcore
-cls
 color 2
 title Arma 3 CAC Launcher
+::echo.
+::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
-echo.
-echo VERSION: 1.5.6c
+echo VERSION: 1.5.81
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -119,7 +123,7 @@ echo  7 Exile Escape
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 123456789 /M "Choose CAC Server"
+choice /C 12345679 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
