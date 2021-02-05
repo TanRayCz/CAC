@@ -1,5 +1,6 @@
 @echo off
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
+set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
 if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
@@ -81,12 +82,16 @@ exit
 cls
 color 2
 echo.
+%title%
+echo.
 echo STEAM LAUNCHED SUCCESSFULLY
 goto START
 
 :READY
 cls
 color 2
+echo.
+%title%
 echo.
 echo STEAM IS RUNNING
 goto START
@@ -99,10 +104,10 @@ set o3=;Mods\@ShackTacUI
 set o4=;Mods\@Blastcore
 color 2
 title Arma 3 CAC Launcher
+::echo.
+::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
-echo.
-echo VERSION: 1.5.8 BETA
+echo VERSION: 1.5.81 BETA
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
