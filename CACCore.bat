@@ -113,13 +113,13 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 Exile Altis
-echo  2 Exile Tanoa
-echo  3 Coop PVE
-echo  4 King of The Hill TVT
-echo  5 Domination PVPVE
-echo  6 Antistasi
-echo  7 Exile Escape
+echo  1 Exile Altis OFFLINE
+echo  2 Exile Tanoa OFFLINE
+echo  3 Coop PVE OFFLINE
+echo  4 King of The Hill TVT OFFLINE
+echo  5 Domination PVPVE OFFLINE
+echo  6 Antistasi ON-LINE
+echo  7 Exile Escape OFFLINE
 ::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
