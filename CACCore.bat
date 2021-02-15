@@ -98,7 +98,6 @@ goto START
 
 :START
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net
-set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=89.176.99.65
 set o1=;Mods\@ARM
 set o2=;Mods\@JSRS_SOUNDMOD
 set o3=;Mods\@ShackTacUI
@@ -108,18 +107,18 @@ title Arma 3 CAC Launcher
 ::echo.
 ::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.9
+echo VERSION: 1.6
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 OFFLINE Exile Altis
+::echo  1 Exile Altis - OFFLINE 
 echo  2 Exile Tanoa
-echo  3 OFFLINE Coop PVE
-echo  4 OFFLINE King of The Hill TVT
-echo  5 OFFLINE Domination PVPVE
+::echo  3 Coop PVE - OFFLINE
+::echo  4 King of The Hill TVT - OFFLINE
+::echo  5 Domination PVPVE - OFFLINE 
 echo  6 Antistasi
-echo  7 OFFLINE Exile Escape
+::echo  7 Exile Escape - OFFLINE 
 ::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
@@ -426,7 +425,7 @@ GOTO End
 :Antistasi
 set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF
 if %Status%==ENABLED goto AntistasiEXTENDED
-%A2% -port=3302 "%Antistasi%"
+%A1% -port=3302 "%Antistasi%"
 GOTO End
 
 :AntistasiEXTENDED
@@ -450,25 +449,25 @@ IF ERRORLEVEL 2 goto AntistasiEXTENDED_2
 IF ERRORLEVEL 1 goto AntistasiEXTENDED_1
 
 :AntistasiEXTENDED_1
-%A2% -port=3302 "%Antistasi%%o1%"
+%A1% -port=3302 "%Antistasi%%o1%"
 GOTO End
 :AntistasiEXTENDED_2
-%A2% -port=3302 "%Antistasi%%o2%"
+%A1% -port=3302 "%Antistasi%%o2%"
 GOTO End
 :AntistasiEXTENDED_3
-%A2% -port=3302 "%Antistasi%%o4%"
+%A1% -port=3302 "%Antistasi%%o4%"
 GOTO End
 :AntistasiEXTENDED_4
-%A2% -port=3302 "%Antistasi%%o1%%o2%"
+%A1% -port=3302 "%Antistasi%%o1%%o2%"
 GOTO End
 :AntistasiEXTENDED_5
-%A2% -port=3302 "%Antistasi%%o1%%o4%"
+%A1% -port=3302 "%Antistasi%%o1%%o4%"
 GOTO End
 :AntistasiEXTENDED_6
-%A2% -port=3302 "%Antistasi%%o2%%o4%"
+%A1% -port=3302 "%Antistasi%%o2%%o4%"
 GOTO End
 :AntistasiEXTENDED_7
-%A2% -port=3302 "%Antistasi%%o1%%o2%%o4%"
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
 GOTO End
 
 :ExileEscape
