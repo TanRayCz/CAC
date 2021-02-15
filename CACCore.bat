@@ -123,16 +123,16 @@ echo  6 Antistasi
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 269 /M "Choose CAC Server"
+choice /C 123456789 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
-IF ERRORLEVEL 8 GOTO ExileTanoaZ
-IF ERRORLEVEL 7 GOTO ExileEscape
+::IF ERRORLEVEL 8 GOTO ExileTanoaZ
+::IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
-IF ERRORLEVEL 5 GOTO Domination
-IF ERRORLEVEL 4 GOTO KingofTheHill
-IF ERRORLEVEL 3 GOTO Coop
+::IF ERRORLEVEL 5 GOTO Domination
+::IF ERRORLEVEL 4 GOTO KingofTheHill
+::IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
-IF ERRORLEVEL 1 GOTO ExileAltis
+::IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
 set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
