@@ -123,7 +123,7 @@ echo  6 Antistasi
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 123456789 /M "Choose CAC Server"
+choice /C 269 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
