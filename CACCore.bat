@@ -107,7 +107,7 @@ title Arma 3 CAC Launcher
 ::echo.
 ::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.81
+echo VERSION: 1.5.82
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -550,8 +550,10 @@ color 6
 cls
 echo  1 ENABLE
 echo  2 DISABLE
+echo  3 RETURN
 echo.
-choice /C 12
+choice /C 123
+IF ERRORLEVEL 3 GOTO LOAD
 IF ERRORLEVEL 2 GOTO MODDISABLE
 IF ERRORLEVEL 1 GOTO MODENABLE
 
