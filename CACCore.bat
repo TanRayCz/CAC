@@ -113,12 +113,12 @@ if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Exile Altis - ZEROTIER ONLY
-echo  2 Exile Tanoa
+echo  2 Exile Tanoa - CHECK DISCORD SERVER STATUS
 ::echo  3 Coop PVE - OFFLINE
 ::echo  4 King of The Hill TVT - OFFLINE
 ::echo  5 Domination PVPVE - OFFLINE 
-echo  6 Antistasi
-echo  7 Exile Escape 
+echo  6 Antistasi - CHECK DISCORD SERVER STATUS
+echo  7 Exile Escape - HECK DISCORD SERVER STATUS
 ::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
