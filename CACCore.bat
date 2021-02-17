@@ -112,7 +112,7 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-::echo  1 Exile Altis - OFFLINE 
+echo  1 Exile Altis - ZEROTIER ONLY
 echo  2 Exile Tanoa
 ::echo  3 Coop PVE - OFFLINE
 ::echo  4 King of The Hill TVT - OFFLINE
@@ -135,6 +135,7 @@ IF ERRORLEVEL 2 GOTO ExileTanoa
 ::IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=192.168.196.141
 set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
 if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 "%ExileAltis%"
