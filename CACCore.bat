@@ -118,7 +118,7 @@ echo  2 Exile Tanoa
 ::echo  4 King of The Hill TVT - OFFLINE
 ::echo  5 Domination PVPVE - OFFLINE 
 echo  6 Antistasi
-::echo  7 Exile Escape - OFFLINE 
+echo  7 Exile Escape 
 ::echo  8 Exile TanoaZ
 echo.
 echo  9 ENABLE/DISABLE Optional mods
@@ -126,7 +126,7 @@ echo.
 choice /C 123456789 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
 ::IF ERRORLEVEL 8 GOTO ExileTanoaZ
-::IF ERRORLEVEL 7 GOTO ExileEscape
+IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
 ::IF ERRORLEVEL 5 GOTO Domination
 ::IF ERRORLEVEL 4 GOTO KingofTheHill
