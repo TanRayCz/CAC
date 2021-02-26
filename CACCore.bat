@@ -114,8 +114,8 @@ if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
-::echo  3 Coop PVE - OFFLINE
-::echo  4 King of The Hill TVT - OFFLINE
+echo  3 Coop PVE
+echo  4 King of The Hill TVT
 ::echo  5 Domination PVPVE - OFFLINE 
 echo  6 Antistasi
 echo  7 Exile Escape
@@ -129,8 +129,8 @@ IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
 ::IF ERRORLEVEL 5 GOTO Domination
-::IF ERRORLEVEL 4 GOTO KingofTheHill
-::IF ERRORLEVEL 3 GOTO Coop
+IF ERRORLEVEL 4 GOTO KingofTheHill
+IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO ExileAltis
 
