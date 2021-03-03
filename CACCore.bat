@@ -136,7 +136,7 @@ IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=192.168.196.141
-set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank
+set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 "%ExileAltis%"
 GOTO End
