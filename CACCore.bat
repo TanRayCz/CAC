@@ -107,7 +107,7 @@ title Arma 3 CAC Launcher
 ::echo.
 ::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.82
+echo VERSION: 1.5.83
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -200,8 +200,8 @@ echo  5 - Advanced Render Manager + Blastcore
 echo  6 - JSRS_SOUNDMOD + Blastcore
 echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
 choice /C 1234567 /M "Choose your mods"
-IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_7
-IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_6
+IF ERRORLEVEL 7 goto ExileTanoaEXTENDED_7
+IF ERRORLEVEL 6 goto ExileTanoaEXTENDED_6
 IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_5
 IF ERRORLEVEL 4 goto ExileTanoaEXTENDED_4
 IF ERRORLEVEL 3 goto ExileTanoaEXTENDED_3
@@ -267,8 +267,6 @@ GOTO End
 
 :CoopEXTENDED_2
 %A1% -port=2702 "%Coop%%o2%"
-echo %A1% -port=2702 "%Coop%%o2%"
-pause
 GOTO End
 
 :CoopEXTENDED_3
