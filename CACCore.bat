@@ -68,15 +68,13 @@ echo  1 Enter Steam.exe path
 echo  2 Exit
 echo.
 choice /C 12 
-IF ERRORLEVEL 2 GOTO FINDEXIT
+IF ERRORLEVEL 2 GOTO End
 IF ERRORLEVEL 1 GOTO MANUAL
 :MANUAL
 cls
 echo. & echo Please enter path of your steam.exe. (Example: "C:\Steam.exe") & echo.
 set /p UserInput=Steam Directory: (Please use "" brackets): 
 (echo=%UserInput%) > "CACCore\memory.txt"
-:FINDEXIT
-exit
 
 :READY2
 cls
@@ -107,7 +105,7 @@ title Arma 3 CAC Launcher
 ::echo.
 ::echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 echo.
-echo VERSION: 1.5.83
+echo VERSION: 1.5.84
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -571,3 +569,8 @@ cls
 goto START
 
 :End
+cls
+if not exist CACCore\logo.txt curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
+type CACCore\logo.txt
+timeout 3 > nul
+exit
