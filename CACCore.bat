@@ -123,8 +123,7 @@ if %@Blastcore%==DISABLED set o4=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo control test %A1%%o1%%o2%%o3%%o4%
-echo VERSION: Branch of 1.5.84 DEVELOPMENT: Mod switcher
+echo VERSION: 1.6.0
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
