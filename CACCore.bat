@@ -1,7 +1,5 @@
 @echo off
-:RESTART
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
-set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
 if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
@@ -25,7 +23,7 @@ color 2
 echo.
 echo STEAM FOUND AT
 type CACCore\memory.txt
-timeout /t 3
+timeout /t 4
 goto CUSTOM
 
 :DEFAULT
@@ -34,7 +32,7 @@ color 6
 echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 start "" "C:\Program Files (x86)\Steam\steam.exe" -silent
-::timeout /t 8
+timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -46,7 +44,7 @@ echo.
 echo STEAM IS NOT RUNNING, ATTEMPTING TO RUN STEAM
 set /p SteamPath=<CACCore\memory.txt
 start "" "%SteamPath%" -silent
-::timeout /t 8
+timeout /t 8
 cls
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto READY2
 goto FAIL
@@ -56,7 +54,7 @@ color 4
 cls
 echo.
 echo FAILED TO LAUNCH STEAM, TRYING AGAIN... LAUNCH STEAM MANUALLY IF ISSUE PERSISTS.
-timeout /t 3
+timeout /t 5
 goto LOAD
 
 :FINDFAIL
@@ -69,19 +67,19 @@ echo  1 Enter Steam.exe path
 echo  2 Exit
 echo.
 choice /C 12 
-IF ERRORLEVEL 2 GOTO End
+IF ERRORLEVEL 2 GOTO FINDEXIT
 IF ERRORLEVEL 1 GOTO MANUAL
 :MANUAL
 cls
 echo. & echo Please enter path of your steam.exe. (Example: "C:\Steam.exe") & echo.
 set /p UserInput=Steam Directory: (Please use "" brackets): 
 (echo=%UserInput%) > "CACCore\memory.txt"
+:FINDEXIT
+exit
 
 :READY2
 cls
 color 2
-echo.
-%title%
 echo.
 echo STEAM LAUNCHED SUCCESSFULLY
 goto START
@@ -90,40 +88,22 @@ goto START
 cls
 color 2
 echo.
-%title%
-echo.
 echo STEAM IS RUNNING
 goto START
 
 :START
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net
-if %Status%==DISABLED goto MODPRELOADERSKIP
-
-:MODPRELOADER
-if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
-if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
-if not exist CACCore\@ShackTacUI.txt echo DISABLED > CACCore\@ShackTacUI.txt
-if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
-
-set /p @ARM=<CACCore\@ARM.txt
-set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
-set /p @ShackTacUI=<CACCore\@ShackTacUI.txt
-set /p @Blastcore=<CACCore\@Blastcore.txt
-
-if %@ARM%==ENABLED set o1=;Mods\@ARM
-if %@ARM%==DISABLED set o1=
-if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
-if %@JSRS_SOUNDMOD%==DISABLED set o2=
-if %@ShackTacUI%==ENABLED set o3=;Mods\@ShackTacUI
-if %@ShackTacUI%==DISABLED set o3=
-if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
-if %@Blastcore%==DISABLED set o4=
-:MODPRELOADERSKIP
-
+set o1=;Mods\@ARM
+set o2=;Mods\@JSRS_SOUNDMOD
+set o3=;Mods\@ShackTacUI
+set o4=;Mods\@Blastcore
+cls
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.0
+echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
+echo.
+echo VERSION: 1.5.7
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -132,7 +112,7 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-::echo  5 Domination PVPVE - OFFLINE 
+echo  5 Domination PVPVE
 echo  6 Antistasi
 echo  7 Exile Escape
 ::echo  8 Exile TanoaZ
@@ -141,22 +121,60 @@ echo  9 ENABLE/DISABLE Optional mods
 echo.
 choice /C 123456789 /M "Choose CAC Server"
 IF ERRORLEVEL 9 GOTO StatusChanger
-::IF ERRORLEVEL 8 GOTO ExileTanoaZ
+IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
-::IF ERRORLEVEL 5 GOTO Domination
+IF ERRORLEVEL 5 GOTO Domination
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=192.168.196.141
 set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 "%ExileAltis%"
 GOTO End
 :ExileAltisEXTENDED
+cls
+color 6
+echo  Exile Altis
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+
+choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_7
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_6
+IF ERRORLEVEL 5 goto ExileAltisEXTENDED_5
+IF ERRORLEVEL 4 goto ExileAltisEXTENDED_4
+IF ERRORLEVEL 3 goto ExileAltisEXTENDED_3
+IF ERRORLEVEL 2 goto ExileAltisEXTENDED_2
+IF ERRORLEVEL 1 goto ExileAltisEXTENDED_1
+
+:ExileAltisEXTENDED_1
+%A1% -port=2302 "%ExileAltis%%o1%"
+GOTO End
+:ExileAltisEXTENDED_2
+%A1% -port=2302 "%ExileAltis%%o2%"
+GOTO End
+:ExileAltisEXTENDED_3
+%A1% -port=2302 "%ExileAltis%%o4%"
+GOTO End
+:ExileAltisEXTENDED_4
+%A1% -port=2302 "%ExileAltis%%o1%%o2%"
+GOTO End
+:ExileAltisEXTENDED_5
+%A1% -port=2302 "%ExileAltis%%o1%%o4%"
+GOTO End
+:ExileAltisEXTENDED_6
+%A1% -port=2302 "%ExileAltis%%o2%%o4%"
+GOTO End
+:ExileAltisEXTENDED_7
 %A1% -port=2302 "%ExileAltis%%o1%%o2%%o4%"
 GOTO End
 
@@ -166,20 +184,118 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2602 "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-goto ExileTanoaEXTENDED_7
+cls
+color 6
+echo Exile Tanoa
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_7
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_6
+IF ERRORLEVEL 5 goto ExileTanoaEXTENDED_5
+IF ERRORLEVEL 4 goto ExileTanoaEXTENDED_4
+IF ERRORLEVEL 3 goto ExileTanoaEXTENDED_3
+IF ERRORLEVEL 2 goto ExileTanoaEXTENDED_2
+IF ERRORLEVEL 1 goto ExileTanoaEXTENDED_1
+
+:ExileTanoaEXTENDED_1
+%A1% -port=2602 "%ExileTanoa%%o1%"
+GOTO End
+:ExileTanoaEXTENDED_2
+%A1% -port=2602 "%ExileTanoa%%o2%"
+GOTO End
+:ExileTanoaEXTENDED_3
+%A1% -port=2602 "%ExileTanoa%%o5%"
+GOTO End
+:ExileTanoaEXTENDED_4
+%A1% -port=2602 "%ExileTanoa%%o1%%o2%"
+GOTO End
+:ExileTanoaEXTENDED_5
+%A1% -port=2602 "%ExileTanoa%%o1%%o4%"
+GOTO End
+:ExileTanoaEXTENDED_6
+%A1% -port=2602 "%ExileTanoa%%o2%%o4%"
+GOTO End
 :ExileTanoaEXTENDED_7
 %A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%"
 
 :Coop
-set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ShackTacUI
+set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
 
 :CoopEXTENDED
-goto CoopEXTENDED_6
+cls
+color 6
+echo Coop
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - ShackTac User Interface
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - JSRS_SOUNDMOD + ShackTac User Interface
+echo  6 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
+echo  7 - Blastcore
+echo  8 - ShackTac User Interface + Blastcore
+echo  9 - JSRS_SOUNDMOD + Blastcore
+echo  0 - JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
+choice /C 1234567890 /M "Choose your mods"
+IF ERRORLEVEL 0 goto CoopEXTENDED_10
+IF ERRORLEVEL 9 goto CoopEXTENDED_9
+IF ERRORLEVEL 8 goto CoopEXTENDED_8
+IF ERRORLEVEL 7 goto CoopEXTENDED_7
+IF ERRORLEVEL 6 goto CoopEXTENDED_6
+IF ERRORLEVEL 5 goto CoopEXTENDED_5
+IF ERRORLEVEL 4 goto CoopEXTENDED_4
+IF ERRORLEVEL 3 goto CoopEXTENDED_3
+IF ERRORLEVEL 2 goto CoopEXTENDED_2
+IF ERRORLEVEL 1 goto CoopEXTENDED_1
+
+:CoopEXTENDED_1
+%A1% -port=2702 "%Coop%%o1%"
+GOTO End
+
+:CoopEXTENDED_2
+%A1% -port=2702 "%Coop%%o2%"
+echo %A1% -port=2702 "%Coop%%o2%"
+pause
+GOTO End
+
+:CoopEXTENDED_3
+%A1% -port=2702 "%Coop%%o3%"
+GOTO End
+
+:CoopEXTENDED_4
+%A1% -port=2702 "%Coop%%o1%%o2%"
+GOTO End
+
+:CoopEXTENDED_5
+%A1% -port=2702 "%Coop%%o2%%o3%"
+GOTO End
+
 :CoopEXTENDED_6
-%A1% -port=2702 "%Coop%%o1%%o2%%o3%%o4%"
+%A1% -port=2702 "%Coop%%o1%%o2%%o3%"
+GOTO End
+
+:CoopEXTENDED_7
+%A1% -port=2702 "%Coop%%o4%"
+GOTO End
+
+:CoopEXTENDED_8
+%A1% -port=2702 "%Coop%%o3%%o4%"
+GOTO End
+
+:CoopEXTENDED_9
+%A1% -port=2702 "%Coop%%o2%%o4%"
+GOTO End
+
+:CoopEXTENDED_10
+%A1% -port=2702 "%Coop%%o2%%o3%%o4%"
 GOTO End
 
 :ExileTanoaZ
@@ -189,7 +305,43 @@ if %Status%==ENABLED goto ExileTanoaZEXTENDED
 GOTO End
 
 :ExileTanoaZEXTENDED
-goto ExileTanoaZEXTENDED_7
+cls
+color 6
+echo Exile TanoaZ
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_7
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_6
+IF ERRORLEVEL 5 goto ExileTanoaZEXTENDED_5
+IF ERRORLEVEL 4 goto ExileTanoaZEXTENDED_4
+IF ERRORLEVEL 3 goto ExileTanoaZEXTENDED_3
+IF ERRORLEVEL 2 goto ExileTanoaZEXTENDED_2
+IF ERRORLEVEL 1 goto ExileTanoaZEXTENDED_1
+
+ExileTanoaZEXTENDED_1
+%A1% -port=3402 "%ExileTanoaZ%%o1%"
+GOTO End
+ExileTanoaZEXTENDED_2
+%A1% -port=3402 "%ExileTanoaZ%%o2%"
+GOTO End
+:ExileTanoaZEXTENDED_3
+%A1% -port=3402 "%ExileTanoaZ%%o4%"
+GOTO End
+:ExileTanoaZEXTENDED_4
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o2%"
+GOTO End
+:ExileTanoaZEXTENDED_5
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o4%"
+GOTO End
+:ExileTanoaZEXTENDED_6
+%A1% -port=3402 "%ExileTanoaZ%%o2%%o4%"
+GOTO End
 :ExileTanoaZEXTENDED_7
 %A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
 GOTO End
@@ -201,8 +353,68 @@ if %Status%==ENABLED goto DominationEXTENDED
 GOTO End
 
 :DominationEXTENDED
-goto DominationEXTENDED_8
+cls
+color 6
+echo Domination
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - ShackTac User Interface
+echo  4 - Blastcore
+echo  5 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  6 - Advanced Render Manager + ShackTac User Interface
+echo  7 - ShackTac User Interface + JSRS_SOUNDMOD
+echo  8 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface
+echo  9 - JSRS_SOUNDMOD + Blastcore + ShackTac User Interface
+echo  0 - Advanced Render Manager + JSRS_SOUNDMOD + ShackTac User Interface + Blastcore
+choice /C 1234567890 /M "Choose your mods"
+IF ERRORLEVEL 7 goto DominationEXTENDED_0
+IF ERRORLEVEL 7 goto DominationEXTENDED_9
+IF ERRORLEVEL 7 goto DominationEXTENDED_8
+IF ERRORLEVEL 7 goto DominationEXTENDED_7
+IF ERRORLEVEL 6 goto DominationEXTENDED_6
+IF ERRORLEVEL 5 goto DominationEXTENDED_5
+IF ERRORLEVEL 4 goto DominationEXTENDED_4
+IF ERRORLEVEL 3 goto DominationEXTENDED_3
+IF ERRORLEVEL 2 goto DominationEXTENDED_2
+IF ERRORLEVEL 1 goto DominationEXTENDED_1
+
+:DominationEXTENDED_1
+%A1% -port=2342 "%Domination%"%o1%
+GOTO End
+
+:DominationEXTENDED_2
+%A1% -port=2342 "%Domination%%o2%"
+GOTO End
+
+:DominationEXTENDED_3
+%A1% -port=2342 "%Domination%%o3%"
+GOTO End
+
+:DominationEXTENDED_4
+%A1% -port=2342 "%Domination%%o4%"
+GOTO End
+
+:DominationEXTENDED_5
+%A1% -port=2342 "%Domination%%o1%%o2%"
+GOTO End
+
+:DominationEXTENDED_6
+%A1% -port=2342 "%Domination%%o3%%o1%"
+GOTO End
+
+:DominationEXTENDED_7
+%A1% -port=2342 "%Domination%%o3%%o2%"
+GOTO End
+
 :DominationEXTENDED_8
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
+GOTO End
+
+:DominationEXTENDED_9
+%A1% -port=2342 "%Domination%%o4%%o3%%o2%"
+GOTO End
+
+:DominationEXTENDED_0
 %A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
 GOTO End
 
@@ -213,7 +425,43 @@ if %Status%==ENABLED goto AntistasiEXTENDED
 GOTO End
 
 :AntistasiEXTENDED
-goto AntistasiEXTENDED_7
+cls
+color 6
+echo Antistasi
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_7
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_6
+IF ERRORLEVEL 5 goto AntistasiEXTENDED_5
+IF ERRORLEVEL 4 goto AntistasiEXTENDED_4
+IF ERRORLEVEL 3 goto AntistasiEXTENDED_3
+IF ERRORLEVEL 2 goto AntistasiEXTENDED_2
+IF ERRORLEVEL 1 goto AntistasiEXTENDED_1
+
+:AntistasiEXTENDED_1
+%A1% -port=3302 "%Antistasi%%o1%"
+GOTO End
+:AntistasiEXTENDED_2
+%A1% -port=3302 "%Antistasi%%o2%"
+GOTO End
+:AntistasiEXTENDED_3
+%A1% -port=3302 "%Antistasi%%o4%"
+GOTO End
+:AntistasiEXTENDED_4
+%A1% -port=3302 "%Antistasi%%o1%%o2%"
+GOTO End
+:AntistasiEXTENDED_5
+%A1% -port=3302 "%Antistasi%%o1%%o4%"
+GOTO End
+:AntistasiEXTENDED_6
+%A1% -port=3302 "%Antistasi%%o2%%o4%"
+GOTO End
 :AntistasiEXTENDED_7
 %A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
 GOTO End
@@ -225,7 +473,23 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 GOTO End
 
 :ExileEscapeEXTENDED
-goto ExileEscapeEXTENDED_3
+cls
+color 6
+echo Exile Escape
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Advanced Render Manager + JSRS_SOUNDMOD
+choice /C 123 /M "Choose your mods"
+IF ERRORLEVEL 3 goto ExileEscapeEXTENDED_3
+IF ERRORLEVEL 2 goto ExileEscapeEXTENDED_2
+IF ERRORLEVEL 1 goto ExileEscapeEXTENDED_1
+
+:ExileEscapeEXTENDED_1
+%A1% -port=2372 "%ExileEscape%%o1%"
+GOTO End
+:ExileEscapeEXTENDED_2
+%A1% -port=2372 "%ExileEscape%%o2%"
+GOTO End
 :ExileEscapeEXTENDED_3
 %A1% -port=2372 "%ExileEscape%%o1%%o2%"
 GOTO End
@@ -235,88 +499,71 @@ set KOTH=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;M
 if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
-
 :KOTHEXTENDED
-goto KOTHEXTENDED_7
+cls
+color 6
+echo King of The Hill
+echo  1 - Advanced Render Manager
+echo  2 - JSRS_SOUNDMOD
+echo  3 - Blastcore
+echo  4 - Advanced Render Manager + JSRS_SOUNDMOD
+echo  5 - Advanced Render Manager + Blastcore
+echo  6 - JSRS_SOUNDMOD + Blastcore
+echo  7 - Advanced Render Manager + JSRS_SOUNDMOD + Blastcore
+choice /C 1234567 /M "Choose your mods"
+IF ERRORLEVEL 5 goto KOTHEXTENDED_7
+IF ERRORLEVEL 5 goto KOTHEXTENDED_6
+IF ERRORLEVEL 5 goto KOTHEXTENDED_5
+IF ERRORLEVEL 4 goto KOTHEXTENDED_4
+IF ERRORLEVEL 3 goto KOTHEXTENDED_3
+IF ERRORLEVEL 2 goto KOTHEXTENDED_2
+IF ERRORLEVEL 1 goto KOTHEXTENDED_1
+
+:KOTHEXTENDED_1
+%A1% -port=2322 "%KOTH%%o1%"
+GOTO End
+:KOTHEXTENDED_2
+%A1% -port=2322 "%KOTH%%o2%"
+GOTO End
+:KOTHEXTENDED_3
+%A1% -port=2322 "%KOTH%%o4%"
+GOTO End
+:KOTHEXTENDED_4
+%A1% -port=2322 "%KOTH%%o1%%o2%"
+GOTO End
+:KOTHEXTENDED_5
+%A1% -port=2322 "%KOTH%%o1%%o4%"
+GOTO End
+:KOTHEXTENDED_6
+%A1% -port=2322 "%KOTH%%o2%%o4%"
+GOTO End
 :KOTHEXTENDED_7
 %A1% -port=2322 "%KOTH%%o1%%o2%%o4%"
 GOTO End
 
 :StatusChanger
 color 6
-cls 
-echo.
-echo Optional mods switch
-echo.
+cls
 echo  1 ENABLE
 echo  2 DISABLE
-echo  3 RETURN
 echo.
-echo  4 SELECT OPTIONAL MODS
-echo.
-choice /C 1234
-IF ERRORLEVEL 4 GOTO ModSettings
-IF ERRORLEVEL 3 GOTO RESTART
+choice /C 12
 IF ERRORLEVEL 2 GOTO MODDISABLE
 IF ERRORLEVEL 1 GOTO MODENABLE
-
-:ModSettings
-color 2
-cls
-echo  1 - @ARM		STATUS:	%@ARM%
-echo  2 - @JSRS_SOUNDMOD	STATUS: %@JSRS_SOUNDMOD%
-echo  3 - @ShackTacUI	STATUS: %@ShackTacUI%
-echo  4 - @Blastcore		STATUS: %@Blastcore%
-echo.
-echo  5 - Return
-choice /C 12345 /M "[ENABLE/DISABLE]"
-IF ERRORLEVEL 5 GOTO RESTART
-IF ERRORLEVEL 4 GOTO Blastcore
-IF ERRORLEVEL 3 GOTO ShackTacUI
-IF ERRORLEVEL 2 GOTO JSRS_SOUNDMOD
-IF ERRORLEVEL 1 GOTO ARM
-
-:ARM
-set /p ModPath=<CACCore\@ARM.txt
-if %ModPath%==DISABLED del CACCore\@ARM.txt & echo ENABLED > CACCore\@ARM.txt
-if %ModPath%==ENABLED del CACCore\@ARM.txt & echo DISABLED > CACCore\@ARM.txt
-set /p @ARM=<CACCore\@ARM.txt
-goto ModSettings
-
-:JSRS_SOUNDMOD
-set /p ModPath=<CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED > CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==ENABLED del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
-set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
-goto ModSettings
-
-:ShackTacUI
-set /p ModPath=<CACCore\@ShackTacUI.txt
-if %ModPath%==DISABLED del CACCore\@ShackTacUI.txt & echo ENABLED > CACCore\@ShackTacUI.txt
-if %ModPath%==ENABLED del CACCore\@ShackTacUI.txt & echo DISABLED > CACCore\@ShackTacUI.txt
-set /p @ShackTacUI=<CACCore\@ShackTacUI.txt
-goto ModSettings
-
-:Blastcore
-set /p ModPath=<CACCore\@Blastcore.txt
-if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED > CACCore\@Blastcore.txt
-if %ModPath%==ENABLED del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
-set /p @Blastcore=<CACCore\@Blastcore.txt
-goto ModSettings
 
 :MODENABLE
 if exist CACCore\memory2.txt del CACCore\memory2.txt
 >>CACCore\memory2.txt Echo set Status=ENABLED
 set Status=ENABLED
 cls
-goto RESTART
+goto START
 
 :MODDISABLE
 if exist CACCore\memory2.txt del CACCore\memory2.txt
 >>CACCore\memory2.txt Echo set Status=DISABLED
 set Status=DISABLED
 cls
-goto RESTART
+goto START
 
 :End
 cls
