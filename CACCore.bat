@@ -118,10 +118,10 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
 if %@DUI%==ENABLED set o3=;Mods\@DUI
 if %@DUI%==DISABLED set o3=
-if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
-if %@Blastcore%==DISABLED set o4=
 if %@VanillaSmokeForBlastcore%==ENABLED set o5=;Mods\@VanillaSmokeForBlastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o5=
+if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
+if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
 color 2
