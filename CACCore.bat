@@ -127,7 +127,7 @@ if %@DUI%==DISABLED set o1=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.0
+echo VERSION: 1.6.1
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -267,10 +267,10 @@ IF ERRORLEVEL 1 GOTO MODENABLE
 :ModSettings
 color 2
 cls
-echo  1 - @ARM		STATUS:	%@ARM%
-echo  2 - @JSRS_SOUNDMOD	STATUS: %@JSRS_SOUNDMOD%
-echo  3 - @DUI - Squad Radar	STATUS: %@DUI%
-echo  4 - @Blastcore - already in mandatory mods for Antistasi and Coop server		STATUS: %@Blastcore%
+echo  1 - @ARM		                                          STATUS:	%@ARM%
+echo  2 - @JSRS_SOUNDMOD	                                 STATUS: %@JSRS_SOUNDMOD%
+echo  3 - @DUI		                                          STATUS: %@DUI%
+echo  4 - @Blastcore 		                                 STATUS: %@Blastcore%
 echo  5 - @VanillaSmokeForBlastcore - requires Blastcore		STATUS: %@VanillaSmokeForBlastcore%
 echo.
 echo  6 - Return
