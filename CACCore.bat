@@ -270,7 +270,7 @@ IF ERRORLEVEL 1 GOTO MODENABLE
 color 2
 cls
 echo  1 - @ARM		                                        STATUS: %@ARM%
-echo  2 - @JSRS_SOUNDMOD	                                    STATUS: %@JSRS_SOUNDMOD%
+echo  2 - @JSRS_SOUNDMOD	                                       STATUS: %@JSRS_SOUNDMOD%
 echo  3 - @DUI		                                        STATUS: %@DUI%
 echo  4 - @Blastcore 		                                STATUS: %@Blastcore%
 echo  5 - @VanillaSmokeForBlastcore - requires Blastcore		STATUS: %@VanillaSmokeForBlastcore%
