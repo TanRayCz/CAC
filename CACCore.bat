@@ -169,8 +169,6 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2602 "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-goto ExileTanoaEXTENDED_7
-:ExileTanoaEXTENDED_7
 %A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%"
 GOTO End
 
@@ -179,10 +177,7 @@ set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMoveme
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
-
 :CoopEXTENDED
-goto CoopEXTENDED_6
-:CoopEXTENDED_6
 %A1% -port=2702 "%Coop%%o1%%o2%%o3%%o4%"
 GOTO End
 
@@ -191,10 +186,7 @@ set ExileTanoaZ=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@ZombiesAndDemons;Mods\@DualA
 if %Status%==ENABLED goto ExileTanoaZEXTENDED
 %A1% -port=3402 "%ExileTanoaZ%"
 GOTO End
-
 :ExileTanoaZEXTENDED
-goto ExileTanoaZEXTENDED_7
-:ExileTanoaZEXTENDED_7
 %A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
 GOTO End
 
@@ -203,10 +195,7 @@ set Domination=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@Enhanced
 if %Status%==ENABLED goto DominationEXTENDED
 %A1% -port=2342 "%Domination%"
 GOTO End
-
 :DominationEXTENDED
-goto DominationEXTENDED_8
-:DominationEXTENDED_8
 %A1% -port=2342 "%Domination%%o4%%o2%%o1%"
 GOTO End
 
@@ -215,10 +204,7 @@ set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsl
 if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
-
 :AntistasiEXTENDED
-goto AntistasiEXTENDED_7
-:AntistasiEXTENDED_7
 %A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
 GOTO End
 
@@ -227,10 +213,7 @@ set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovem
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
-
 :ExileEscapeEXTENDED
-goto ExileEscapeEXTENDED_3
-:ExileEscapeEXTENDED_3
 %A1% -port=2372 "%ExileEscape%%o1%%o2%"
 GOTO End
 
@@ -239,10 +222,7 @@ set KOTH=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;M
 if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
-
 :KOTHEXTENDED
-goto KOTHEXTENDED_7
-:KOTHEXTENDED_7
 %A1% -port=2322 "%KOTH%%o1%%o2%%o4%"
 GOTO End
 
