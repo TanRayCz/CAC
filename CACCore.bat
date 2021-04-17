@@ -103,12 +103,14 @@ if %Status%==DISABLED goto MODPRELOADERSKIP
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
 if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
 if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
+if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @DUI=<CACCore\@DUI.txt
+set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 set /p @DUI=<CACCore\@DUI.txt
 
@@ -118,10 +120,10 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
 if %@DUI%==ENABLED set o3=;Mods\@DUI
 if %@DUI%==DISABLED set o3=
-if %@VanillaSmokeForBlastcore%==ENABLED set o4=;Mods\@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==ENABLED set o4=;Mods\@Blastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o4=
-if %@DUI%==ENABLED set o1=;Mods\@DUI
-if %@DUI%==DISABLED set o1=
+if %@VanillaSmokeForBlastcore%==ENABLED set o5=;Mods\@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 :MODPRELOADERSKIP
 
 color 2
