@@ -102,28 +102,32 @@ if %Status%==DISABLED goto MODPRELOADERSKIP
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
 if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
-if not exist CACCore\@ShackTacUI.txt echo DISABLED > CACCore\@ShackTacUI.txt
-if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
+if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
+if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
+if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
-set /p @ShackTacUI=<CACCore\@ShackTacUI.txt
-set /p @Blastcore=<CACCore\@Blastcore.txt
+set /p @DUI=<CACCore\@DUI.txt
+set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
+set /p @DUI=<CACCore\@DUI.txt
 
 if %@ARM%==ENABLED set o1=;Mods\@ARM
 if %@ARM%==DISABLED set o1=
 if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
-if %@ShackTacUI%==ENABLED set o3=;Mods\@ShackTacUI
-if %@ShackTacUI%==DISABLED set o3=
-if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
-if %@Blastcore%==DISABLED set o4=
+if %@DUI%==ENABLED set o3=;Mods\@DUI
+if %@DUI%==DISABLED set o3=
+if %@VanillaSmokeForBlastcore%==ENABLED set o4=;Mods\@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set o4=
+if %@DUI%==ENABLED set o1=;Mods\@DUI
+if %@DUI%==DISABLED set o1=
 :MODPRELOADERSKIP
 
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.1
+echo VERSION: 1.6.0
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -171,7 +175,7 @@ goto ExileTanoaEXTENDED_7
 GOTO End
 
 :Coop
-set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ShackTacUI
+set Coop=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@Vindicta;Mods\@CHViewDistance;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore;Mods\@InconEffects
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
@@ -207,7 +211,7 @@ goto DominationEXTENDED_8
 GOTO End
 
 :Antistasi
-set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF;Mods\@InconEffects
+set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF;Mods\@Blastcore;Mods\@InconEffects
 if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
@@ -265,14 +269,16 @@ color 2
 cls
 echo  1 - @ARM		STATUS:	%@ARM%
 echo  2 - @JSRS_SOUNDMOD	STATUS: %@JSRS_SOUNDMOD%
-echo  3 - @ShackTacUI	STATUS: %@ShackTacUI%
-echo  4 - @Blastcore		STATUS: %@Blastcore%
+echo  3 - @DUI - Squad Radar	STATUS: %@DUI%
+echo  4 - @Blastcore - already in mandatory mods for Antistasi and Coop server		STATUS: %@Blastcore%
+echo  5 - @VanillaSmokeForBlastcore - requires Blastcore		STATUS: %@VanillaSmokeForBlastcore%
 echo.
-echo  5 - Return
-choice /C 12345 /M "[ENABLE/DISABLE]"
-IF ERRORLEVEL 5 GOTO RESTART
+echo  6 - Return
+choice /C 123456 /M "[ENABLE/DISABLE]"
+IF ERRORLEVEL 6 GOTO RESTART
+IF ERRORLEVEL 5 GOTO VanillaSmokeForBlastcore
 IF ERRORLEVEL 4 GOTO Blastcore
-IF ERRORLEVEL 3 GOTO ShackTacUI
+IF ERRORLEVEL 3 GOTO DUI
 IF ERRORLEVEL 2 GOTO JSRS_SOUNDMOD
 IF ERRORLEVEL 1 GOTO ARM
 
@@ -290,11 +296,11 @@ if %ModPath%==ENABLED del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 goto ModSettings
 
-:ShackTacUI
-set /p ModPath=<CACCore\@ShackTacUI.txt
-if %ModPath%==DISABLED del CACCore\@ShackTacUI.txt & echo ENABLED > CACCore\@ShackTacUI.txt
-if %ModPath%==ENABLED del CACCore\@ShackTacUI.txt & echo DISABLED > CACCore\@ShackTacUI.txt
-set /p @ShackTacUI=<CACCore\@ShackTacUI.txt
+:DUI
+set /p ModPath=<CACCore\@DUI.txt
+if %ModPath%==DISABLED del CACCore\@DUI.txt & echo ENABLED > CACCore\@DUI.txt
+if %ModPath%==ENABLED del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
+set /p @DUI=<CACCore\@DUI.txt
 goto ModSettings
 
 :Blastcore
@@ -302,6 +308,13 @@ set /p ModPath=<CACCore\@Blastcore.txt
 if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED > CACCore\@Blastcore.txt
 if %ModPath%==ENABLED del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
+goto ModSettings
+
+:VanillaSmokeForBlastcore
+set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
+set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 goto ModSettings
 
 :MODENABLE
