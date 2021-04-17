@@ -207,7 +207,7 @@ GOTO End
 :DominationEXTENDED
 goto DominationEXTENDED_8
 :DominationEXTENDED_8
-%A1% -port=2342 "%Domination%%o4%%o3%%o2%%o1%"
+%A1% -port=2342 "%Domination%%o4%%o2%%o1%"
 GOTO End
 
 :Antistasi
@@ -223,7 +223,7 @@ goto AntistasiEXTENDED_7
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework%o1%
+set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@ARM
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
@@ -275,13 +275,18 @@ echo  4 - @Blastcore 		                                STATUS: %@Blastcore%
 echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%
 echo.
 echo  6 - Return
-choice /C 123456 /M "[ENABLE/DISABLE]"
-IF ERRORLEVEL 6 GOTO RESTART
-IF ERRORLEVEL 5 GOTO VanillaSmokeForBlastcore
-IF ERRORLEVEL 4 GOTO Blastcore
-IF ERRORLEVEL 3 GOTO DUI
-IF ERRORLEVEL 2 GOTO JSRS_SOUNDMOD
-IF ERRORLEVEL 1 GOTO ARM
+echo.
+echo Confirm with enter
+SET /P "M=Switch optional mod:"
+IF "%M%"=="1" GOTO ARM
+IF "%M%"=="2" GOTO JSRS_SOUNDMOD
+IF "%M%"=="3" GOTO DUI
+IF "%M%"=="4" GOTO Blastcore
+IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
+IF "%M%"=="6" GOTO RESTART
+echo Invalid selection ("%M%")
+timeout /t 1
+GOTO ModSettings
 
 :ARM
 set /p ModPath=<CACCore\@ARM.txt
