@@ -105,14 +105,12 @@ if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.t
 if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
-if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @DUI=<CACCore\@DUI.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
-set /p @DUI=<CACCore\@DUI.txt
 
 if %@ARM%==ENABLED set o1=;Mods\@ARM
 if %@ARM%==DISABLED set o1=
@@ -120,8 +118,8 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
 if %@DUI%==ENABLED set o3=;Mods\@DUI
 if %@DUI%==DISABLED set o3=
-if %@VanillaSmokeForBlastcore%==ENABLED set o4=;Mods\@Blastcore
-if %@VanillaSmokeForBlastcore%==DISABLED set o4=
+if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
+if %@Blastcore%==DISABLED set o4=
 if %@VanillaSmokeForBlastcore%==ENABLED set o5=;Mods\@VanillaSmokeForBlastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 :MODPRELOADERSKIP
@@ -129,7 +127,7 @@ if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.1
+echo VERSION: 1.6.2
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -258,9 +256,10 @@ echo  1 ENABLE
 echo  2 DISABLE
 echo  3 RETURN
 echo.
-echo  4 SELECT OPTIONAL MODS
+if %Status%==ENABLED echo 4 SELECT OPTIONAL MODS
 echo.
-choice /C 1234
+if %Status%==ENABLED choice /C 1234
+if %Status%==DISABLED choice /C 123
 IF ERRORLEVEL 4 GOTO ModSettings
 IF ERRORLEVEL 3 GOTO RESTART
 IF ERRORLEVEL 2 GOTO MODDISABLE
@@ -270,10 +269,10 @@ IF ERRORLEVEL 1 GOTO MODENABLE
 color 2
 cls
 echo  1 - @ARM		                                        STATUS: %@ARM%
-echo  2 - @JSRS_SOUNDMOD	                                       STATUS: %@JSRS_SOUNDMOD%
+echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%
 echo  3 - @DUI		                                        STATUS: %@DUI%
 echo  4 - @Blastcore 		                                STATUS: %@Blastcore%
-echo  5 - @VanillaSmokeForBlastcore - requires Blastcore		STATUS: %@VanillaSmokeForBlastcore%
+echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%
 echo.
 echo  6 - Return
 choice /C 123456 /M "[ENABLE/DISABLE]"
