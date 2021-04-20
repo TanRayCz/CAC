@@ -117,6 +117,7 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
 if %@DUI%==ENABLED set o3=;Mods\@DUI
 if %@DUI%==DISABLED set o3=
+
 if %@VanillaSmokeForBlastcore%==ENABLED set o5=;Mods\@VanillaSmokeForBlastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
@@ -126,7 +127,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.3
+echo VERSION: 1.6.4
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -135,7 +136,7 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-::echo  5 Domination PVPVE - OFFLINE 
+echo  5 Wasteland
 echo  6 Antistasi
 echo  7 Exile Escape
 ::echo  8 Exile TanoaZ
@@ -147,7 +148,7 @@ IF ERRORLEVEL 9 GOTO StatusChanger
 ::IF ERRORLEVEL 8 GOTO ExileTanoaZ
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
-::IF ERRORLEVEL 5 GOTO Domination
+IF ERRORLEVEL 5 GOTO Wasteland
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
@@ -159,7 +160,7 @@ if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 "%ExileAltis%"
 GOTO End
 :ExileAltisEXTENDED
-%A1% -port=2302 "%ExileAltis%%o1%%o2%%o4%"
+%A1% -port=2302 "%ExileAltis%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :ExileTanoa
@@ -168,7 +169,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2602 "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%"
+%A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
@@ -177,7 +178,7 @@ if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
 :CoopEXTENDED
-%A1% -port=2702 "%Coop%%o1%%o2%%o3%%o4%"
+%A1% -port=2702 "%Coop%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :ExileTanoaZ
@@ -186,16 +187,16 @@ if %Status%==ENABLED goto ExileTanoaZEXTENDED
 %A1% -port=3402 "%ExileTanoaZ%"
 GOTO End
 :ExileTanoaZEXTENDED
-%A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%"
+%A1% -port=3402 "%ExileTanoaZ%%o1%%o2%%o4%%o5%"
 GOTO End
 
-:Domination
-set Domination=-mod=Mods\@ace;Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort;Mods\@VET_Unflipping
-if %Status%==ENABLED goto DominationEXTENDED
-%A1% -port=2342 "%Domination%"
+:Wasteland
+set Wasteland=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@DualArms;Mods\@MfHealAbort;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore;Mods\@InconEffects
+if %Status%==ENABLED goto WastelandEXTENDED
+%A1% -port=3502 "%Wasteland%"
 GOTO End
-:DominationEXTENDED
-%A1% -port=2342 "%Domination%%o4%%o2%%o1%"
+:WastelandEXTENDED
+%A1% -port=3502 "%Wasteland%%o1%%o2%%o3%%o5%"
 GOTO End
 
 :Antistasi
@@ -204,7 +205,7 @@ if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
 :AntistasiEXTENDED
-%A1% -port=3302 "%Antistasi%%o1%%o2%%o3%%o4%"
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
@@ -222,7 +223,7 @@ if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A1% -port=2322 "%KOTH%%o1%%o2%%o4%"
+%A1% -port=2322 "%KOTH%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :StatusChanger
