@@ -205,7 +205,7 @@ if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
 :AntistasiEXTENDED
-%A1% -port=3302 "%Antistasi%%o1%%o2%%o4%"
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o3%%o4%"
 GOTO End
 
 :ExileEscape
