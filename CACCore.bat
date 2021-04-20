@@ -127,7 +127,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.2
+echo VERSION: 1.6.3
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -227,23 +227,39 @@ GOTO End
 GOTO End
 
 :StatusChanger
-color 6
+if %Status%==ENABLED color 2
+if %Status%==DISABLED color 4
 cls 
 echo.
-echo Optional mods switch
+if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
+if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 ENABLE
 echo  2 DISABLE
 echo  3 RETURN
 echo.
 if %Status%==ENABLED echo 4 SELECT OPTIONAL MODS
-echo.
+if %Status%==ENABLED echo.
 if %Status%==ENABLED choice /C 1234
 if %Status%==DISABLED choice /C 123
 IF ERRORLEVEL 4 GOTO ModSettings
 IF ERRORLEVEL 3 GOTO RESTART
 IF ERRORLEVEL 2 GOTO MODDISABLE
 IF ERRORLEVEL 1 GOTO MODENABLE
+
+:MODENABLE
+if exist CACCore\memory2.txt del CACCore\memory2.txt
+>>CACCore\memory2.txt Echo set Status=ENABLED
+set Status=ENABLED
+cls
+goto StatusChanger
+
+:MODDISABLE
+if exist CACCore\memory2.txt del CACCore\memory2.txt
+>>CACCore\memory2.txt Echo set Status=DISABLED
+set Status=DISABLED
+cls
+goto StatusChanger
 
 :ModSettings
 color 2
@@ -302,20 +318,6 @@ if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED 
 if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 goto ModSettings
-
-:MODENABLE
-if exist CACCore\memory2.txt del CACCore\memory2.txt
->>CACCore\memory2.txt Echo set Status=ENABLED
-set Status=ENABLED
-cls
-goto RESTART
-
-:MODDISABLE
-if exist CACCore\memory2.txt del CACCore\memory2.txt
->>CACCore\memory2.txt Echo set Status=DISABLED
-set Status=DISABLED
-cls
-goto RESTART
 
 :End
 cls
