@@ -97,7 +97,6 @@ goto START
 
 :START
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net
-if %Status%==DISABLED goto MODPRELOADERSKIP
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
