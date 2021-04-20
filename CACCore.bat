@@ -205,7 +205,8 @@ if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
 :AntistasiEXTENDED
-%A1% -port=3302 "%Antistasi%%o1%%o2%%o3%%o4%%o5%"
+if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;Mods\@JSRS_AFRF;Mods\@JSRS_GREF;Mods\@JSRS_USAF
+%A1% -port=3302 "%Antistasi%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
