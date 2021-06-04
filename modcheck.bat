@@ -95,6 +95,7 @@ if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 echo.
 echo Prairie
 
+if not exist "vn" echo DLC NOT FOUND
 if not exist "Mods/@ace" echo @ace NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
