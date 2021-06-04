@@ -127,7 +127,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.5
+echo VERSION: 1.6.7
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -210,7 +210,7 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;Mods\@JSRS_AFRF;Mods\@JSRS_GREF;Mods\@
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@ARM
+set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
@@ -265,13 +265,16 @@ goto StatusChanger
 :ModSettings
 color 2
 cls
-echo  1 - @ARM		                                        STATUS: %@ARM%
-echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%
-echo  3 - @DUI		                                        STATUS: %@DUI%
-echo  4 - @Blastcore 		                                STATUS: %@Blastcore%
-echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%
+
+if exist "Mods/@ARM" (echo  1 - @ARM		                                        STATUS: %@ARM%) else echo  1 - @ARM		                                        STATUS: NOT FOUND
+if exist "Mods/@JSRS_SOUNDMOD" (echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  2 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
+if exist "Mods/@DUI" (echo  3 - @DUI		                                        STATUS: %@DUI%) else echo  3 - @DUI		                                        STATUS: NOT FOUND
+if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 echo.
 echo  6 - Return
+echo.
+echo  7 - Mandatory mod check
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
@@ -281,9 +284,14 @@ IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="6" GOTO RESTART
+IF "%M%"=="7" GOTO MODCHECK
 echo Invalid selection ("%M%")
-timeout /t 1
+timeout /t 2
 GOTO ModSettings
+
+:MODCHECK
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
+call CACCore\modcheck.bat
 
 :ARM
 set /p ModPath=<CACCore\@ARM.txt
