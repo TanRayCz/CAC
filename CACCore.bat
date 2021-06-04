@@ -40,6 +40,8 @@ FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto 
 goto FAIL
 
 :CUSTOM
+set /p SteamPath=<CACCore\memory.txt
+if not exist "%SteamPath%" del CACCore\memory.txt & goto RESTART
 cls
 color 6
 echo.
@@ -60,7 +62,7 @@ timeout /t 3
 goto LOAD
 
 :FINDFAIL
-IF EXIST "CACCore\memory.txt" DEL /Q "CACCore\memory.txt"
+if exist "CACCore\memory.txt" del /Q "CACCore\memory.txt"
 cls
 echo.
 echo FAILED TO FIND STEAM
@@ -127,7 +129,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.6.7
+echo VERSION: 1.6.8
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
