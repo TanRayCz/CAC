@@ -5,7 +5,7 @@ cls
 echo  ---MANDATORY MOD CHECK---
 
 echo.
-echo Antistasi
+echo -Antistasi
 
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@Anizay" echo @Anizay NOT FOUND
@@ -35,7 +35,7 @@ if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 if not exist "Mods/@ace" echo @ace NOT FOUND
 
 echo.
-echo Coop
+echo -Coop
 
 if not exist "Mods/@ace" echo @ace NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
@@ -50,7 +50,7 @@ if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
 if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
-echo Exile Altis + Tanoa
+echo -Exile Altis + Tanoa
 
 if not exist "Mods/@Exile" echo @Exile NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
@@ -63,7 +63,7 @@ if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
 
 echo.
-echo Exile Escape
+echo -Exile Escape
 
 if not exist "Mods/@Exile" echo @Exile NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
@@ -72,7 +72,7 @@ if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
 if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
 
 echo.
-echo KoTH
+echo -KoTH
 
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
@@ -80,7 +80,7 @@ if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOU
 if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
 
 echo.
-echo Wasteland
+echo -Wasteland
 
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
@@ -93,7 +93,7 @@ if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
 if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
-echo Prairie
+echo -Prairie
 
 if not exist "vn" echo DLC NOT FOUND
 if not exist "Mods/@ace" echo @ace NOT FOUND
