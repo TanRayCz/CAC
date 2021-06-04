@@ -1,5 +1,4 @@
 @echo off
-cd ..
 color 4
 cls
 
@@ -108,6 +107,5 @@ if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
 if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
-echo PRESS ENTER TO RETURN
 pause
 call CACCore.bat
