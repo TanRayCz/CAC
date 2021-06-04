@@ -109,5 +109,6 @@ if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
 echo PRESS ENTER TO RETURN
+cd
 pause
 call CACCore.bat
