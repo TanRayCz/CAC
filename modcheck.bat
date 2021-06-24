@@ -42,7 +42,6 @@ if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
 if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
 if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
-if not exist "Mods/@Vindicta" echo @Vindicta NOT FOUND
 if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
