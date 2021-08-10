@@ -135,9 +135,9 @@ if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Exile Altis
-echo  2 Exile Tanoa
+echo  2 Exile Tanoa - OFFLINE
 echo  3 Coop PVE
-echo  4 King of The Hill TVT
+echo  4 King of The Hill TVT - OFFLINE
 echo  5 Wasteland
 echo  6 Antistasi
 echo  7 Exile Escape
@@ -151,9 +151,9 @@ IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
 IF ERRORLEVEL 5 GOTO Wasteland
-IF ERRORLEVEL 4 GOTO KingofTheHill
+IF ERRORLEVEL 4 GOTO RESTART
 IF ERRORLEVEL 3 GOTO Coop
-IF ERRORLEVEL 2 GOTO ExileTanoa
+IF ERRORLEVEL 2 GOTO RESTART
 IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
