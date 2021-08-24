@@ -11,6 +11,7 @@ FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto 
 if exist "C:\Program Files (x86)\Steam\steam.exe" goto DEFAULT
 if exist "CACCore\memory.txt" goto CUSTOM
 color 6
+test of code
 echo.
 echo SEARCHING FOR STEAM DIRECTORY, PLEASE WAIT
 (
