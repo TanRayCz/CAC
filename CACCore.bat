@@ -352,9 +352,9 @@ echo  2 Set username to default
 echo  3 Return
 echo.
 choice /C 123 /M "->"
-IF ERRORLEVEL 3 GOTO RESTART
-IF ERRORLEVEL 2 set ArmaUserName=%username%
-IF ERRORLEVEL 1 set /p ArmaUserName="Username: "
+IF %ERRORLEVEL% EQU 3 GOTO RESTART
+IF %ERRORLEVEL% EQU 2 set ArmaUserName=%username%
+IF %ERRORLEVEL% EQU 1 set /p ArmaUserName="Username: "
 echo %ArmaUserName%>CACCore\username.txt
 GOTO RESTART
 :End
