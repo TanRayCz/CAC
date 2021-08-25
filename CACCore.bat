@@ -101,7 +101,7 @@ goto START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
 set /p ArmaUserName=<CACCore\username.txt
 
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net %ArmaUserName%
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net -name=%ArmaUserName%
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -153,8 +153,8 @@ echo  9 ENABLE/DISABLE Optional mods
 echo.
 echo  0 Change Username
 echo.
-choice /C 0123456789 /M "Choose CAC Server"
-IF ERRORLEVEL 0 GOTO UserCtl
+choice /C 1234567890 /M "Choose CAC Server"
+IF ERRORLEVEL 10 GOTO UserCtl
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
