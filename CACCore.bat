@@ -344,16 +344,17 @@ cls
 echo.
 echo NB. Differing usernames will use seperate save games/profile folders.
 echo.
-echo Current Username: %ArmaUserName%
+if %username%==%ArmaUserName% echo Current Username: %ArmaUserName% (Default)
+if not %username%==%ArmaUserName% echo Current Username: %ArmaUserName%
 echo.
-if "%ArmaUserName%"=="%username%" color 3 & echo  Profile: Exists, is the system default. & GOTO UserCtl2
-if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo  Profile: Exists. & GOTO UserCtl2
-if not exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 6 & echo  Profile: Non-existent, will be created at arma 3 launch. & GOTO UserCtl2
+if "%ArmaUserName%"=="%username%" color 3 & echo Profile: Exists, is the system default. & GOTO UserCtl2
+if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo Profile: Exists. & GOTO UserCtl2
+if not exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 6 & echo Warning: Profile non-existent, will be created at Arma 3 launch. & GOTO UserCtl2
 :UserCtl2
 echo.
 echo Existing profiles:
 echo.
-echo  System default: %username%
+echo  %username% (Default)
 for /F %%u in ('dir %USERPROFILE%\Documents\"Arma 3 - Other Profiles" /A:D /B') DO echo  %%u
 echo.
 echo  1 Set username
