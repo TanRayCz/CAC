@@ -98,7 +98,10 @@ echo STEAM IS RUNNING
 goto START
 
 :START
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net
+if not exist CACCore\username.txt echo %username%>CACCore\username.txt
+set /p ArmaUserName=<CACCore\username.txt
+
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net %ArmaUserName%
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -131,6 +134,9 @@ title Arma 3 CAC Launcher
 echo.
 echo VERSION: 1.6.8
 echo.
+echo Username:
+echo  %ArmaUserName%
+echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
@@ -145,7 +151,10 @@ echo  8 Antistasi S.O.G. Prarie Fire
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-choice /C 123456789 /M "Choose CAC Server"
+echo  0 Change Username
+echo.
+choice /C 0123456789 /M "Choose CAC Server"
+IF ERRORLEVEL 0 GOTO UserCtl
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
@@ -330,6 +339,24 @@ if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED 
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 goto ModSettings
 
+:UserCtl
+cls
+echo.
+echo Current Username:
+echo  %ArmaUserName%
+echo.
+echo NB. Differing usernames will use seperate save games/folders.
+echo.
+echo  1 Set username
+echo  2 Set username to default
+echo  3 Return
+echo.
+choice /C 123 /M "->"
+IF ERRORLEVEL 3 GOTO RESTART
+IF ERRORLEVEL 2 set ArmaUserName=%username%
+IF ERRORLEVEL 1 set /p ArmaUserName="Username: "
+echo %ArmaUserName%>CACCore\username.txt
+GOTO RESTART
 :End
 cls
 if not exist CACCore\logo.txt curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
