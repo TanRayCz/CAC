@@ -132,7 +132,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.0 EXPERIMENTAL
+echo VERSION: 1.7.0
 echo.
 if %username%==%ArmaUserName% echo USERNAME: %ArmaUserName% (Default)
 if not %username%==%ArmaUserName% echo USERNAME: %ArmaUserName%
