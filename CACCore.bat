@@ -101,7 +101,7 @@ goto START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
 set /p ArmaUserName=<CACCore\username.txt
 
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net -name=%ArmaUserName%
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -134,8 +134,7 @@ title Arma 3 CAC Launcher
 echo.
 echo VERSION: 1.6.8
 echo.
-echo Username:
-echo  %ArmaUserName%
+echo Username: %ArmaUserName%
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -151,7 +150,7 @@ echo  8 Antistasi S.O.G. Prarie Fire
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-echo  0 Change Username
+echo  0 Change Username/profile
 echo.
 choice /C 1234567890 /M "Choose CAC Server"
 IF ERRORLEVEL 10 GOTO UserCtl
@@ -342,13 +341,22 @@ goto ModSettings
 :UserCtl
 cls
 echo.
-echo Current Username:
-echo  %ArmaUserName%
+echo NB. Differing usernames will use seperate save games/profile folders.
 echo.
-echo NB. Differing usernames will use seperate save games/folders.
+echo Current Username: %ArmaUserName%
+echo.
+if "%ArmaUserName%"=="%username%" color 3 & echo  Profile: Exists, is the system default. & GOTO UserCtl2
+if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo  Profile: Exists. & GOTO UserCtl2
+if not exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 6 & echo  Profile: Non-existent, will be created at arma 3 launch. & GOTO UserCtl2
+:UserCtl2
+echo.
+echo Existing profiles:
+echo.
+echo  System default: %username%
+for /F %%u in ('dir %USERPROFILE%\Documents\"Arma 3 - Other Profiles" /A:D /B') DO echo  %%u
 echo.
 echo  1 Set username
-echo  2 Set username to default
+echo  2 Reset username to system default
 echo  3 Return
 echo.
 choice /C 123 /M "->"
@@ -356,7 +364,8 @@ IF %ERRORLEVEL% EQU 3 GOTO RESTART
 IF %ERRORLEVEL% EQU 2 set ArmaUserName=%username%
 IF %ERRORLEVEL% EQU 1 set /p ArmaUserName="Username: "
 echo %ArmaUserName%>CACCore\username.txt
-GOTO RESTART
+GOTO UserCtl
+
 :End
 cls
 if not exist CACCore\logo.txt curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
