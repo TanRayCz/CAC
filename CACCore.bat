@@ -1,6 +1,9 @@
 @echo off
 :RESTART
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
+ping -n 1 cacservers.ddns.net | find "TTL"
+if not errorlevel 1 set serverstatus=true
+if errorlevel 1 set serverstatus=false
 set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
@@ -100,7 +103,6 @@ goto START
 :START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
 set /p ArmaUserName=<CACCore\username.txt
-
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net -name="%ArmaUserName%"
 
 :MODPRELOADER
@@ -132,13 +134,16 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.0
+echo VERSION: 1.7.1
 echo.
 if %username%==%ArmaUserName% echo USERNAME: %ArmaUserName% (Default)
 if not %username%==%ArmaUserName% echo USERNAME: %ArmaUserName%
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
+echo.
+if %serverstatus%==true color 2 & echo SERVER STATUS: UP
+if %serverstatus%==false color 4 & echo SERVER STATUS: DOWN
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
