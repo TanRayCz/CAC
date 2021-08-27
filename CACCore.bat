@@ -135,7 +135,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.1
+echo VERSION: 1.7.2
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -354,8 +354,7 @@ if "%username%"=="%ArmaUserName%" echo Current Username: %ArmaUserName% (Default
 if not "%username%"=="%ArmaUserName%" (
 echo Current Username: %ArmaUserName%
 setlocal EnableDelayedExpansion
-set ArmaUserName=!ArmaUserName: =%%20!
-)
+set ArmaUserName=!ArmaUserName: =%%20!)
 echo.
 if "%ArmaUserName%"=="%username%" color 3 & echo Profile: Exists, is the system default. & endlocal & GOTO UserCtl2
 if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo Profile: Exists. & endlocal & GOTO UserCtl2
