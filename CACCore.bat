@@ -137,8 +137,8 @@ title Arma 3 CAC Launcher
 echo.
 echo VERSION: 1.7.1
 echo.
-if %username%==%ArmaUserName% echo USERNAME: %ArmaUserName% (Default)
-if not %username%==%ArmaUserName% echo USERNAME: %ArmaUserName%
+if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
+if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
@@ -350,8 +350,12 @@ cls
 echo.
 echo N.B. Different usernames will use seperate save games/profile folders.
 echo.
-if %username%==%ArmaUserName% echo Current Username: %ArmaUserName% (Default)
-if not %username%==%ArmaUserName% echo Current Username: %ArmaUserName%
+if "%username%"=="%ArmaUserName%" echo Current Username: %ArmaUserName% (Default)
+if not "%username%"=="%ArmaUserName%" (
+echo Current Username: %ArmaUserName%
+setlocal EnableDelayedExpansion
+set ArmaUserName=!ArmaUserName: =%%20!
+setlocal DisableDelayedExpansion)
 echo.
 if "%ArmaUserName%"=="%username%" color 3 & echo Profile: Exists, is the system default. & GOTO UserCtl2
 if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo Profile: Exists. & GOTO UserCtl2
