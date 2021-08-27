@@ -342,7 +342,7 @@ goto ModSettings
 :UserCtl
 cls
 echo.
-echo NB. Differing usernames will use seperate save games/profile folders.
+echo N.B. Different usernames will use seperate save games/profile folders.
 echo.
 if %username%==%ArmaUserName% echo Current Username: %ArmaUserName% (Default)
 if not %username%==%ArmaUserName% echo Current Username: %ArmaUserName%
@@ -355,7 +355,13 @@ echo.
 echo Existing profiles:
 echo.
 echo  %username% (Default)
-for /F %%u in ('dir %USERPROFILE%\Documents\"Arma 3 - Other Profiles" /A:D /B') DO echo  %%u
+for /F %%u in ('dir %USERPROFILE%\Documents\"Arma 3 - Other Profiles" /A:D /B') DO (
+setlocal EnableDelayedExpansion
+set name=%%u
+set name=!name:%%20= !
+echo  !name!
+setlocal DisableDelayedExpansion
+)
 echo.
 echo  1 Set username
 echo  2 Reset username to system default
