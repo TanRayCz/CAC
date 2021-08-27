@@ -1,10 +1,6 @@
 @echo off
 :RESTART
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
-ping -n 1 cacservers.ddns.net | find "TTL"
-if not errorlevel 1 set serverstatus=true
-if errorlevel 1 set serverstatus=false
-cls
 set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
@@ -104,7 +100,11 @@ goto START
 :START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
 set /p ArmaUserName=<CACCore\username.txt
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=cacservers.ddns.net -name="%ArmaUserName%"
+set ip=cacservers.ddns.net
+ping -n 1 %ip% | find "TTL" > nul
+if not errorlevel 1 set serverstatus=true
+if errorlevel 1 set serverstatus=false
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -135,7 +135,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.2
+echo VERSION: 1.7.3
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
