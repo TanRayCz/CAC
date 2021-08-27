@@ -4,6 +4,7 @@ curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt
 ping -n 1 cacservers.ddns.net | find "TTL"
 if not errorlevel 1 set serverstatus=true
 if errorlevel 1 set serverstatus=false
+cls
 set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
