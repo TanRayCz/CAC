@@ -78,6 +78,8 @@ cls
 echo. & echo Please enter path of your steam.exe. (Example: "C:\Steam.exe") & echo.
 set /p UserInput=Steam Directory: (Please use "" brackets): 
 (echo=%UserInput%) > "CACCore\memory.txt"
+set /p SteamPath=<CACCore\memory.txt
+if not exist "%SteamPath%" type CACCore\memory.txt & echo DOES NOT EXIST
 goto RESTART
 
 :READY2
