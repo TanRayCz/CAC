@@ -78,6 +78,7 @@ cls
 echo. & echo Please enter path of your steam.exe. (Example: "C:\Steam.exe") & echo.
 set /p UserInput=Steam Directory: (Please use "" brackets): 
 (echo=%UserInput%) > "CACCore\memory.txt"
+goto RESTART
 
 :READY2
 cls
