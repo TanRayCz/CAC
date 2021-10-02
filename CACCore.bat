@@ -138,7 +138,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.3
+echo VERSION: 1.7.31
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -388,7 +388,7 @@ GOTO UserCtl
 
 :End
 cls
-if not exist CACCore\logo.txt curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
 type CACCore\logo.txt
 timeout 3 > nul
 exit
