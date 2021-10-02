@@ -1,7 +1,7 @@
 @echo off
 :RESTART
 curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
-set title=echo Arma 3 CAC Launcher - discord.gg/4QZcD7b
+set title=echo Arma 3 CAC Launcher - discord.gg/dNGcyEYK8F
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
 if not exist CACCore\memory2.txt echo set Status=DISABLED > CACCore\memory2.txt
