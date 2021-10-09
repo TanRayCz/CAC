@@ -153,7 +153,7 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-echo  5 Wasteland
+echo  5 Vice Life
 echo  6 Antistasi
 echo  7 Exile Escape
 echo  8 Antistasi S.O.G. Prarie Fire
@@ -168,7 +168,7 @@ IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
-IF ERRORLEVEL 5 GOTO Wasteland
+IF ERRORLEVEL 5 GOTO ViceLife
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
@@ -210,12 +210,12 @@ GOTO End
 %A1% -port=3402 "%PrarieFire%%o1%%o2%%o4%%o5%"
 GOTO End
 
-:Wasteland
-set Wasteland=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@DualArms;Mods\@MfHealAbort;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore;Mods\@InconEffects
-if %Status%==ENABLED goto WastelandEXTENDED
-%A1% -port=3502 "%Wasteland%"
+:ViceLife
+set ViceLife=-mod=
+if %Status%==ENABLED goto ViceLifeEXTENDED
+%A1% -port=3502 "%ViceLife%"
 GOTO End
-:WastelandEXTENDED
+:ViceLifeEXTENDED
 %A1% -port=3502 "%Wasteland%%o1%%o2%%o3%%o5%"
 GOTO End
 
