@@ -211,7 +211,7 @@ GOTO End
 GOTO End
 
 :ViceLife
-set ViceLife=-mod=
+set ViceLife=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
 if %Status%==ENABLED goto ViceLifeEXTENDED
 %A1% -port=3502 "%ViceLife%"
 GOTO End
