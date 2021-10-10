@@ -102,6 +102,7 @@ goto START
 
 :START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
+if exist CACCore\password.txt set /p Password=<CACCore\password.txt
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
 ping -n 1 %ip% | find "TTL" > nul
@@ -138,7 +139,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.31
+echo VERSION: 1.7.5
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -160,10 +161,10 @@ echo  8 Antistasi S.O.G. Prarie Fire
 echo.
 echo  9 ENABLE/DISABLE Optional mods
 echo.
-echo  0 Change Username/profile
+echo  0 CAC Settings
 echo.
 choice /C 1234567890 /M "Choose CAC Server"
-IF ERRORLEVEL 10 GOTO UserCtl
+IF ERRORLEVEL 10 GOTO CACSETTINGS
 IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
@@ -177,19 +178,19 @@ IF ERRORLEVEL 1 GOTO ExileAltis
 :ExileAltis
 set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileAltisEXTENDED
-%A1% -port=2302 "%ExileAltis%"
+%A1% -port=2302 -password="%Password%" "%ExileAltis%"
 GOTO End
 :ExileAltisEXTENDED
-%A1% -port=2302 "%ExileAltis%%o1%%o2%%o4%%o5%"
+%A1% -port=2302 -password="%Password%" "%ExileAltis%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :ExileTanoa
 set ExileTanoa=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A1% -port=2602 "%ExileTanoa%"
+%A1% -port=2602 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A1% -port=2602 "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A1% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
@@ -294,8 +295,6 @@ if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore -
 echo.
 echo  6 - Return
 echo.
-echo  7 - Mandatory mod check
-echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
 IF "%M%"=="1" GOTO ARM
@@ -304,14 +303,9 @@ IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="6" GOTO RESTART
-IF "%M%"=="7" GOTO MODCHECK
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
-
-:MODCHECK
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
-call CACCore\modcheck.bat
 
 :ARM
 set /p ModPath=<CACCore\@ARM.txt
@@ -351,7 +345,7 @@ goto ModSettings
 :UserCtl
 cls
 echo.
-echo N.B. Different usernames will use seperate save games/profile folders.
+echo  Different usernames will use seperate save games/profile folders.
 echo.
 if "%username%"=="%ArmaUserName%" echo Current Username: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" (
@@ -377,14 +371,62 @@ endlocal
 echo.
 echo  1 Set username
 echo  2 Reset username to system default
-echo  3 Return
+echo  3 Exit
 echo.
 choice /C 123 /M "->"
-IF %ERRORLEVEL% EQU 3 GOTO RESTART
+IF %ERRORLEVEL% EQU 3 GOTO CACSETTINGS
 IF %ERRORLEVEL% EQU 2 set ArmaUserName=%username%
 IF %ERRORLEVEL% EQU 1 set /p ArmaUserName="Username: "
 echo %ArmaUserName%>CACCore\username.txt
 GOTO UserCtl
+
+:MODCHECK
+curl https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
+call CACCore\modcheck.bat
+
+:CACSETTINGS
+cls 
+color 2
+echo.
+echo  1 Change Username/profile
+echo  2 Manage Exile Password
+echo  3 Mandatory Mod Check
+echo.
+echo  4 Return
+echo.
+choice /C 1234
+IF ERRORLEVEL 4 GOTO RESTART
+IF ERRORLEVEL 3 GOTO MODCHECK
+IF ERRORLEVEL 2 GOTO PASSWORDMANAGER
+IF ERRORLEVEL 1 GOTO UserCtl
+
+:PASSWORDMANAGER
+cls
+color 4
+echo.
+echo  Manage password for CAC Exile servers
+echo.
+if exist CACCore\password.txt set /p Password=<CACCore\password.txt
+if exist CACCore\password.txt echo   Current Password: %Password%
+if not exist CACCore\password.txt echo   Current Password: None
+echo.
+echo  1 Change Password
+echo  2 Remove Password
+echo  3 Exit
+echo.
+choice /C 123
+IF ERRORLEVEL 3 GOTO CACSETTINGS
+IF ERRORLEVEL 2 GOTO PASSWORDMANAGER_DELETE
+IF ERRORLEVEL 1 GOTO PASSWORDMANAGER_ADD
+
+:PASSWORDMANAGER_ADD
+set /p Password="Password: "
+echo %Password%>CACCore\password.txt
+goto PASSWORDMANAGER
+:PASSWORDMANAGER_DELETE
+del CACCore\password.txt
+set Password=
+GOTO PASSWORDMANAGER
 
 :End
 cls
