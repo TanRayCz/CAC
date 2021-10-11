@@ -217,7 +217,7 @@ if %Status%==ENABLED goto ViceLifeEXTENDED
 %A1% -port=3502 "%ViceLife%"
 GOTO End
 :ViceLifeEXTENDED
-%A1% -port=3502 "%ViceLife%%o1%%o2%%o3%%o5%"
+%A1% -port=3502 "%ViceLife%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :Antistasi
