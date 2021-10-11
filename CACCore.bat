@@ -212,7 +212,7 @@ GOTO End
 GOTO End
 
 :ViceLife
-set ViceLife=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
+set ViceLife=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort
 if %Status%==ENABLED goto ViceLifeEXTENDED
 %A1% -port=3502 "%ViceLife%"
 GOTO End
