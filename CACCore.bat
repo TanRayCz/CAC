@@ -194,7 +194,7 @@ GOTO End
 GOTO End
 
 :Coop
-set Coop=-mod=Mods\@CBA_A3;Mods\@ace;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore;Mods\@InconEffects
+set Coop=-mod=Mods\@CBA_A3;Mods\@ace;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
