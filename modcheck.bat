@@ -31,7 +31,6 @@ if not exist "Mods/@ACEComRHSAFRF" echo @ACEComRHSAFRF NOT FOUND
 if not exist "Mods/@ACEComRHSGREF" echo @ACEComRHSGREF NOT FOUND
 if not exist "Mods/@ACEComRHSUSAF" echo @ACEComRHSUSAF NOT FOUND
 if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 if not exist "Mods/@ace" echo @ace NOT FOUND
 
 echo.
@@ -46,7 +45,6 @@ if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
 if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
 echo -Exile Altis + Tanoa
@@ -89,7 +87,6 @@ if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
 if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
 if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
 echo -Prairie
@@ -104,7 +101,6 @@ if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
 if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-if not exist "Mods/@InconEffects" echo @InconEffects NOT FOUND
 
 echo.
 pause
