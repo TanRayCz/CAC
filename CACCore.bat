@@ -203,7 +203,7 @@ GOTO End
 GOTO End
 
 :PrarieFire
-set PrarieFire=-mod=vn;Mods\@CBA_A3;Mods\@ace;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore;Mods\@InconEffects
+set PrarieFire=-mod=vn;Mods\@CBA_A3;Mods\@ace;Mods\@ace_compat_sog;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore
 if %Status%==ENABLED goto PrarieFireEXTENDED
 %A1% -port=3402 "%PrarieFire%"
 GOTO End
