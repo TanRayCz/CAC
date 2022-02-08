@@ -101,6 +101,9 @@ goto START
 :START
 if not exist CACCore\username.txt echo %username%>CACCore\username.txt
 if exist CACCore\password.txt set /p Password=<CACCore\password.txt
+if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
+if not exist CACCore\moddir.txt set ModPath=Mods
+set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
 ping -n 1 %ip% | find "TTL" > nul
@@ -121,23 +124,23 @@ set /p @DUI=<CACCore\@DUI.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 
-if %@ARM%==ENABLED set o1=;Mods\@ARM
+if %@ARM%==ENABLED set o1=;%ModPath%@ARM
 if %@ARM%==DISABLED set o1=
-if %@JSRS_SOUNDMOD%==ENABLED set o2=;Mods\@JSRS_SOUNDMOD
+if %@JSRS_SOUNDMOD%==ENABLED set o2=;%ModPath%@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
-if %@DUI%==ENABLED set o3=;Mods\@DUI
+if %@DUI%==ENABLED set o3=;%ModPath%@DUI
 if %@DUI%==DISABLED set o3=
 
-if %@VanillaSmokeForBlastcore%==ENABLED set o5=;Mods\@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==ENABLED set o5=;%ModPath%@VanillaSmokeForBlastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o5=
-if %@Blastcore%==ENABLED set o4=;Mods\@Blastcore
+if %@Blastcore%==ENABLED set o4=;%ModPath%@Blastcore
 if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.5
+echo VERSION: 1.7.6
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -174,7 +177,7 @@ IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO ExileAltis
 
 :ExileAltis
-set ExileAltis=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
+set ExileAltis=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileAltisEXTENDED
 %A1% -port=2302 -password="%Password%" "%ExileAltis%"
 GOTO End
@@ -183,7 +186,7 @@ GOTO End
 GOTO End
 
 :ExileTanoa
-set ExileTanoa=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@Extended_Base_Mod;Mods\@X66-MammothTank;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling
+set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2602 -password="%Password%" "%ExileTanoa%"
 GOTO End
@@ -192,7 +195,7 @@ GOTO End
 GOTO End
 
 :Coop
-set Coop=-mod=Mods\@CBA_A3;Mods\@ace;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore
+set Coop=-mod=%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto CoopEXTENDED
 %A1% -port=2702 "%Coop%"
 GOTO End
@@ -201,7 +204,7 @@ GOTO End
 GOTO End
 
 :PrarieFire
-set PrarieFire=-mod=vn;Mods\@CBA_A3;Mods\@ace;Mods\@ace_compat_sog;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@Blastcore
+set PrarieFire=-mod=vn;%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@ace_compat_sog;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto PrarieFireEXTENDED
 %A1% -port=3402 "%PrarieFire%"
 GOTO End
@@ -210,7 +213,7 @@ GOTO End
 GOTO End
 
 :ViceLife
-set ViceLife=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@MfHealAbort
+set ViceLife=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@MfHealAbort
 if %Status%==ENABLED goto ViceLifeEXTENDED
 %A1% -port=3502 "%ViceLife%"
 GOTO End
@@ -219,17 +222,17 @@ GOTO End
 GOTO End
 
 :Antistasi
-set Antistasi=-mod=Mods\@CBA_A3;Mods\@Anizay;Mods\@KunduzAfgFD;Mods\@TembelanIsland;Mods\@VirolahtiValtatie7;Mods\@CUPTerrainsCore;Mods\@CUPTerrainsMaps;Mods\@DSHouses;Mods\@InteriorsforCUP;Mods\@SM_Sheds;Mods\@RHSAFRF;Mods\@RHSGREF;Mods\@RHSUSAF;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort;Mods\@VET_Unflipping;Mods\@AdvancedRappelling;Mods\@AdvancedUrbanRappelling;Mods\@ace;Mods\@ACEComRHSAFRF;Mods\@ACEComRHSGREF;Mods\@ACEComRHSUSAF;Mods\@Blastcore
+set Antistasi=-mod=%ModPath%@CBA_A3;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
 if %Status%==ENABLED goto AntistasiEXTENDED
 %A1% -port=3302 "%Antistasi%"
 GOTO End
 :AntistasiEXTENDED
-if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;Mods\@JSRS_AFRF;Mods\@JSRS_GREF;Mods\@JSRS_USAF
+if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
 %A1% -port=3302 "%Antistasi%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=Mods\@Exile;Mods\@CBA_A3;Mods\@DualArms;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework
+set ExileEscape=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework
 if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%"
 GOTO End
@@ -238,7 +241,7 @@ GOTO End
 GOTO End
 
 :KingofTheHill
-set KOTH=-mod=Mods\@CBA_A3;Mods\@EnhancedMovement;Mods\@EnhancedMovementRework;Mods\@MfHealAbort
+set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort
 if %Status%==ENABLED goto KOTHEXTENDED
 %A1% -port=2322 "%KOTH%" 
 GOTO End
@@ -387,16 +390,49 @@ cls
 color 2
 echo.
 echo  1 Change Username/profile
-echo  2 Manage Exile Password
-echo  3 Mandatory Mod Check
+echo  2 Change Exile Password
+echo  3 Change Mods Directory
+echo  4 Mandatory Mod Check
+
 echo.
-echo  4 Return
+echo  5 Return
 echo.
-choice /C 1234
-IF ERRORLEVEL 4 GOTO RESTART
-IF ERRORLEVEL 3 GOTO MODCHECK
+choice /C 12345
+IF ERRORLEVEL 5 GOTO RESTART
+IF ERRORLEVEL 4 GOTO MODCHECK
+IF ERRORLEVEL 3 GOTO MODDIRCHANGER
 IF ERRORLEVEL 2 GOTO PASSWORDMANAGER
 IF ERRORLEVEL 1 GOTO UserCtl
+
+:MODDIRCHANGER
+cls
+color 2
+echo.
+echo  Change Mod Directory
+echo.
+if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
+if exist CACCore\moddir.txt echo   Current Directory: %ModPath%
+if not exist CACCore\moddir.txt echo   Current Mod Directory: Default (Mods\)
+echo.
+echo  1 Change Directory
+echo  2 Default Directory
+echo  3 Exit
+echo.
+choice /C 123
+IF ERRORLEVEL 3 GOTO CACSETTINGS
+IF ERRORLEVEL 2 GOTO MODDIR_DELETE
+IF ERRORLEVEL 1 GOTO MODDIR_CHANGE
+
+:MODDIR_CHANGE
+set /p ModPath="New Mod Directory: "
+echo %ModPath%>CACCore\moddir.txt
+goto MODDIRCHANGER
+:MODDIR_DELETE
+del CACCore\moddir.txt
+set ModPath=
+GOTO MODDIRCHANGER
+
+
 
 :PASSWORDMANAGER
 cls
