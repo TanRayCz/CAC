@@ -155,7 +155,7 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-echo  5 Vice Life
+echo  5 Vice Life - OFFLINE
 echo  6 Antistasi
 echo  7 Exile Escape
 echo  8 Antistasi S.O.G. Prarie Fire
