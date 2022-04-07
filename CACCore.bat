@@ -213,7 +213,7 @@ GOTO End
 GOTO End
 
 :DynamicReconOps
-set DynamicReconOps=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Fallujah;%ModPath%@ACE_No_Medical;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+set DynamicReconOps=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Fallujah;%ModPath%@ACE_No_Medical;%ModPath%@CUPWeapons;%ModPath%@CUPUnits%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%"
 GOTO End
