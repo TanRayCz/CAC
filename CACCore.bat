@@ -155,8 +155,8 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-echo  5 Dynamic Recon Ops
-echo  6 Antistasi
+echo  5 Dynamic Recon Ops CUP
+echo  6 Antistasi RHS
 echo  7 Exile Escape
 echo  8 Antistasi S.O.G. Prarie Fire
 echo.
