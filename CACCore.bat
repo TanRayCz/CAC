@@ -155,7 +155,7 @@ echo  1 Exile Altis
 echo  2 Exile Tanoa
 echo  3 Coop PVE
 echo  4 King of The Hill TVT
-echo  5 Vice Life - OFFLINE
+echo  5 Dynamic Recon Ops
 echo  6 Antistasi
 echo  7 Exile Escape
 echo  8 Antistasi S.O.G. Prarie Fire
@@ -170,7 +170,7 @@ IF ERRORLEVEL 9 GOTO StatusChanger
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
-IF ERRORLEVEL 5 GOTO ViceLife
+IF ERRORLEVEL 5 GOTO DynamicReconOps
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
@@ -212,13 +212,13 @@ GOTO End
 %A1% -port=3402 "%PrarieFire%%o1%%o2%%o4%%o5%"
 GOTO End
 
-:ViceLife
-set ViceLife=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@MfHealAbort
-if %Status%==ENABLED goto ViceLifeEXTENDED
-%A1% -port=3502 "%ViceLife%"
+:DynamicReconOps
+set DynamicReconOps=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Fallujah;%ModPath%@ACE_No_Medical;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+if %Status%==ENABLED goto DynamicReconOpsEXTENDED
+%A1% -port=3502 "%DynamicReconOps%"
 GOTO End
-:ViceLifeEXTENDED
-%A1% -port=3502 "%ViceLife%%o1%%o2%%o3%%o4%%o5%"
+:DynamicReconOpsEXTENDED
+%A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :Antistasi
