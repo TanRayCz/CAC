@@ -140,7 +140,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.6
+echo VERSION: 1.7.8
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -160,13 +160,13 @@ echo  6 Antistasi RHS
 echo  7 Exile Escape
 echo  8 Antistasi S.O.G. Prarie Fire
 echo.
-echo  9 ENABLE/DISABLE Optional mods
+echo  9 CAC Settings
 echo.
-echo  0 CAC Settings
+echo  0 Exit CAC Launcher
 echo.
 choice /C 1234567890 /M "Choose CAC Server"
-IF ERRORLEVEL 10 GOTO CACSETTINGS
-IF ERRORLEVEL 9 GOTO StatusChanger
+IF ERRORLEVEL 10 exit
+IF ERRORLEVEL 9 GOTO CACSETTINGS
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Antistasi
@@ -266,7 +266,7 @@ if %Status%==ENABLED echo.
 if %Status%==ENABLED choice /C 1234
 if %Status%==DISABLED choice /C 123
 IF ERRORLEVEL 4 GOTO ModSettings
-IF ERRORLEVEL 3 GOTO RESTART
+IF ERRORLEVEL 3 GOTO CACSETTINGS
 IF ERRORLEVEL 2 GOTO MODDISABLE
 IF ERRORLEVEL 1 GOTO MODENABLE
 
@@ -389,20 +389,21 @@ call CACCore\modcheck.bat
 cls 
 color 2
 echo.
-echo  1 Change Username/profile
-echo  2 Change Exile Password
-echo  3 Change Mods Directory
-echo  4 Mandatory Mod Check
-
+echo  1 Optional Mods Management [%Status%]
+echo  2 Change Username/profile  [%Username%]
+echo  3 Change Exile Password    [%Password%]
+echo  4 Change Mods Directory    [%ModPath%]
+echo  5 Mandatory Mod Check
 echo.
-echo  5 Return
+echo  6 Return
 echo.
-choice /C 12345
-IF ERRORLEVEL 5 GOTO RESTART
-IF ERRORLEVEL 4 GOTO MODCHECK
-IF ERRORLEVEL 3 GOTO MODDIRCHANGER
-IF ERRORLEVEL 2 GOTO PASSWORDMANAGER
-IF ERRORLEVEL 1 GOTO UserCtl
+choice /C 123456
+IF ERRORLEVEL 6 GOTO RESTART
+IF ERRORLEVEL 5 GOTO MODCHECK
+IF ERRORLEVEL 4 GOTO MODDIRCHANGER
+IF ERRORLEVEL 3 GOTO PASSWORDMANAGER
+IF ERRORLEVEL 2 GOTO UserCtl
+IF ERRORLEVEL 1 GOTO StatusChanger
 
 :MODDIRCHANGER
 cls
@@ -412,7 +413,9 @@ echo  Change Mod Directory
 echo.
 if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
 if exist CACCore\moddir.txt echo   Current Directory: %ModPath%
-if not exist CACCore\moddir.txt echo   Current Mod Directory: Default (Mods\)
+if not exist CACCore\moddir.txt set ModPath=Mods\
+if not exist CACCore\moddir.txt echo   Current Mod Directory: Default (%ModPath%)
+
 echo.
 echo  1 Change Directory
 echo  2 Default Directory
