@@ -213,7 +213,7 @@ GOTO End
 GOTO End
 
 :DynamicReconOps
-set DynamicReconOps=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Fallujah;%ModPath%@ace;%ModPath%@CUPWeapons;%ModPath%@CUPUnits;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+set DynamicReconOps=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Fallujah;%ModPath%@ace;%ModPath%@CUPWeapons;%ModPath%@CUPUnits;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%"
 GOTO End
@@ -390,7 +390,7 @@ cls
 color 2
 echo.
 echo  1 Optional Mods Management [%Status%]
-echo  2 Change Username/profile  [%Username%]
+echo  2 Change Username/profile  [%ArmaUserName%]
 echo  3 Change Exile Password    [%Password%]
 echo  4 Change Mods Directory    [%ModPath%]
 echo  5 Mandatory Mod Check
