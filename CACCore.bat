@@ -106,9 +106,6 @@ if not exist CACCore\moddir.txt set ModPath=Mods
 set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
-ping -n 1 %ip% | find "TTL" > nul
-if not errorlevel 1 set serverstatus=true
-if errorlevel 1 set serverstatus=false
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
 
 :MODPRELOADER
@@ -147,9 +144,6 @@ if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
-echo.
-if %serverstatus%==true color 2 & echo SERVER STATUS: UP
-if %serverstatus%==false color 4 & echo SERVER STATUS: DOWN
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
