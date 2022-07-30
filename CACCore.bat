@@ -226,11 +226,11 @@ GOTO End
 :Antistasi
 set Antistasi=-mod=%ModPath%@CBA_A3;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
 if %Status%==ENABLED goto AntistasiEXTENDED
-%A1% -port=3302 "%Antistasi%"
+%A2% -port=3302 "%Antistasi%"
 GOTO End
 :AntistasiEXTENDED
 if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-%A1% -port=3302 "%Antistasi%%o1%%o2%%o2addon%%o3%%o4%%o5%"
+%A2% -port=3302 "%Antistasi%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
