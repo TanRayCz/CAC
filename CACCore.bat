@@ -106,7 +106,12 @@ if not exist CACCore\moddir.txt set ModPath=Mods
 set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
+set ip2=156.38.212.203
+ping -n 1 %ip% | find "TTL" > nul
+if not errorlevel 1 set serverstatus=true
+if errorlevel 1 set serverstatus=false
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
+set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip2% -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -137,13 +142,16 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.8
+echo VERSION: 1.7.9
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
 echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
+echo.
+if %serverstatus%==true color 2 & echo SERVER STATUS: UP
+if %serverstatus%==false color 4 & echo SERVER STATUS: DOWN
 echo.
 echo  1 Exile Altis
 echo  2 Exile Tanoa
@@ -182,10 +190,10 @@ GOTO End
 :ExileTanoa
 set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A1% -port=2602 -password="%Password%" "%ExileTanoa%"
+%A2% -port=2602 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A1% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A2% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
