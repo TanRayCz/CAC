@@ -107,8 +107,10 @@ set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
 set ip2=156.38.212.203
+set ip3=213.155.225.186
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip2% -name="%ArmaUserName%"
+set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip3% -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -139,7 +141,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.8.0
+echo VERSION: 1.7.9
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -150,7 +152,7 @@ echo.
 echo  1 Antistasi RHS
 echo  2 Exile Tanoa
 ::echo  3 Coop PVE
-::echo  4 King of The Hill TVT
+echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
 ::echo  5 Dynamic Recon Ops CUP
 ::echo  6 Exile Altis
 ::echo  7 Exile Escape
@@ -239,10 +241,10 @@ GOTO End
 :KingofTheHill
 set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort
 if %Status%==ENABLED goto KOTHEXTENDED
-%A1% -port=2322 "%KOTH%" 
+%A3% -port=2302 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A1% -port=2322 "%KOTH%%o1%%o2%%o4%%o5%"
+%A3% -port=2302 "%KOTH%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :StatusChanger
