@@ -139,7 +139,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.9
+echo VERSION: 1.8.0
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -147,14 +147,14 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 Exile Altis
+echo  1 Antistasi RHS
 echo  2 Exile Tanoa
-echo  3 Coop PVE
-echo  4 King of The Hill TVT
-echo  5 Dynamic Recon Ops CUP
-echo  6 Antistasi RHS
-echo  7 Exile Escape
-echo  8 Antistasi S.O.G. Prarie Fire
+::echo  3 Coop PVE
+::echo  4 King of The Hill TVT
+::echo  5 Dynamic Recon Ops CUP
+::echo  6 Exile Altis
+::echo  7 Exile Escape
+::echo  8 Antistasi S.O.G. Prarie Fire
 echo.
 echo  9 CAC Settings
 echo.
@@ -165,12 +165,12 @@ IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO Antistasi
+IF ERRORLEVEL 6 GOTO ExileAltis
 IF ERRORLEVEL 5 GOTO DynamicReconOps
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
-IF ERRORLEVEL 1 GOTO ExileAltis
+IF ERRORLEVEL 1 GOTO Antistasi
 
 :ExileAltis
 set ExileAltis=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
