@@ -1,8 +1,8 @@
 cacservers.ddns.net:2302
-cacservers.ddns.net:2602
+156.38.212.203.net:2602
 cacservers.ddns.net:2702
 cacservers.ddns.net:3402
 cacservers.ddns.net:3502
-cacservers.ddns.net:3302
+156.38.212.203:3302
 cacservers.ddns.net:2372
 cacservers.ddns.net:2322
