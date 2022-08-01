@@ -152,7 +152,7 @@ echo.
 echo  1 Antistasi RHS
 echo  2 Exile Tanoa
 ::echo  3 Coop PVE
-echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
+::echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
 ::echo  5 Dynamic Recon Ops CUP
 ::echo  6 Exile Altis
 ::echo  7 Exile Escape
