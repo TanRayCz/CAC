@@ -151,10 +151,10 @@ if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Antistasi RHS
 echo  2 Exile Tanoa
-::echo  3 Coop PVE
+echo  3 Exile Altis
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
 ::echo  5 Dynamic Recon Ops CUP
-::echo  6 Exile Altis
+::echo  6 Coop PVE
 ::echo  7 Exile Escape
 ::echo  8 Antistasi S.O.G. Prarie Fire
 echo.
@@ -167,10 +167,10 @@ IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 IF ERRORLEVEL 8 GOTO PrarieFire
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO ExileAltis
+IF ERRORLEVEL 6 GOTO Coop
 IF ERRORLEVEL 5 GOTO DynamicReconOps
 IF ERRORLEVEL 4 GOTO KingofTheHill
-IF ERRORLEVEL 3 GOTO Coop
+IF ERRORLEVEL 3 GOTO ExileAltis
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO Antistasi
 
