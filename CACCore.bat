@@ -186,7 +186,7 @@ GOTO End
 :ExileTanoa
 set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A1% -port=2602 -password="%Password%" "%ExileTanoa%"
+%A1% -port=2502 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
 %A1% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
