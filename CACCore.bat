@@ -177,19 +177,19 @@ IF ERRORLEVEL 1 GOTO Antistasi
 :ExileAltis
 set ExileAltis=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileAltisEXTENDED
-%A1% -port=2302 -password="%Password%" "%ExileAltis%"
+%A2% -port=2302 -password="%Password%" "%ExileAltis%"
 GOTO End
 :ExileAltisEXTENDED
-%A1% -port=2302 -password="%Password%" "%ExileAltis%%o1%%o2%%o4%%o5%"
+%A2% -port=2302 -password="%Password%" "%ExileAltis%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :ExileTanoa
 set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A2% -port=2602 -password="%Password%" "%ExileTanoa%"
+%A1% -port=2602 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A1% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
