@@ -189,7 +189,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A1% -port=2502 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A1% -port=2602 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A1% -port=2502 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
