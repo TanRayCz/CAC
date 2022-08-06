@@ -152,11 +152,11 @@ echo.
 echo  1 Antistasi RHS
 echo  2 Exile Tanoa
 echo  3 Exile Altis
-echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
-::echo  5 Dynamic Recon Ops CUP
+echo  4 Antistasi S.O.G. Prarie Fire
+echo  5 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
 ::echo  6 Coop PVE
 ::echo  7 Exile Escape
-::echo  8 Antistasi S.O.G. Prarie Fire
+::echo  8 Dynamic Recon Ops CUP
 echo.
 echo  9 CAC Settings
 echo.
@@ -165,11 +165,11 @@ echo.
 choice /C 1234567890 /M "Choose CAC Server"
 IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
-IF ERRORLEVEL 8 GOTO PrarieFire
+IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO Coop
-IF ERRORLEVEL 5 GOTO DynamicReconOps
-IF ERRORLEVEL 4 GOTO KingofTheHill
+IF ERRORLEVEL 5 GOTO KingofTheHill
+IF ERRORLEVEL 4 GOTO PrarieFire
 IF ERRORLEVEL 3 GOTO ExileAltis
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO Antistasi
