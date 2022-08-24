@@ -108,9 +108,11 @@ set /p ArmaUserName=<CACCore\username.txt
 set ip=91.246.238.228
 set ip2=156.38.212.203
 set ip3=213.155.225.186
+set ip4=unladencoconut.ddns.net
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip3% -name="%ArmaUserName%"
+set A4=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip4% -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -154,7 +156,7 @@ echo  2 Exile Tanoa
 echo  3 Exile Altis
 echo  4 Antistasi S.O.G. Prarie Fire
 echo  5 King of The Hill [Variable Uptime/Event only - Request TanRayCz if server is down]
-::echo  6 Coop PVE
+echo  6 Coop PVE
 ::echo  7 Exile Escape
 ::echo  8 Dynamic Recon Ops CUP
 echo.
@@ -195,10 +197,10 @@ GOTO End
 :Coop
 set Coop=-mod=%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto CoopEXTENDED
-%A1% -port=2702 "%Coop%"
+%A4% -port=2702 "%Coop%"
 GOTO End
 :CoopEXTENDED
-%A1% -port=2702 "%Coop%%o1%%o2%%o3%%o4%%o5%"
+%A4% -port=2702 "%Coop%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :PrarieFire
