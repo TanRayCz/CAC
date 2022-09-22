@@ -393,7 +393,7 @@ echo  1 Optional Mods Management [%Status%]
 echo  2 Change Username/Profile  [%ArmaUserName%]
 echo  3 Change Exile Password    [%Password%]
 echo  4 Change Mods Directory    [%ModPath%]
-echo  5 Mandatory Mod Check
+echo  5 Mandatory Mods Check
 echo.
 echo  6 Return
 echo.
