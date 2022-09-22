@@ -390,7 +390,7 @@ cls
 color 2
 echo.
 echo  1 Optional Mods Management [%Status%]
-echo  2 Change Username/profile  [%ArmaUserName%]
+echo  2 Change Username/Profile  [%ArmaUserName%]
 echo  3 Change Exile Password    [%Password%]
 echo  4 Change Mods Directory    [%ModPath%]
 echo  5 Mandatory Mod Check
