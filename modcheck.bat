@@ -2,7 +2,7 @@
 color 4
 cls
 
-echo  ---MANDATORY MOD CHECK---
+echo  ---MANDATORY MODS CHECK---
 
 echo.
 echo -Antistasi
