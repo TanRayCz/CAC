@@ -1,5 +1,5 @@
 156.38.212.203:2302
-cacservers.ddns.net:2502
+cacservers.ddns.net:2402
 213.155.225.186:2302
 unladencoconut.ddns.net:2702
 cacservers.ddns.net:3402
