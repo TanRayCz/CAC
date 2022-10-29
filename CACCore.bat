@@ -106,7 +106,7 @@ if not exist CACCore\moddir.txt set ModPath=Mods
 set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip=cacservers.ddns.net
-set ip2=156.38.212.203
+set ip2=cacservers.servebeer.com
 set ip3=213.155.225.186
 set ip4=unladencoconut.ddns.net
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
