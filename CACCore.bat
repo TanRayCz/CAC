@@ -294,9 +294,9 @@ if exist "Mods/@DUI" (echo  3 - @DUI		                                        ST
 if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 echo.
-echo  6 - Refresh
+echo  6 - Return
 echo.
-echo  7 - Return
+echo  7 - Refresh
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
@@ -305,8 +305,8 @@ IF "%M%"=="2" GOTO JSRS_SOUNDMOD
 IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
-IF "%M%"=="6" GOTO ModSettings
-IF "%M%"=="7" GOTO CACSETTINGS
+IF "%M%"=="6" GOTO CACSETTINGS
+IF "%M%"=="7" GOTO ModSettings
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
