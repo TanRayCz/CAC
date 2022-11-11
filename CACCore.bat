@@ -143,7 +143,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.9 (2.10.149954)
+echo VERSION: 1.7.10 (2.10.149954)
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
@@ -294,7 +294,9 @@ if exist "Mods/@DUI" (echo  3 - @DUI		                                        ST
 if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 echo.
-echo  6 - Return
+echo  6 - Refresh
+echo.
+echo  7 - Return
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
@@ -303,7 +305,8 @@ IF "%M%"=="2" GOTO JSRS_SOUNDMOD
 IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
-IF "%M%"=="6" GOTO RESTART
+IF "%M%"=="6" GOTO ModSettings
+IF "%M%"=="7" GOTO CACSETTINGS
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
