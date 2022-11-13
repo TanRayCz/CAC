@@ -152,11 +152,11 @@ if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Antistasi RHS
-echo  2 Exile Tanoa [Offline]
-echo  3 Exile Altis
-echo  4 Antistasi S.O.G. Prarie Fire [Offline]
-echo  5 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
-echo  6 Coop PVE
+echo  2 Exile Tanoa 
+echo  3 Coop PVE
+echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
+::echo  5 Antistasi S.O.G. Prarie Fire
+::echo  6 Exile Altis
 ::echo  7 Exile Escape
 ::echo  8 Dynamic Recon Ops CUP
 echo.
@@ -169,10 +169,10 @@ IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO ExileEscape
-IF ERRORLEVEL 6 GOTO Coop
-IF ERRORLEVEL 5 GOTO KingofTheHill
-IF ERRORLEVEL 4 GOTO PrarieFire
-IF ERRORLEVEL 3 GOTO ExileAltis
+IF ERRORLEVEL 6 GOTO ExileAltis
+IF ERRORLEVEL 5 GOTO PrarieFire
+IF ERRORLEVEL 4 GOTO KingofTheHill
+IF ERRORLEVEL 3 GOTO Coop
 IF ERRORLEVEL 2 GOTO ExileTanoa
 IF ERRORLEVEL 1 GOTO Antistasi
 
@@ -188,10 +188,10 @@ GOTO End
 :ExileTanoa
 set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A1% -port=2402 -password="%Password%" "%ExileTanoa%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A1% -port=2502 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :Coop
