@@ -152,9 +152,9 @@ if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Antistasi RHS
-echo  2 Exile Tanoa
+echo  2 Exile Tanoa [Offline]
 echo  3 Exile Altis
-echo  4 Antistasi S.O.G. Prarie Fire
+echo  4 Antistasi S.O.G. Prarie Fire [Offline]
 echo  5 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
 echo  6 Coop PVE
 ::echo  7 Exile Escape
