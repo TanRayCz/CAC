@@ -195,7 +195,7 @@ GOTO End
 GOTO End
 
 :Coop
-set Coop=-mod=%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
+set Coop=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto CoopEXTENDED
 %A4% -port=2702 "%Coop%"
 GOTO End
@@ -222,7 +222,7 @@ GOTO End
 GOTO End
 
 :Antistasi
-set Antistasi=-mod=%ModPath%@CBA_A3;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
+set Antistasi=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
 if %Status%==ENABLED goto AntistasiEXTENDED
 %A2% -port=3302 "%Antistasi%"
 GOTO End
