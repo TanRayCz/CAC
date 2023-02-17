@@ -151,9 +151,9 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 Antistasi RHS
-echo  2 Exile Tanoa 
-echo  3 Coop PVE
+echo  1 Antistasi 1
+echo  2 Antistasi 2 
+echo  3 Exile Tanoa
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
 ::echo  5 Antistasi S.O.G. Prarie Fire
 ::echo  6 Exile Altis
@@ -172,9 +172,9 @@ IF ERRORLEVEL 7 GOTO ExileEscape
 IF ERRORLEVEL 6 GOTO ExileAltis
 IF ERRORLEVEL 5 GOTO PrarieFire
 IF ERRORLEVEL 4 GOTO KingofTheHill
-IF ERRORLEVEL 3 GOTO Coop
-IF ERRORLEVEL 2 GOTO ExileTanoa
-IF ERRORLEVEL 1 GOTO Antistasi
+IF ERRORLEVEL 3 GOTO ExileTanoa
+IF ERRORLEVEL 2 GOTO Antistasi2
+IF ERRORLEVEL 1 GOTO Antistasi1
 
 :ExileAltis
 set ExileAltis=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
@@ -194,13 +194,13 @@ GOTO End
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
-:Coop
-set Coop=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
-if %Status%==ENABLED goto CoopEXTENDED
-%A4% -port=2702 "%Coop%"
+:Antistasi2
+set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
+if %Status%==ENABLED goto Antistasi2EXTENDED
+%A4% -port=2702 "%Antistasi2%"
 GOTO End
-:CoopEXTENDED
-%A4% -port=2702 "%Coop%%o1%%o2%%o3%%o4%%o5%"
+:Antistasi2EXTENDED
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
 :PrarieFire
@@ -221,14 +221,14 @@ GOTO End
 %A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%"
 GOTO End
 
-:Antistasi
-set Antistasi=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
-if %Status%==ENABLED goto AntistasiEXTENDED
-%A2% -port=3302 "%Antistasi%"
+:Antistasi1
+set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
+if %Status%==ENABLED goto Antistasi1EXTENDED
+%A2% -port=3302 "%Antistasi1%"
 GOTO End
-:AntistasiEXTENDED
+:Antistasi1EXTENDED
 if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-%A2% -port=3302 "%Antistasi%%o1%%o2%%o2addon%%o3%%o4%%o5%"
+%A2% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
