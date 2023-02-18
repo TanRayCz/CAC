@@ -1,6 +1,6 @@
 @echo off
 :RESTART
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
+curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/hosts.txt > hosts.txt 2> nul
 set title=echo Arma 3 CAC Launcher - discord.gg/dNGcyEYK8F
 set EXE=steam.exe
 if not exist "CACCore" md "CACCore"
@@ -385,7 +385,7 @@ echo %ArmaUserName%>CACCore\username.txt
 GOTO UserCtl
 
 :MODCHECK
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
+curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
 call CACCore\modcheck.bat
 
 :CACSETTINGS
@@ -470,7 +470,7 @@ GOTO PASSWORDMANAGER
 
 :End
 cls
-curl https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
+curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.txt > CACCore\logo.txt 2> nul
 type CACCore\logo.txt
 timeout 3 > nul
 exit

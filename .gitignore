@@ -19,3 +19,4 @@ CACCore/moddir.txt
 .vs/CAC/FileContentIndex/ab9e96f3-aad2-44b1-a44f-008983b40e72.vsidx
 .vs/CAC/FileContentIndex/read.lock
 CACCore/modcheck.bat
+*.vsidx
