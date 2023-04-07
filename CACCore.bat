@@ -140,10 +140,13 @@ if %@Blastcore%==ENABLED set o4=;%ModPath%@Blastcore
 if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
+set launcherversion=1.7.12
+set gameversion=2.12.150301
+
 color 2
 title Arma 3 CAC Launcher
 echo.
-echo VERSION: 1.7.11 (2.12.150301)
+echo VERSION: %launcherversion% (%gameversion%)
 echo.
 if "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName% (Default)
 if not "%username%"=="%ArmaUserName%" echo USERNAME: %ArmaUserName%
