@@ -21,9 +21,9 @@ if not exist "Mods/@CAC_AE1.4" echo @CAC_AE1.4 NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@CUPTerrainsCore" echo @CUPTerrainsCore NOT FOUND
 if not exist "Mods/@CUPTerrainsMaps" echo @CUPTerrainsMaps NOT FOUND
-if not exist "Mods/@CUPUnits" echo @@CUPUnits NOT FOUND
-if not exist "Mods/@CUPVehicles" echo @@CUPVehicles NOT FOUND
-if not exist "Mods/@CUPWeapons" echo @@CUPWeapons NOT FOUND
+if not exist "Mods/@CUPUnits" echo @CUPUnits NOT FOUND
+if not exist "Mods/@CUPVehicles" echo @CUPVehicles NOT FOUND
+if not exist "Mods/@CUPWeapons" echo @CUPWeapons NOT FOUND
 if not exist "Mods/@DSHouses" echo @DSHouses NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
 if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
