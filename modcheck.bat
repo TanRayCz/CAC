@@ -2,7 +2,7 @@
 color 4
 cls
 
-echo  ---MANDATORY MODS CHECK---
+echo  ---THE FOLLOWING MODS ARE MISSING:---
 
 echo.
 echo -Antistasi1 + Antistasi2
