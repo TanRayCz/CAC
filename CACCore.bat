@@ -198,7 +198,7 @@ GOTO End
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
+set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
@@ -225,7 +225,7 @@ GOTO End
 GOTO End
 
 :Antistasi1
-set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
+set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
 if %Status%==ENABLED goto Antistasi1EXTENDED
 %A2% -port=3302 "%Antistasi1%"
 GOTO End
