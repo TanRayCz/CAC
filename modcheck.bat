@@ -2,10 +2,10 @@
 color 4
 cls
 
-echo  ---THE FOLLOWING MODS ARE MISSING:---
+echo  ---MANDATORY MOD CHECKER---
 
 echo.
-echo -Antistasi1 + Antistasi2
+echo -Mods missing for Antistasi1 + Antistasi2 servers:
 
 if not exist "Mods/@ace" echo @ace NOT FOUND
 if not exist "Mods/@ACEComRHSAFRF" echo @ACEComRHSAFRF NOT FOUND
@@ -39,7 +39,7 @@ if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist "Mods/@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
-echo -Exile Tanoa
+echo -Mods missing for Exile Tanoa server:
 
 if not exist "Mods/@Exile" echo @Exile NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
@@ -52,7 +52,7 @@ if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
 if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
 
 echo.
-echo -Exile Escape
+echo -Mods missing for Exile Escape server:
 
 if not exist "Mods/@Exile" echo @Exile NOT FOUND
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
@@ -61,7 +61,7 @@ if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
 if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
 
 echo.
-echo -KoTH
+echo -Mods missing for King of The Hill serever:
 
 if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
 if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
