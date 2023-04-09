@@ -197,6 +197,16 @@ GOTO End
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
 GOTO End
 
+:Antistasi1
+set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
+if %Status%==ENABLED goto Antistasi1EXTENDED
+%A2% -port=3302 "%Antistasi1%"
+GOTO End
+:Antistasi1EXTENDED
+if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
+%A2% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
+GOTO End
+
 :Antistasi2
 set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
 if %Status%==ENABLED goto Antistasi2EXTENDED
@@ -222,16 +232,6 @@ if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 GOTO End
 :DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%"
-GOTO End
-
-:Antistasi1
-set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@Anizay;%ModPath%@KunduzAfgFD;%ModPath%@TembelanIsland;%ModPath%@VirolahtiValtatie7;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@DSHouses;%ModPath%@InteriorsforCUP;%ModPath%@SM_Sheds;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Blastcore
-if %Status%==ENABLED goto Antistasi1EXTENDED
-%A2% -port=3302 "%Antistasi1%"
-GOTO End
-:Antistasi1EXTENDED
-if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-%A2% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :ExileEscape
