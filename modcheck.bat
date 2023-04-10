@@ -1,12 +1,5 @@
 @echo off
 color 4
-if "%1" == "" (
-  echo Error: ModPath not specified.
-  echo Usage: modchecker.bat ^<ModPath^>
-  exit /b 1
-)
-
-set ModPath=%1
 cls
 
 echo  ---MANDATORY MOD CHECKER---
@@ -47,26 +40,51 @@ if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
 echo -Mods missing for Antistasi2 server:
+setlocal enabledelayedexpansion
 
-rem Loop through the mods listed in Antistasi2 variable
-for %%a in (%Antistasi2%) do (
-    rem Extract mod folder name from the variable
-    set mod=%%~nxa
-
-    rem Check if mod folder exists in ModPath directory
-    if not exist "%ModPath%\%mod%" echo %mod% NOT FOUND
-)
-
-rem Extract mod folder names from -mod= parameter
-for %%b in (%*) do (
-    set mod=%%~nxb
-    if "!mod:~0,1!"=="@" (
-        set mod=!mod:~1!
-        rem Check if mod folder exists in ModPath directory
-        if not exist "%ModPath%\!mod!" echo !mod! NOT FOUND
+REM Read the mod names from CACCore.bat
+set "launcherFile=CACCore.bat"
+set "antistasi2ModLine="
+for /f "usebackq tokens=*" %%i in ("%launcherFile%") do (
+    set line=%%i
+    if defined line (
+        set "line=!line:~1!"
+        if "!line:~0,11!"=="set Antistasi2" set "antistasi2ModLine=!line!"
     )
 )
 
+REM Extract the mod names from Antistasi2 variable
+if defined antistasi2ModLine (
+    set "modLine=!antistasi2ModLine:~12!"
+    set "modLine=!modLine: =!"
+    set "modLine=!modLine:"=!"
+    set "modLine=!modLine:-mod=!"
+    set "modLine=!modLine:/mod=!"
+    set "modLine=!modLine:\;=!"
+    set "modLine=!modLine:\,=!"
+    set "modLine=!modLine:^,=!"
+    set "modLine=!modLine:\)=!"
+    set "modLine=!modLine:%%A=!"
+    set "modLine=!modLine:-=!"
+    set "modLine=!modLine:;=!"
+    set "modLine=!modLine:@=!"
+    set "modLine=!modLine:~0,-1!"
+
+    REM Generate if not exist... lines for each mod in the -mod= array
+    echo - Mods missing for Antistasi2 server:
+    echo.
+    echo if not exist "%ModPath%@CBA_A3" echo @CBA_A3 NOT FOUND
+    for %%m in (!modLine!) do (
+        echo if not exist "%ModPath%@%%m" echo @%%m NOT FOUND
+    )
+    echo.
+    echo Checking for missing mods in "Mods\"
+    echo Done checking for missing mods.
+) else (
+    echo Antistasi2 variable not found in %launcherFile%. Please make sure it is defined correctly.
+)
+
+endlocal
 echo.
 echo -Mods missing for Exile Tanoa server:
 
