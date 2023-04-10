@@ -46,13 +46,14 @@ if not exist %ModPath%"@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
-echo Checking for missing mods in %ModPath%...
+echo -Mods missing for Antistasi2 server:
 
 for %%M in (%Antistasi2%) do (
-  if not exist "%ModPath%\%%~nM" echo %%M NOT FOUND
+  set modName=%%M
+  echo %ModPath%\!modName:~1! | findstr /i /c:"!modName:~1!" >nul || echo %%M NOT FOUND
 )
 
-echo Done checking for missing mods.
+echo.
 echo -Mods missing for Exile Tanoa server:
 
 if not exist %ModPath%"@Exile" echo @Exile NOT FOUND
