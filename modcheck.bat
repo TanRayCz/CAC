@@ -39,15 +39,11 @@ if not exist %ModPath%"@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
-rem Extract the list of mods from Antistasi2 variable
-set ModsA2=%Antistasi2:-mod=%
-set ModsA2=%ModsA2:"=%
-set ModsA2=%ModsA2:;=&rem.%
-set ModsA2=%ModsA2:@=rem.%
-echo -Mods missing for Antistasi2 server:
-
-for %%M in (%ModsA2%) do (
-  if not exist "%%M" echo %%M NOT FOUND
+for %%M in (%Antistasi2%) do (
+  echo %%M | findstr /i /c:"-mod=" > nul
+  if errorlevel 1 (
+    if not exist "%%M" echo %%M NOT FOUND
+  )
 )
 
 echo. 
