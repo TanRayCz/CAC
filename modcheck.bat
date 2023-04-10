@@ -39,6 +39,8 @@ if not exist %ModPath%"@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
+echo -Mods missing for Antistasi2 server:
+
 for %%M in (%Antistasi2%) do (
   echo %%M | findstr /i /c:"-mod=" > nul
   if errorlevel 1 (
