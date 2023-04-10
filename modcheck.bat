@@ -48,9 +48,23 @@ if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 echo.
 echo -Mods missing for Antistasi2 server:
 
-for %%M in (%Antistasi2%) do (
-  set modName=%%M
-  echo %ModPath%\!modName:~1! | findstr /i /c:"!modName:~1!" >nul || echo %%M NOT FOUND
+rem Loop through the mods listed in Antistasi2 variable
+for %%a in (%Antistasi2%) do (
+    rem Extract mod folder name from the variable
+    set mod=%%~nxa
+
+    rem Check if mod folder exists in ModPath directory
+    if not exist "%ModPath%\%mod%" echo %mod% NOT FOUND
+)
+
+rem Extract mod folder names from -mod= parameter
+for %%b in (%*) do (
+    set mod=%%~nxb
+    if "!mod:~0,1!"=="@" (
+        set mod=!mod:~1!
+        rem Check if mod folder exists in ModPath directory
+        if not exist "%ModPath%\!mod!" echo !mod! NOT FOUND
+    )
 )
 
 echo.
