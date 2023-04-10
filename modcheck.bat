@@ -1,8 +1,12 @@
 @echo off
 color 4
-if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
-if not exist CACCore\moddir.txt set ModPath=Mods
-set ModPath=%ModPath%\
+if "%1" == "" (
+  echo Error: ModPath not specified.
+  echo Usage: modchecker.bat ^<ModPath^>
+  exit /b 1
+)
+
+set ModPath=%1
 cls
 
 echo  ---MANDATORY MOD CHECKER---
@@ -42,7 +46,7 @@ if not exist %ModPath%"@VET_Unflipping" echo @VET_Unflipping NOT FOUND
 if not exist %ModPath%"@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
 
 echo.
-echo -Mods missing for Antistasi2 server:
+echo Checking for missing mods in %ModPath%...
 
 for %%M in (%Antistasi2%) do (
   echo %%M | findstr /i /c:"-mod=" > nul
@@ -51,7 +55,7 @@ for %%M in (%Antistasi2%) do (
   )
 )
 
-echo. 
+echo Done checking for missing mods.
 echo -Mods missing for Exile Tanoa server:
 
 if not exist %ModPath%"@Exile" echo @Exile NOT FOUND
