@@ -1,5 +1,8 @@
 @echo off
 color 4
+if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
+if not exist CACCore\moddir.txt set ModPath=Mods
+set ModPath=%ModPath%\
 cls
 
 echo  ---MANDATORY MOD CHECKER---
