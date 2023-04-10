@@ -42,8 +42,10 @@ echo.
 echo -Mods missing for Antistasi2 server:
 setlocal enabledelayedexpansion
 
-REM Read the mod names from CACCore.bat
+REM Define the launcher file name
 set "launcherFile=CACCore.bat"
+
+REM Read the mod names from launcherFile
 set "antistasi2ModLine="
 for /f "usebackq tokens=*" %%i in ("%launcherFile%") do (
     set line=%%i
