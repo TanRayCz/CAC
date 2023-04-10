@@ -389,7 +389,7 @@ GOTO UserCtl
 
 :MODCHECK
 curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/modcheck.bat > CACCore\modcheck.bat 2> nul
-call CACCore\modcheck.bat
+call CACCore\modcheck.bat "%ModPath%"
 
 :CACSETTINGS
 cls 
