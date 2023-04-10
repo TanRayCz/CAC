@@ -7,7 +7,7 @@ echo  ---MANDATORY MOD CHECKER---
 echo.
 echo -Mods missing for Antistasi1 + Antistasi2 servers:
 
-if not exist "Mods/@ace" echo @ace NOT FOUND
+if not exist %ModPath%"@ace" echo @ace NOT FOUND
 if not exist "Mods/@ACEComRHSAFRF" echo @ACEComRHSAFRF NOT FOUND
 if not exist "Mods/@ACEComRHSGREF" echo @ACEComRHSGREF NOT FOUND
 if not exist "Mods/@ACEComRHSUSAF" echo @ACEComRHSUSAF NOT FOUND
