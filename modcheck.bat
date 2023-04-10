@@ -50,7 +50,7 @@ for %%M in (%ModsA2%) do (
   if not exist "%%M" echo %%M NOT FOUND
 )
 
-echo 
+echo. 
 echo -Mods missing for Exile Tanoa server:
 
 if not exist %ModPath%"@Exile" echo @Exile NOT FOUND
