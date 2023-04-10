@@ -49,10 +49,7 @@ echo.
 echo Checking for missing mods in %ModPath%...
 
 for %%M in (%Antistasi2%) do (
-  echo %%M | findstr /i /c:"-mod=" > nul
-  if errorlevel 1 (
-    if not exist "%%M" echo %%M NOT FOUND
-  )
+  if not exist "%ModPath%\%%~nM" echo %%M NOT FOUND
 )
 
 echo Done checking for missing mods.
