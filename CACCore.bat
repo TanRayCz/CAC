@@ -167,7 +167,7 @@ echo  9 CAC Settings
 echo.
 echo  0 Exit CAC Launcher
 echo.
-choice /C 123490 /M "Choose CAC Server"
+choice /C 1234567890 /M "Choose CAC Server"
 IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
