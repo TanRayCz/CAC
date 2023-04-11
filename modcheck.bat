@@ -1,99 +1,55 @@
 @echo off
-color 4
 cls
+setlocal enabledelayedexpansion
 
-echo  ---MANDATORY MOD CHECKER---
+REM Set the names of the variables to be checked
+set "varname1=Antistasi1"
+set "varname2=Antistasi2"
+set "varname3=ExileTanoa"
 
-echo.
-echo -Mods missing for Antistasi1 + Antistasi2 servers:
+REM Get the current directory where modcheck.bat is located
+set "script_dir=%~dp0"
 
-if not exist %ModPath%"@ace" echo @ace NOT FOUND
-if not exist "Mods/@ACEComRHSAFRF" echo @ACEComRHSAFRF NOT FOUND
-if not exist "Mods/@ACEComRHSGREF" echo @ACEComRHSGREF NOT FOUND
-if not exist "Mods/@ACEComRHSUSAF" echo @ACEComRHSUSAF NOT FOUND
-if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
-if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
-if not exist "Mods/@Anizay" echo @Anizay NOT FOUND
-if not exist "Mods/@Antistasi" echo @Antistasi NOT FOUND
-if not exist "Mods/@AWR" echo @AWR NOT FOUND
-if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-if not exist "Mods/@CAC_AE1.4" echo @CAC_AE1.4 NOT FOUND
-if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-if not exist "Mods/@CUPTerrainsCore" echo @CUPTerrainsCore NOT FOUND
-if not exist "Mods/@CUPTerrainsMaps" echo @CUPTerrainsMaps NOT FOUND
-if not exist "Mods/@CUPUnits" echo @CUPUnits NOT FOUND
-if not exist "Mods/@CUPVehicles" echo @CUPVehicles NOT FOUND
-if not exist "Mods/@CUPWeapons" echo @CUPWeapons NOT FOUND
-if not exist "Mods/@DSHouses" echo @DSHouses NOT FOUND
-if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
-if not exist "Mods/@KunduzAfgFD" echo @KunduzAfgFD NOT FOUND
-if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
-if not exist "Mods/@RealEngine" echo @RealEngine NOT FOUND
-if not exist "Mods/@RHSAFRF" echo @RHSAFRF NOT FOUND
-if not exist "Mods/@RHSGREF" echo @RHSGREF NOT FOUND
-if not exist "Mods/@RHSUSAF" echo @RHSUSAF NOT FOUND
-if not exist "Mods/@SM_Sheds" echo @SM_Sheds NOT FOUND
-if not exist "Mods/@TembelanIsland" echo @TembelanIsland NOT FOUND
-if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
-if not exist "Mods/@VirolahtiValtatie7" echo @VirolahtiValtatie7 NOT FOUND
+REM Build the path to CACCore.bat using the current directory
+set "cacc_path=%script_dir%..\CACCore.bat"
 
-echo.
-echo -Mods missing for Exile Tanoa server:
+REM Loop through all the variable names and check for missing mods
+for %%v in ("%varname1%" "%varname2%" "%varname3%") do (
+  set "varname=%%~v"
 
-if not exist "Mods/@Exile" echo @Exile NOT FOUND
-if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-if not exist "Mods/@DualArms" echo @DualArms NOT FOUND
-if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
-if not exist "Mods/@Extended_Base_Mod" echo @Extended_Base_Mod NOT FOUND
-if not exist "Mods/@X66-MammothTank" echo @X66-MammothTank NOT FOUND
-if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
-if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
+  REM Extract the value of the specified variable from CACCore.bat
+  for /f "tokens=1,* delims== " %%a in ('type "%cacc_path%" ^| findstr /c:"set !varname!="') do set "varvalue=%%b"
 
-echo.
-echo -Mods missing for Exile Escape server:
+  REM Remove -mod prefix from the variable value
+  set "varvalue=!varvalue:-mod =!"
 
-if not exist "Mods/@Exile" echo @Exile NOT FOUND
-if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-if not exist "Mods/@DualArms" echo @DualArms NOT FOUND
-if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
+  REM Replace %ModPath% with the actual path in the variable value
+  set "varvalue=!varvalue:%%ModPath%%=!"
 
-echo.
-echo -Mods missing for King of The Hill serever:
+  REM Extract the mod names from the variable value
+  set "missing_mods="
+  for %%m in (!varvalue!) do (
+    if /i "%%~m" neq "!varname!" if /i "%%~m" neq "-mod" (
+      REM Check if the mod folder exists in %ModPath%
+      if not exist "%ModPath%\%%~m" (
+        set "missing_mods=!missing_mods!%%~m "
+      )
+    )
+  )
 
-if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
-if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
+  REM Print the list of missing mods vertically using a for loop
+  if defined missing_mods (
+    ::color 4
+	echo     Missing mods for !varname! server:
+    for %%m in (!missing_mods!) do echo     					%%m
+	echo.
+  ) else (
+    echo     No missing mods for !varname! server.
+  )
+  echo.
+)
 
-echo.
-::echo -Wasteland
+endlocal
 
-::if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-::if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-::if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
-::if not exist "Mods/@DualArms" echo @DualArms NOT FOUND
-::if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
-::if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
-::if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
-::if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-
-::echo.
-::echo -Prairie
-
-::if not exist "vn" echo DLC NOT FOUND
-::if not exist "Mods/@ace" echo @ace NOT FOUND
-::if not exist "Mods/@CBA_A3" echo @CBA_A3 NOT FOUND
-::if not exist "Mods/@EnhancedMovement" echo @EnhancedMovement NOT FOUND
-::if not exist "Mods/@EnhancedMovementRework" echo @EnhancedMovementRework NOT FOUND
-::if not exist "Mods/@MfHealAbort" echo @MfHealAbort NOT FOUND
-::if not exist "Mods/@VET_Unflipping" echo @VET_Unflipping NOT FOUND
-::if not exist "Mods/@AdvancedRappelling" echo @AdvancedRappelling NOT FOUND
-::if not exist "Mods/@AdvancedUrbanRappelling" echo @AdvancedUrbanRappelling NOT FOUND
-::if not exist "Mods/@Blastcore" echo @Blastcore NOT FOUND
-
-::echo.
 pause
 call CACCore.bat
