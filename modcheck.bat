@@ -6,6 +6,7 @@ REM Set the names of the variables to be checked
 set "varname1=Antistasi1"
 set "varname2=Antistasi2"
 set "varname3=ExileTanoa"
+set "varname4=KingOfTheHill"
 
 REM Get the current directory where modcheck.bat is located
 set "script_dir=%~dp0"
@@ -14,7 +15,7 @@ REM Build the path to CACCore.bat using the current directory
 set "cacc_path=%script_dir%..\CACCore.bat"
 
 REM Loop through all the variable names and check for missing mods
-for %%v in ("%varname1%" "%varname2%" "%varname3%") do (
+for %%v in ("%varname1%" "%varname2%" "%varname3%" "%varname4%") do (
   set "varname=%%~v"
 
   REM Extract the value of the specified variable from CACCore.bat
