@@ -140,7 +140,7 @@ if %@Blastcore%==ENABLED set o4=;%ModPath%@Blastcore
 if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.00
+set launcherversion=1.8.0
 set gameversion=2.12.150301
 
 color 2
