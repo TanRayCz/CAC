@@ -198,7 +198,7 @@ GOTO End
 GOTO End
 
 :Antistasi1
-set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@ACEComRHSAFRF;%ModPath%@ACEComRHSGREF;%ModPath%@ACEComRHSUSAF;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@TembelanIsland;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
+set Antistasi1=-mod=vn;%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE1.4;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto Antistasi1EXTENDED
 %A2% -port=3302 "%Antistasi1%"
 GOTO End
