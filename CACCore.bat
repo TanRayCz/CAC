@@ -141,7 +141,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
-set gameversion=2.12.150301
+set gameversion=2.12.150779
 
 color 2
 title Arma 3 CAC Launcher
