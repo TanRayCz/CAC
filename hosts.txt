@@ -4,6 +4,6 @@ cackoth.servebeer.com:2302
 unladencoconut.ddns.net:2702
 cacservers.ddns.net:3402
 cacservers.ddns.net:3502
-cacservers.servebeer.com:3302
+unladencoconut.ddns.net:3302
 cacservers.ddns.net:2372
 cacservers.ddns.net:2322
