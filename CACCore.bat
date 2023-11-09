@@ -200,11 +200,11 @@ GOTO End
 :Antistasi1
 set Antistasi1=-mod=spe;%ModPath%@CUPTerrainsCore;%ModPath%@CBA_A3;%ModPath%@IFA3;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto Antistasi1EXTENDED
-%A2% -port=3302 "%Antistasi1%"
+%A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
 if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-%A2% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 GOTO End
 
 :Antistasi2
