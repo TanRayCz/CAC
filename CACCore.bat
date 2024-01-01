@@ -110,7 +110,7 @@ set ip2=cacservers.servebeer.com
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
-set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip2% -name="%ArmaUserName%"
+set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip3% -name="%ArmaUserName%"
 set A4=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip4% -name="%ArmaUserName%"
 
@@ -141,7 +141,7 @@ if %@Blastcore%==DISABLED set o4= & set o5=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
-set gameversion=2.14.150779
+set gameversion=2.14.150957
 
 color 2
 title Arma 3 CAC Launcher
@@ -158,7 +158,7 @@ echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 Exile Tanoa
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
-REM   5 Exile Escape
+echo  5 Exile Escape [Variable Uptime/Event only]
 REM   6 Exile Altis
 REM   7 Antistasi S.O.G. Prarie Fire
 REM   8 Dynamic Recon Ops CUP
@@ -173,7 +173,7 @@ IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 REM IF ERRORLEVEL 7 GOTO PrarieFire
 REM IF ERRORLEVEL 6 GOTO ExileAltis
-REM IF ERRORLEVEL 5 GOTO ExileEscape
+IF ERRORLEVEL 5 GOTO ExileEscape
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO ExileTanoa
 IF ERRORLEVEL 2 GOTO Antistasi2
@@ -241,9 +241,9 @@ GOTO End
 GOTO End
 
 :ExileEscape
-set ExileEscape=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework
+set ExileEscape=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort
 if %Status%==ENABLED goto ExileEscapeEXTENDED
-%A1% -port=2372 "%ExileEscape%"
+%A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
 %A1% -port=2372 "%ExileEscape%%o1%%o2%"
