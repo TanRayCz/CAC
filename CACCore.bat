@@ -211,7 +211,7 @@ GOTO End
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace_nouniformrestrictions
+set Antistasi2=-mod=spe;%ModPath%@CBA_A3;%ModPath%@KunduzAfgFD;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@IFA3;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
