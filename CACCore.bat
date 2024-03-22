@@ -120,12 +120,14 @@ if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.t
 if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
+if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInventory.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @DUI=<CACCore\@DUI.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
+set /p @BetterInventory=<CACCore\@BetterInventory.txt
 
 if %@ARM%==ENABLED set o1=;%ModPath%@ARM
 if %@ARM%==DISABLED set o1=
@@ -133,11 +135,12 @@ if %@JSRS_SOUNDMOD%==ENABLED set o2=;%ModPath%@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o2=
 if %@DUI%==ENABLED set o3=;%ModPath%@DUI
 if %@DUI%==DISABLED set o3=
-
-if %@VanillaSmokeForBlastcore%==ENABLED set o5=;%ModPath%@VanillaSmokeForBlastcore
-if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 if %@Blastcore%==ENABLED set o4=;%ModPath%@Blastcore
 if %@Blastcore%==DISABLED set o4= & set o5=
+if %@VanillaSmokeForBlastcore%==ENABLED set o5=;%ModPath%@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set o5=
+if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
+if %@BetterInventory%==DISABLED set o6=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
@@ -203,7 +206,7 @@ if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%"
 ::RHS::
 ::if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
 ::%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
@@ -303,6 +306,7 @@ if exist "Mods/@JSRS_SOUNDMOD" (echo  2 - @JSRS_SOUNDMOD	                       
 if exist "Mods/@DUI" (echo  3 - @DUI		                                        STATUS: %@DUI%) else echo  3 - @DUI		                                        STATUS: NOT FOUND
 if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                       STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
 echo.
 echo  6 - Return
 echo.
@@ -315,8 +319,9 @@ IF "%M%"=="2" GOTO JSRS_SOUNDMOD
 IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
-IF "%M%"=="6" GOTO CACSETTINGS
-IF "%M%"=="7" GOTO ModSettings
+IF "%M%"=="6" GOTO BetterInventory
+IF "%M%"=="7" GOTO CACSETTINGS
+IF "%M%"=="8" GOTO ModSettings
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
@@ -354,6 +359,13 @@ set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
+goto ModSettings
+
+:BetterInventory
+set /p ModPath=<CACCore\@BetterInventory.txt
+if %ModPath%==DISABLED del CACCore\@BetterInventory.txt & echo ENABLED > CACCore\@BetterInventory.txt
+if %ModPath%==ENABLED del CACCore\@BetterInventory.txt & echo DISABLED > CACCore\@BetterInventory.txt
+set /p @ARM=<CACCore\@BetterInventory.txt
 goto ModSettings
 
 :UserCtl
