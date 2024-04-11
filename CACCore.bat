@@ -144,7 +144,7 @@ if %@BetterInventory%==DISABLED set o6=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
-set gameversion=2.14.150957
+set gameversion=2.16.151618
 
 color 2
 title Arma 3 CAC Launcher
