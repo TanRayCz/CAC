@@ -214,15 +214,15 @@ GOTO End
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=vn;%ModPath%@CBA_A3;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@ace;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+set Antistasi2=-mod=vn;%ModPath%@CBA_A3;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@ace;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%"
+%A2% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%"
+%A2% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%"
 ::RHS::
 ::if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-::%A4% -port=3302 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%"
+::%A2% -port=3302 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%"
 ::RHS_End::
 GOTO End
 
