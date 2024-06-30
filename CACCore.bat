@@ -157,7 +157,7 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 Antistasi 1
+echo  1 Antistasi 1 [Temporary Offline]
 echo  2 Antistasi 2 
 echo  3 Exile Tanoa
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
