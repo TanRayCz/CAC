@@ -7,6 +7,8 @@ set "varname1=Antistasi1"
 set "varname2=Antistasi2"
 set "varname3=ExileTanoa"
 set "varname4=KOTH"
+set "varname5=KPLib"
+set "varname6=SpecOps"
 
 REM Get the current directory where modcheck.bat is located
 set "script_dir=%~dp0"
