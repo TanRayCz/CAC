@@ -17,7 +17,7 @@ REM Build the path to CACCore.bat using the current directory
 set "cacc_path=%script_dir%..\CACCore.bat"
 
 REM Loop through all the variable names and check for missing mods
-for %%v in ("%varname1%" "%varname2%" "%varname3%" "%varname4%") do (
+for %%v in ("%varname1%" "%varname2%" "%varname3%" "%varname4%" "%varname5%" "%varname6%") do (
   set "varname=%%~v"
 
   REM Extract the value of the specified variable from CACCore.bat
