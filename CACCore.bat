@@ -109,10 +109,12 @@ set ip=cacservers.ddns.net
 set ip2=cacservers.servebeer.com
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
+set ip5=cac-specialops.duckdns.org
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -connect=%ip3% -name="%ArmaUserName%"
 set A4=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip4% -name="%ArmaUserName%"
+set A5=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip5% -name="%ArmaUserName%"
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
@@ -162,8 +164,8 @@ echo  2 Antistasi 2
 echo  3 Exile Tanoa
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
 echo  5 Exile Escape [Variable Uptime/Event only]
-REM   6 Exile Altis
-REM   7 Antistasi S.O.G. Prarie Fire
+echo  6 KP Liberation 
+echo  7 Special Ops [Variable Uptime/Event only]
 REM   8 Dynamic Recon Ops CUP
 echo.
 echo  9 CAC Settings
@@ -174,22 +176,13 @@ choice /C 1234567890 /M "Choose CAC Server"
 IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
-REM IF ERRORLEVEL 7 GOTO PrarieFire
-REM IF ERRORLEVEL 6 GOTO ExileAltis
+IF ERRORLEVEL 7 GOTO SpecOps
+IF ERRORLEVEL 6 GOTO KPLib
 IF ERRORLEVEL 5 GOTO ExileEscape
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO ExileTanoa
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
-
-:ExileAltis
-set ExileAltis=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
-if %Status%==ENABLED goto ExileAltisEXTENDED
-%A2% -port=2302 -password="%Password%" "%ExileAltis%"
-GOTO End
-:ExileAltisEXTENDED
-%A2% -port=2302 -password="%Password%" "%ExileAltis%%o1%%o2%%o4%%o5%"
-GOTO End
 
 :ExileTanoa
 set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
@@ -226,13 +219,22 @@ GOTO End
 ::RHS_End::
 GOTO End
 
-:PrarieFire
-set PrarieFire=-mod=vn;%ModPath%@CBA_A3;%ModPath%@ace;%ModPath%@ace_compat_sog;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Blastcore
-if %Status%==ENABLED goto PrarieFireEXTENDED
-%A1% -port=3402 "%PrarieFire%"
+:KPLib
+set KPLib=-mod=%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+if %Status%==ENABLED goto KPLibExtended
+%A5% -port=2100 "%KPLib%"
 GOTO End
-:PrarieFireEXTENDED
-%A1% -port=3402 "%PrarieFire%%o1%%o2%%o4%%o5%"
+:KPLibExtended
+%A5% -port=2100 "%KPLib%%o1%%o2%%o3%%o4%%o5%%o6%"
+GOTO End
+
+:SpecOps
+set SpecOps=-mod=%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%SpecialOps/@Albasrah;%ModPath%SpecialOps\@BettIR;%ModPath%SpecialOps\@BlastcoreMurrEdited;%ModPath%SpecialOps\@Iraqi-SyrianStyleCivilians;%ModPath%SpecialOps\@Islamic State[RHS];%ModPath%SpecialOps\@Jbad;%ModPath%SpecialOps\@PMCVehiclesMod;%ModPath%SpecialOps\@PMCAUniforms;%ModPath%SpecialOps\@ProjectBJC-PMCUniforms;%ModPath%SpecialOps\@TierOneWeapons;%ModPath%SpecialOps\@ZeusEnhanced;%ModPath%SpecialOps\@TierOneWeapons-BettIRCompatibilityConfig;%ModPath%SpecialOps\@Mavic3dropmod;%ModPath%SpecialOps\@Mavic3;%ModPath%SpecialOps\@ACE3ArsenalCore;%ModPath%SpecialOps\@RDSCivilianPack;%ModPath%SpecialOps\@ZeusEnhancedACE3Compatibility
+if %Status%==ENABLED goto SpecOpsExtended
+%A5% -port=20100 "%SpecOps%"
+GOTO End
+:SpecOpsExtended
+%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%"
 GOTO End
 
 :DynamicReconOps
