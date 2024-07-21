@@ -252,7 +252,7 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A1% -port=2372 "%ExileEscape%%o1%%o2%"
+%A2% -port=2372 "%ExileEscape%%o1%%o2%"
 GOTO End
 
 :KingofTheHill
