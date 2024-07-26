@@ -164,7 +164,7 @@ echo  2 Antistasi 2
 echo  3 Exile Tanoa
 echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
 echo  5 Exile Escape [Variable Uptime/Event only]
-echo  6 KP Liberation 
+echo  6 Liberation 
 echo  7 Special Ops [Variable Uptime/Event only]
 REM   8 Dynamic Recon Ops CUP
 echo.
@@ -177,7 +177,7 @@ IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO SpecOps
-IF ERRORLEVEL 6 GOTO KPLib
+IF ERRORLEVEL 6 GOTO Liberation
 IF ERRORLEVEL 5 GOTO ExileEscape
 IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO ExileTanoa
@@ -219,13 +219,13 @@ GOTO End
 ::RHS_End::
 GOTO End
 
-:KPLib
-set KPLib=-mod=%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@KPRanks
-if %Status%==ENABLED goto KPLibExtended
-%A5% -port=2100 "%KPLib%"
+:Liberation
+set Liberation=-mod=%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@KPRanks
+if %Status%==ENABLED goto LiberationExtended
+%A5% -port=2100 "%Liberation%"
 GOTO End
-:KPLibExtended
-%A5% -port=2100 "%KPLib%%o1%%o2%%o3%%o4%%o5%%o6%"
+:LiberationExtended
+%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%"
 GOTO End
 
 :SpecOps
