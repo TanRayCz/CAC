@@ -105,7 +105,7 @@ if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
 if not exist CACCore\moddir.txt set ModPath=Mods
 set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
-set ip=cacservers.ddns.net
+set ip=brenner.servebeer.com
 set ip2=cacservers.servebeer.com
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
@@ -258,10 +258,10 @@ GOTO End
 :KingofTheHill
 set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto KOTHEXTENDED
-%A2% -port=2322 "%KOTH%" 
+%A1% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A2% -port=2322 "%KOTH%%o1%%o2%%o4%%o5%"
+%A1% -port=2322 "%KOTH%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :StatusChanger
