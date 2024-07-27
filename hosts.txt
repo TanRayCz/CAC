@@ -1,3 +1,4 @@
+brenner.servebeer.com:2322
 cacservers.servebeer.com:2322
 cacservers.servebeer.com:2372
 cacservers.servebeer.com:2402
