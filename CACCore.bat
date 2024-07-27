@@ -258,10 +258,10 @@ GOTO End
 :KingofTheHill
 set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto KOTHEXTENDED
-%A1% -port=2322 "%KOTH%" 
+%A1% -port=2332 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A1% -port=2322 "%KOTH%%o1%%o2%%o4%%o5%"
+%A1% -port=2332 "%KOTH%%o1%%o2%%o4%%o5%"
 GOTO End
 
 :StatusChanger
