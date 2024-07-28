@@ -123,6 +123,7 @@ if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
 if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInventory.txt
+if not exist CACCore\@DiscordRichPresence.txt echo DISABLED > CACCore\@DiscordRichPresence.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
@@ -130,6 +131,7 @@ set /p @DUI=<CACCore\@DUI.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 set /p @BetterInventory=<CACCore\@BetterInventory.txt
+set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
 
 if %@ARM%==ENABLED set o1=;%ModPath%@ARM
 if %@ARM%==DISABLED set o1=
@@ -143,6 +145,8 @@ if %@VanillaSmokeForBlastcore%==ENABLED set o5=;%ModPath%@VanillaSmokeForBlastco
 if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o6=
+if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
+if %@DiscordRichPresence%==DISABLED set o1=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
@@ -309,10 +313,11 @@ if exist "Mods/@DUI" (echo  3 - @DUI		                                        ST
 if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
+if exist "Mods/@DiscordRichPresence" (echo  1 - @DiscordRichPresence		                                        STATUS: %@DiscordRichPresence%) else echo  1 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 echo.
-echo  7 - Return
+echo  8 - Return
 echo.
-echo  8 - Refresh
+echo  9 - Refresh
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
@@ -322,8 +327,9 @@ IF "%M%"=="3" GOTO DUI
 IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="6" GOTO BetterInventory
-IF "%M%"=="7" GOTO CACSETTINGS
-IF "%M%"=="8" GOTO ModSettings
+IF "%M%"=="7" GOTO DiscordRichPresence
+IF "%M%"=="8" GOTO CACSETTINGS
+IF "%M%"=="9" GOTO ModSettings
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
@@ -368,6 +374,13 @@ set /p ModPath=<CACCore\@BetterInventory.txt
 if %ModPath%==DISABLED del CACCore\@BetterInventory.txt & echo ENABLED > CACCore\@BetterInventory.txt
 if %ModPath%==ENABLED del CACCore\@BetterInventory.txt & echo DISABLED > CACCore\@BetterInventory.txt
 set /p @BetterInventory=<CACCore\@BetterInventory.txt
+goto ModSettings
+
+:DiscordRichPresence
+set /p ModPath=<CACCore\@DiscordRichPresence.txt
+if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED > CACCore\@DiscordRichPresence.txt
+if %ModPath%==ENABLED del CACCore\@DiscordRichPresence.txt & echo DISABLED > CACCore\@DiscordRichPresence.txt
+set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
 goto ModSettings
 
 :UserCtl
@@ -461,8 +474,6 @@ goto MODDIRCHANGER
 del CACCore\moddir.txt
 set ModPath=
 GOTO MODDIRCHANGER
-
-
 
 :PASSWORDMANAGER
 cls
