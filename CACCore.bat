@@ -211,7 +211,7 @@ GOTO End
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@Jbad;%ModPath%@Lythium;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
+set Antistasi2=-mod=;%ModPath%@Jbad;%ModPath%@Lythium;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@RHSSAF;%ModPath%@ace;%ModPath%@CBA_A3;%ModPath%@Jbad;%ModPath%@Lythium;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A2% -port=2702 "%Antistasi2%"
 GOTO End
