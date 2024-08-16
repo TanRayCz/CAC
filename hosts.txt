@@ -5,6 +5,6 @@ cacservers.servebeer.com:2402
 cacservers.servebeer.com:2702
 cackoth.servebeer.com:2302
 unladencoconut.ddns.net:3302
-cac-specialops.duckdns.org:2100
-cac-specialops.duckdns.org:20100
+theghost.ddns.net:2100
+theghost.ddns.net:20100
 
