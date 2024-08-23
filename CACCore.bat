@@ -146,7 +146,7 @@ if %@VanillaSmokeForBlastcore%==DISABLED set o5=
 if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o6=
 if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
-if %@DiscordRichPresence%==DISABLED set o1=
+if %@DiscordRichPresence%==DISABLED set o7=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
@@ -216,7 +216,7 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A2% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A2% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%"
+%A2% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 ::RHS::
 ::if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
 ::%A2% -port=3302 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%"
@@ -229,7 +229,7 @@ if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%"
+%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 GOTO End
 
 :SpecOps
@@ -313,7 +313,7 @@ if exist "Mods/@DUI" (echo  3 - @DUI		                                        ST
 if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
-if exist "Mods/@DiscordRichPresence" (echo  1 - @DiscordRichPresence		                                        STATUS: %@DiscordRichPresence%) else echo  1 - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                                STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 echo.
 echo  8 - Return
 echo.
