@@ -218,7 +218,7 @@ GOTO End
 :Antistasi2EXTENDED
 ::%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 ::RHS::
-if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
+if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
 %A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
 ::RHS_End::
 GOTO End
