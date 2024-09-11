@@ -198,16 +198,18 @@ GOTO End
 GOTO End
 
 :Antistasi1
-set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@Kujari;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace_nouniformrestrictions
+set Antistasi1=-mod=%ModPath%@ace;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%"
-::RHS::
-::if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-::%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
-::RHS_End::
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
+:JSRS_RHS_A1_Compatibility
+set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :Antistasi2
@@ -216,11 +218,13 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-::%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
-::RHS::
-if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
+:JSRS_RHS_A2_Compatibility
+set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
 %A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
-::RHS_End::
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :Liberation
