@@ -151,7 +151,7 @@ if %@AutomaticViewDistance%==ENABLED set o8=;%ModPath%@AutomaticViewDistance
 if %@AutomaticViewDistance%==DISABLED set o8=
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.1
+set launcherversion=1.8.0
 set gameversion=2.16.151618
 
 color 2
