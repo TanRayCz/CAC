@@ -149,7 +149,7 @@ if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o7=
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.0
+set launcherversion=1.8.1
 set gameversion=2.16.151618
 
 color 2
@@ -318,7 +318,7 @@ if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                            
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
 if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
-if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                   STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance	                           STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                   STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance	                             STATUS: NOT FOUND
 echo.
 echo  8 - Return
 echo.
