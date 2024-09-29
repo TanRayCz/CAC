@@ -147,6 +147,8 @@ if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o6=
 if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o7=
+if %@AutomaticViewDistance%==ENABLED set o8=;%ModPath%@AutomaticViewDistance
+if %@AutomaticViewDistance%==DISABLED set o8=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.1
