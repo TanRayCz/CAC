@@ -124,6 +124,7 @@ if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInventory.txt
 if not exist CACCore\@DiscordRichPresence.txt echo DISABLED > CACCore\@DiscordRichPresence.txt
+if not exist CACCore\@AutomaticViewDistance.txt echo DISABLED > CACCore\@AutomaticViewDistance.txt
 
 set /p @ARM=<CACCore\@ARM.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
@@ -132,6 +133,7 @@ set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 set /p @BetterInventory=<CACCore\@BetterInventory.txt
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
+set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
 
 if %@ARM%==ENABLED set o1=;%ModPath%@ARM
 if %@ARM%==DISABLED set o1=
@@ -147,6 +149,8 @@ if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o6=
 if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o7=
+if %@AutomaticViewDistance%==ENABLED set o8=;%ModPath%@AutomaticViewDistance
+if %@AutomaticViewDistance%==DISABLED set o8=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.0
@@ -163,10 +167,10 @@ echo.
 if %Status%==ENABLED echo OPTIONAL MODS: ENABLED
 if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
-echo  1 Antistasi 1 [Temporary Offline]
+echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 Exile Tanoa
-echo  4 King of The Hill [Variable Uptime/Event only - Request TanRayCz/Mod if server is down]
+echo  4 King of The Hill 
 echo  5 Exile Escape [Variable Uptime/Event only]
 echo  6 Liberation 
 echo  7 Special Ops [Variable Uptime/Event only]
@@ -194,20 +198,22 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%%o6%%o7%"
 GOTO End
 
 :Antistasi1
-set Antistasi1=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@Kujari;%ModPath%@ace;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ace_nouniformrestrictions
+set Antistasi1=-mod=%ModPath%@ace;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
 if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%"
-::RHS::
-::if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF
-::%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%"
-::RHS_End::
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
+:JSRS_RHS_A1_Compatibility
+set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :Antistasi2
@@ -216,11 +222,13 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-::%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
-::RHS::
-if %@JSRS_SOUNDMOD%==ENABLED set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
+:JSRS_RHS_A2_Compatibility
+set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
 %A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
-::RHS_End::
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :Liberation
@@ -238,7 +246,7 @@ if %Status%==ENABLED goto SpecOpsExtended
 %A5% -port=20100 "%SpecOps%"
 GOTO End
 :SpecOpsExtended
-%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%"
+%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 GOTO End
 
 :DynamicReconOps
@@ -256,16 +264,16 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A2% -port=2372 "%ExileEscape%%o1%%o2%"
+%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 GOTO End
 
 :KingofTheHill
 set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto KOTHEXTENDED
-%A1% -port=2332 "%KOTH%" 
+%A2% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A1% -port=2332 "%KOTH%%o1%%o2%%o4%%o5%"
+%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
 GOTO End
 
 :StatusChanger
@@ -314,6 +322,7 @@ if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                            
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
 if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
 echo.
 echo  8 - Return
 echo.
@@ -328,8 +337,9 @@ IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="6" GOTO BetterInventory
 IF "%M%"=="7" GOTO DiscordRichPresence
-IF "%M%"=="8" GOTO CACSETTINGS
-IF "%M%"=="9" GOTO ModSettings
+IF "%M%"=="8" GOTO AutomaticViewDistance
+IF "%M%"=="9" GOTO CACSETTINGS
+IF "%M%"=="0" GOTO ModSettings
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
@@ -381,6 +391,13 @@ set /p ModPath=<CACCore\@DiscordRichPresence.txt
 if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED > CACCore\@DiscordRichPresence.txt
 if %ModPath%==ENABLED del CACCore\@DiscordRichPresence.txt & echo DISABLED > CACCore\@DiscordRichPresence.txt
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
+goto ModSettings
+
+:AutomaticViewDistance
+set /p ModPath=<CACCore\@AutomaticViewDistance.txt
+if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED > CACCore\@AutomaticViewDistance.txt
+if %ModPath%==ENABLED del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
+set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
 goto ModSettings
 
 :UserCtl
