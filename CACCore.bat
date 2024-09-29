@@ -318,6 +318,7 @@ if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                            
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
 if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
 echo.
 echo  8 - Return
 echo.
@@ -332,8 +333,9 @@ IF "%M%"=="4" GOTO Blastcore
 IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="6" GOTO BetterInventory
 IF "%M%"=="7" GOTO DiscordRichPresence
-IF "%M%"=="8" GOTO CACSETTINGS
-IF "%M%"=="9" GOTO ModSettings
+IF "%M%"=="8" GOTO AutomaticViewDistance
+IF "%M%"=="9" GOTO CACSETTINGS
+IF "%M%"=="0" GOTO ModSettings
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
@@ -385,6 +387,13 @@ set /p ModPath=<CACCore\@DiscordRichPresence.txt
 if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED > CACCore\@DiscordRichPresence.txt
 if %ModPath%==ENABLED del CACCore\@DiscordRichPresence.txt & echo DISABLED > CACCore\@DiscordRichPresence.txt
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
+goto ModSettings
+
+:AutomaticViewDistance
+set /p ModPath=<CACCore\@AutomaticViewDistance.txt
+if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED > CACCore\@AutomaticViewDistance.txt
+if %ModPath%==ENABLED del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
+set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
 goto ModSettings
 
 :UserCtl
