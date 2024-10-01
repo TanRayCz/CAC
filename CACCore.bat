@@ -324,7 +324,7 @@ if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                   
 if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
 echo.
-echo  8 - Return
+echo  0 - Return
 echo.
 echo  9 - Refresh
 echo.
