@@ -198,7 +198,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%%o6%%o7%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%%o6%%o7%%o8%"
 GOTO End
 
 :Antistasi1
@@ -207,12 +207,12 @@ if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
 :JSRS_RHS_A1_Compatibility
 set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%%o8%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -222,12 +222,12 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
 set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%"
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%%o8%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -237,7 +237,7 @@ if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 GOTO End
 
 :SpecOps
@@ -246,7 +246,7 @@ if %Status%==ENABLED goto SpecOpsExtended
 %A5% -port=20100 "%SpecOps%"
 GOTO End
 :SpecOpsExtended
-%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 GOTO End
 
 :DynamicReconOps
@@ -264,7 +264,7 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 GOTO End
 
 :KingofTheHill
@@ -273,7 +273,7 @@ if %Status%==ENABLED goto KOTHEXTENDED
 %A2% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%"
+%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
 GOTO End
 
 :StatusChanger
@@ -324,9 +324,9 @@ if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                   
 if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
 echo.
-echo  8 - Return
+echo  9 - Return
 echo.
-echo  9 - Refresh
+echo  0 - Refresh
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
