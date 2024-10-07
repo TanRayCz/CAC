@@ -158,7 +158,7 @@ if %@VanillaSmokeForBlastcore%==DISABLED set oI=
 
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.1
+set launcherversion=1.8.2
 set gameversion=2.16.151618
 
 color 2
@@ -203,7 +203,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%%o6%%o7%%o8%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :Antistasi1
@@ -212,12 +212,12 @@ if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A4% -port=3302 "%Antistasi1%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
 :JSRS_RHS_A1_Compatibility
-set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%%o8%"
+set oHaddon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=3302 "%Antistasi1%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oHaddon%%oI%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -227,12 +227,12 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%o8%"
+%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
 set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o2addon%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oHaddon%%oI%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -242,7 +242,7 @@ if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A5% -port=2100 "%Liberation%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :SpecOps
@@ -251,7 +251,7 @@ if %Status%==ENABLED goto SpecOpsExtended
 %A5% -port=20100 "%SpecOps%"
 GOTO End
 :SpecOpsExtended
-%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A5% -port=20100 "%SpecOps%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :DynamicReconOps
@@ -260,7 +260,7 @@ if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%"
 GOTO End
 :DynamicReconOpsEXTENDED
-%A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%"
+%A1% -port=3502 "%DynamicReconOps%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :ExileEscape
@@ -269,7 +269,7 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A2% -port=2372 "%ExileEscape%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :KingofTheHill
@@ -278,7 +278,7 @@ if %Status%==ENABLED goto KOTHEXTENDED
 %A2% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A2% -port=2322 "%KOTH%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
 GOTO End
 
 :StatusChanger
