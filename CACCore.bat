@@ -118,42 +118,47 @@ set A5=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7
 
 :MODPRELOADER
 if not exist CACCore\@ARM.txt echo DISABLED > CACCore\@ARM.txt
-if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
-if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
-if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
-if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
-if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInventory.txt
-if not exist CACCore\@DiscordRichPresence.txt echo DISABLED > CACCore\@DiscordRichPresence.txt
+if not exist CACCore\@AthenaWeb.txt echo DISABLED > CACCore\@AthenaWeb.txt
 if not exist CACCore\@AutomaticViewDistance.txt echo DISABLED > CACCore\@AutomaticViewDistance.txt
+if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInventory.txt
+if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
+if not exist CACCore\@DiscordRichPresence.txt echo DISABLED > CACCore\@DiscordRichPresence.txt
+if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
+if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
+if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 
 set /p @ARM=<CACCore\@ARM.txt
-set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
-set /p @DUI=<CACCore\@DUI.txt
-set /p @Blastcore=<CACCore\@Blastcore.txt
-set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
-set /p @BetterInventory=<CACCore\@BetterInventory.txt
-set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
+set /p @AthenaWeb=<CACCore\@AthenaWeb.txt
 set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
+set /p @BetterInventory=<CACCore\@BetterInventory.txt
+set /p @Blastcore=<CACCore\@Blastcore.txt
+set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
+set /p @DUI=<CACCore\@DUI.txt
+set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
+set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 
-if %@ARM%==ENABLED set o1=;%ModPath%@ARM
-if %@ARM%==DISABLED set o1=
-if %@JSRS_SOUNDMOD%==ENABLED set o2=;%ModPath%@JSRS_SOUNDMOD
-if %@JSRS_SOUNDMOD%==DISABLED set o2=
-if %@DUI%==ENABLED set o3=;%ModPath%@DUI
-if %@DUI%==DISABLED set o3=
-if %@Blastcore%==ENABLED set o4=;%ModPath%@Blastcore
-if %@Blastcore%==DISABLED set o4= & set o5=
-if %@VanillaSmokeForBlastcore%==ENABLED set o5=;%ModPath%@VanillaSmokeForBlastcore
-if %@VanillaSmokeForBlastcore%==DISABLED set o5=
-if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
-if %@BetterInventory%==DISABLED set o6=
-if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
-if %@DiscordRichPresence%==DISABLED set o7=
-if %@AutomaticViewDistance%==ENABLED set o8=;%ModPath%@AutomaticViewDistance
-if %@AutomaticViewDistance%==DISABLED set o8=
+if %@ARM%==ENABLED set oA=;%ModPath%@ARM
+if %@ARM%==DISABLED set oA=
+if %@AthenaWeb%==ENABLED set oB=;%ModPath%@AthenaWeb
+if %@AthenaWeb%==DISABLED set oB=
+if %@AutomaticViewDistance%==ENABLED set oC=;%ModPath%@AutomaticViewDistance
+if %@AutomaticViewDistance%==DISABLED set oC=
+if %@BetterInventory%==ENABLED set oD=;%ModPath%@BetterInventory
+if %@BetterInventory%==DISABLED set oD=
+if %@Blastcore%==ENABLED set oE=;%ModPath%@Blastcore
+if %@Blastcore%==DISABLED set oE= & set oI=
+if %@DiscordRichPresence%==ENABLED set oF=;%ModPath%@DiscordRichPresence
+if %@DiscordRichPresence%==DISABLED set oF=
+if %@DUI%==ENABLED set oG=;%ModPath%@DUI
+if %@DUI%==DISABLED set oG=
+if %@JSRS_SOUNDMOD%==ENABLED set oH=;%ModPath%@JSRS_SOUNDMOD
+if %@JSRS_SOUNDMOD%==DISABLED set oH=
+if %@VanillaSmokeForBlastcore%==ENABLED set oI=;%ModPath%@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set oI=
+
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.0
+set launcherversion=1.8.1
 set gameversion=2.16.151618
 
 color 2
@@ -222,7 +227,7 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%"
+%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%o8%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
@@ -315,14 +320,15 @@ goto StatusChanger
 color 2
 cls
 
-if exist "Mods/@ARM" (echo  1 - @ARM		                                        STATUS: %@ARM%) else echo  1 - @ARM		                                        STATUS: NOT FOUND
-if exist "Mods/@JSRS_SOUNDMOD" (echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  2 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
-if exist "Mods/@DUI" (echo  3 - @DUI		                                        STATUS: %@DUI%) else echo  3 - @DUI		                                        STATUS: NOT FOUND
-if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
-if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
-if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
-if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
-if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
+if exist "Mods/@ARM" (echo  A - @ARM		                                        STATUS: %@ARM%) else echo  A - @ARM		                                        STATUS: NOT FOUND
+if exist "Mods/@AthenaWeb" (echo  B - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  B - @AthenaWeb		                                        STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  C - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  C - @AutomaticViewDistance		                                        STATUS: NOT FOUND
+if exist "Mods/@BetterInventory" (echo  D - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  D - @BetterInventory		                                STATUS: NOT FOUND
+if exist "Mods/@Blastcore " (echo  E - @Blastcore 		                                STATUS: %@Blastcore%) else echo  E - @Blastcore 		                                STATUS: NOT FOUND
+if exist "Mods/@DiscordRichPresence" (echo  F - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  F - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@DUI" (echo  G - @DUI		                                        STATUS: %@DUI%) else echo  G - @DUI		                                        STATUS: NOT FOUND
+if exist "Mods/@JSRS_SOUNDMOD" (echo  H - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  H - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  I - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  I - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 echo.
 echo  9 - Return
 echo.
@@ -330,14 +336,16 @@ echo  0 - Refresh
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
-IF "%M%"=="1" GOTO ARM
-IF "%M%"=="2" GOTO JSRS_SOUNDMOD
-IF "%M%"=="3" GOTO DUI
-IF "%M%"=="4" GOTO Blastcore
-IF "%M%"=="5" GOTO VanillaSmokeForBlastcore
-IF "%M%"=="6" GOTO BetterInventory
-IF "%M%"=="7" GOTO DiscordRichPresence
-IF "%M%"=="8" GOTO AutomaticViewDistance
+IF "%M%"=="A" GOTO ARM
+IF "%M%"=="B" GOTO AthenaWeb
+IF "%M%"=="C" GOTO AutomaticViewDistance
+IF "%M%"=="D" GOTO BetterInventory
+IF "%M%"=="E" GOTO Blastcore
+IF "%M%"=="F" GOTO DiscordRichPresence
+IF "%M%"=="G" GOTO DUI
+IF "%M%"=="H" GOTO JSRS_SOUNDMOD
+IF "%M%"=="I" GOTO VanillaSmokeForBlastcore
+
 IF "%M%"=="9" GOTO CACSETTINGS
 IF "%M%"=="0" GOTO ModSettings
 echo Invalid selection ("%M%")
@@ -351,32 +359,18 @@ if %ModPath%==ENABLED del CACCore\@ARM.txt & echo DISABLED > CACCore\@ARM.txt
 set /p @ARM=<CACCore\@ARM.txt
 goto ModSettings
 
-:JSRS_SOUNDMOD
-set /p ModPath=<CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED > CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==ENABLED del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
-set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
+:AthenaWeb
+set /p ModPath=<CACCore\@AthenaWeb.txt
+if %ModPath%==DISABLED del CACCore\@AthenaWeb.txt & echo ENABLED > CACCore\@AthenaWeb.txt
+if %ModPath%==ENABLED del CACCore\@AthenaWeb.txt & echo DISABLED > CACCore\@AthenaWeb.txt
+set /p @AthenaWeb=<CACCore\@AthenaWeb.txt
 goto ModSettings
 
-:DUI
-set /p ModPath=<CACCore\@DUI.txt
-if %ModPath%==DISABLED del CACCore\@DUI.txt & echo ENABLED > CACCore\@DUI.txt
-if %ModPath%==ENABLED del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
-set /p @DUI=<CACCore\@DUI.txt
-goto ModSettings
-
-:Blastcore
-set /p ModPath=<CACCore\@Blastcore.txt
-if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED > CACCore\@Blastcore.txt
-if %ModPath%==ENABLED del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
-set /p @Blastcore=<CACCore\@Blastcore.txt
-goto ModSettings
-
-:VanillaSmokeForBlastcore
-set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
-if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
-if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
-set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
+:AutomaticViewDistance
+set /p ModPath=<CACCore\@AutomaticViewDistance.txt
+if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED > CACCore\@AutomaticViewDistance.txt
+if %ModPath%==ENABLED del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
+set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
 goto ModSettings
 
 :BetterInventory
@@ -386,6 +380,13 @@ if %ModPath%==ENABLED del CACCore\@BetterInventory.txt & echo DISABLED > CACCore
 set /p @BetterInventory=<CACCore\@BetterInventory.txt
 goto ModSettings
 
+:Blastcore
+set /p ModPath=<CACCore\@Blastcore.txt
+if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED > CACCore\@Blastcore.txt
+if %ModPath%==ENABLED del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
+set /p @Blastcore=<CACCore\@Blastcore.txt
+goto ModSettings
+
 :DiscordRichPresence
 set /p ModPath=<CACCore\@DiscordRichPresence.txt
 if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED > CACCore\@DiscordRichPresence.txt
@@ -393,11 +394,25 @@ if %ModPath%==ENABLED del CACCore\@DiscordRichPresence.txt & echo DISABLED > CAC
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
 goto ModSettings
 
-:AutomaticViewDistance
-set /p ModPath=<CACCore\@AutomaticViewDistance.txt
-if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED > CACCore\@AutomaticViewDistance.txt
-if %ModPath%==ENABLED del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
-set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
+:DUI
+set /p ModPath=<CACCore\@DUI.txt
+if %ModPath%==DISABLED del CACCore\@DUI.txt & echo ENABLED > CACCore\@DUI.txt
+if %ModPath%==ENABLED del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
+set /p @DUI=<CACCore\@DUI.txt
+goto ModSettings
+
+:JSRS_SOUNDMOD
+set /p ModPath=<CACCore\@JSRS_SOUNDMOD.txt
+if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED > CACCore\@JSRS_SOUNDMOD.txt
+if %ModPath%==ENABLED del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
+set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
+goto ModSettings
+
+:VanillaSmokeForBlastcore
+set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
+set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 goto ModSettings
 
 :UserCtl
