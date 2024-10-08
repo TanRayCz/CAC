@@ -333,14 +333,14 @@ color 2
 cls
 
 if exist "Mods/@ARM" (echo  1 - @ARM		                                        STATUS: %@ARM%) else echo  1 - @ARM		                                        STATUS: NOT FOUND
-if exist "Mods/@AthenaWeb" (echo  1 - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  1 - @AthenaWeb		                                        STATUS: NOT FOUND
-if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
-if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
-if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
-if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
-if exist "Mods/@DUI" (echo  3 - @DUI		                                        STATUS: %@DUI%) else echo  3 - @DUI		                                        STATUS: NOT FOUND
-if exist "Mods/@JSRS_SOUNDMOD" (echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  2 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
-if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+if exist "Mods/@AthenaWeb" (echo  2 - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  2 - @AthenaWeb		                                        STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  3 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  3 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
+if exist "Mods/@BetterInventory" (echo  4 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  4 - @BetterInventory		                                STATUS: NOT FOUND
+if exist "Mods/@Blastcore " (echo  5 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  5 - @Blastcore 		                                STATUS: NOT FOUND
+if exist "Mods/@DiscordRichPresence" (echo  6 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  6 - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@DUI" (echo  7 - @DUI		                                        STATUS: %@DUI%) else echo  7 - @DUI		                                        STATUS: NOT FOUND
+if exist "Mods/@JSRS_SOUNDMOD" (echo  8 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  8 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  9 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  9 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 
 echo.
 echo  b - Back
