@@ -226,7 +226,7 @@ set o9addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPat
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
+set Antistasi2=-mod=%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@SaintKapaulio;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@CUPWeapons;%ModPath%@CUPVehicles;%ModPath%@CUPUnits;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
