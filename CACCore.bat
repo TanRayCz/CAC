@@ -105,12 +105,12 @@ if exist CACCore\moddir.txt set /p ModPath=<CACCore\moddir.txt
 if not exist CACCore\moddir.txt set ModPath=Mods
 set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
-set ip=brenner.servebeer.com
+set ip1=brenner.servebeer.com
 set ip2=cacservers.servebeer.com
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
 set ip5=theghost.ddns.net
-set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip% -name="%ArmaUserName%"
+set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip3% -name="%ArmaUserName%"
 set A4=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -exThreads=7 -enableHT -setThreadCharacteristics -connect=%ip4% -name="%ArmaUserName%"
@@ -137,28 +137,28 @@ set /p @DUI=<CACCore\@DUI.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 
-if %@ARM%==ENABLED set oA=;%ModPath%@ARM
-if %@ARM%==DISABLED set oA=
-if %@AthenaWeb%==ENABLED set oB=;%ModPath%@AthenaWeb
-if %@AthenaWeb%==DISABLED set oB=
-if %@AutomaticViewDistance%==ENABLED set oC=;%ModPath%@AutomaticViewDistance
-if %@AutomaticViewDistance%==DISABLED set oC=
-if %@BetterInventory%==ENABLED set oD=;%ModPath%@BetterInventory
-if %@BetterInventory%==DISABLED set oD=
-if %@Blastcore%==ENABLED set oE=;%ModPath%@Blastcore
-if %@Blastcore%==DISABLED set oE= & set oI=
-if %@DiscordRichPresence%==ENABLED set oF=;%ModPath%@DiscordRichPresence
-if %@DiscordRichPresence%==DISABLED set oF=
-if %@DUI%==ENABLED set oG=;%ModPath%@DUI
-if %@DUI%==DISABLED set oG=
-if %@JSRS_SOUNDMOD%==ENABLED set oH=;%ModPath%@JSRS_SOUNDMOD
-if %@JSRS_SOUNDMOD%==DISABLED set oH=
-if %@VanillaSmokeForBlastcore%==ENABLED set oI=;%ModPath%@VanillaSmokeForBlastcore
-if %@VanillaSmokeForBlastcore%==DISABLED set oI=
+if %@ARM%==ENABLED set o1=;%ModPath%@ARM
+if %@ARM%==DISABLED set o1=
+if %@AthenaWeb%==ENABLED set o2=;%ModPath%@AthenaWeb
+if %@AthenaWeb%==DISABLED set o2=
+if %@AutomaticViewDistance%==ENABLED set o3=;%ModPath%@AutomaticViewDistance
+if %@AutomaticViewDistance%==DISABLED set o3=
+if %@BetterInventory%==ENABLED set o4=;%ModPath%@BetterInventory
+if %@BetterInventory%==DISABLED set o4=
+if %@Blastcore%==ENABLED set o5=;%ModPath%@Blastcore
+if %@Blastcore%==DISABLED set o5= & set o5=
+if %@DiscordRichPresence%==ENABLED set o6=;%ModPath%@DiscordRichPresence
+if %@DiscordRichPresence%==DISABLED set o6=
+if %@DUI%==ENABLED set o7=;%ModPath%@DUI
+if %@DUI%==DISABLED set o7=
+if %@JSRS_SOUNDMOD%==ENABLED set o8=;%ModPath%@JSRS_SOUNDMOD
+if %@JSRS_SOUNDMOD%==DISABLED set o8=
+if %@VanillaSmokeForBlastcore%==ENABLED set o9=;%ModPath%@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set o9=
 
 :MODPRELOADERSKIP
 
-set launcherversion=1.8.2
+set launcherversion=1.8.1
 set gameversion=2.16.151618
 
 color 2
@@ -203,7 +203,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o4%%o5%%o6%%o7%%o8%%o9%"
 GOTO End
 
 :Antistasi1
@@ -212,12 +212,12 @@ if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
 :JSRS_RHS_A1_Compatibility
-set oHaddon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=3302 "%Antistasi1%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oHaddon%%oI%"
+set o8addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o8addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -227,12 +227,12 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
-set o2addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=2702 "%Antistasi2%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oHaddon%%oI%"
+set o8addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o8addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -242,7 +242,13 @@ if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
+:JSRS_RHS_A2_Compatibility
+set o8addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2100 "%Liberation%%o1%%o2%%o8addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :SpecOps
@@ -251,7 +257,13 @@ if %Status%==ENABLED goto SpecOpsExtended
 %A5% -port=20100 "%SpecOps%"
 GOTO End
 :SpecOpsExtended
-%A5% -port=20100 "%SpecOps%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
+::JSRS_RHS_Compatibility::
+if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
+:JSRS_RHS_A2_Compatibility
+set o8addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=20100 "%pecOps%%o1%%o2%%o8addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
+::JSRS_RHS_Compatibility_End::
 GOTO End
 
 :DynamicReconOps
@@ -260,7 +272,7 @@ if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%"
 GOTO End
 :DynamicReconOpsEXTENDED
-%A1% -port=3502 "%DynamicReconOps%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 GOTO End
 
 :ExileEscape
@@ -269,7 +281,7 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A2% -port=2372 "%ExileEscape%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 GOTO End
 
 :KingofTheHill
@@ -278,7 +290,7 @@ if %Status%==ENABLED goto KOTHEXTENDED
 %A2% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A2% -port=2322 "%KOTH%%oA%%oB%%oC%%oD%%oE%%oF%%oG%%oH%%oI%"
+%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%"
 GOTO End
 
 :StatusChanger
@@ -320,34 +332,36 @@ goto StatusChanger
 color 2
 cls
 
-if exist "Mods/@ARM" (echo  A - @ARM		                                        STATUS: %@ARM%) else echo  A - @ARM		                                        STATUS: NOT FOUND
-if exist "Mods/@AthenaWeb" (echo  B - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  B - @AthenaWeb		                                        STATUS: NOT FOUND
-if exist "Mods/@AutomaticViewDistance" (echo  C - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  C - @AutomaticViewDistance		                                        STATUS: NOT FOUND
-if exist "Mods/@BetterInventory" (echo  D - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  D - @BetterInventory		                                STATUS: NOT FOUND
-if exist "Mods/@Blastcore " (echo  E - @Blastcore 		                                STATUS: %@Blastcore%) else echo  E - @Blastcore 		                                STATUS: NOT FOUND
-if exist "Mods/@DiscordRichPresence" (echo  F - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  F - @DiscordRichPresence		                                        STATUS: NOT FOUND
-if exist "Mods/@DUI" (echo  G - @DUI		                                        STATUS: %@DUI%) else echo  G - @DUI		                                        STATUS: NOT FOUND
-if exist "Mods/@JSRS_SOUNDMOD" (echo  H - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  H - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
-if exist "Mods/@VanillaSmokeForBlastcore" (echo  I - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  I - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+if exist "Mods/@ARM" (echo  1 - @ARM		                                        STATUS: %@ARM%) else echo  1 - @ARM		                                        STATUS: NOT FOUND
+if exist "Mods/@AthenaWeb" (echo  1 - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  1 - @AthenaWeb		                                        STATUS: NOT FOUND
+if exist "Mods/@AutomaticViewDistance" (echo  8 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  8 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
+if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  6 - @BetterInventory		                                STATUS: NOT FOUND
+if exist "Mods/@Blastcore " (echo  4 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  4 - @Blastcore 		                                STATUS: NOT FOUND
+if exist "Mods/@DiscordRichPresence" (echo  7 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  7 - @DiscordRichPresence		                                        STATUS: NOT FOUND
+if exist "Mods/@DUI" (echo  3 - @DUI		                                        STATUS: %@DUI%) else echo  3 - @DUI		                                        STATUS: NOT FOUND
+if exist "Mods/@JSRS_SOUNDMOD" (echo  2 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  2 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  5 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  5 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+
 echo.
-echo  9 - Return
+echo  b - Back
 echo.
-echo  0 - Refresh
+echo  r - Refresh
 echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
-IF "%M%"=="A" GOTO ARM
-IF "%M%"=="B" GOTO AthenaWeb
-IF "%M%"=="C" GOTO AutomaticViewDistance
-IF "%M%"=="D" GOTO BetterInventory
-IF "%M%"=="E" GOTO Blastcore
-IF "%M%"=="F" GOTO DiscordRichPresence
-IF "%M%"=="G" GOTO DUI
-IF "%M%"=="H" GOTO JSRS_SOUNDMOD
-IF "%M%"=="I" GOTO VanillaSmokeForBlastcore
+IF "%M%"=="1" GOTO ARM
+IF "%M%"=="2" GOTO AthenaWeb
+IF "%M%"=="3" GOTO AutomaticViewDistance
+IF "%M%"=="4" GOTO BetterInventory
+IF "%M%"=="5" GOTO Blastcore
+IF "%M%"=="6" GOTO DiscordRichPresence
+IF "%M%"=="7" GOTO DUI
+IF "%M%"=="8" GOTO JSRS_SOUNDMOD
+IF "%M%"=="9" GOTO VanillaSmokeForBlastcore
 
-IF "%M%"=="9" GOTO CACSETTINGS
-IF "%M%"=="0" GOTO ModSettings
+IF "%M%"=="b" GOTO CACSETTINGS
+IF "%M%"=="r" GOTO ModSettings
+
 echo Invalid selection ("%M%")
 timeout /t 2
 GOTO ModSettings
@@ -429,6 +443,7 @@ echo.
 if "%ArmaUserName%"=="%username%" color 3 & echo Profile: Exists, is the system default. & endlocal & GOTO UserCtl2
 if exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 2 & echo Profile: Exists. & endlocal & GOTO UserCtl2
 if not exist %USERPROFILE%\Documents\"Arma 3 - Other Profiles"\"%ArmaUserName%" color 6 & echo Warning: Profile non-existent, will be created at Arma 3 launch. & endlocal & GOTO UserCtl2
+
 :UserCtl2
 echo.
 echo Existing profiles:
