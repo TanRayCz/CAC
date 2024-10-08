@@ -142,7 +142,7 @@ set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 if %@ARM%==ENABLED set o1=;%ModPath%@ARM
 if %@ARM%==DISABLED set o1=
 if %@Athena%==ENABLED set o2=;%ModPath%@Athena
-if %@AthenaWeb%==DISABLED set o2=
+if %@Athena%==DISABLED set o2=
 if %@AthenaWeb%==ENABLED set o3=;%ModPath%@AthenaWeb
 if %@AthenaWeb%==DISABLED set o3=
 if %@AutomaticViewDistance%==ENABLED set o4=;%ModPath%@AutomaticViewDistance
@@ -355,7 +355,7 @@ echo.
 echo Confirm with enter
 SET /P "M=Switch optional mod:"
 IF "%M%"=="1" GOTO ARM
-IF "%M%"=="2" GOTO AthenaWeb
+IF "%M%"=="2" GOTO Athena
 IF "%M%"=="3" GOTO AthenaWeb
 IF "%M%"=="4" GOTO AutomaticViewDistance
 IF "%M%"=="5" GOTO BetterInventory
