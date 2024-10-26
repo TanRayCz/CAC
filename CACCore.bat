@@ -340,7 +340,7 @@ goto StatusChanger
 color 2
 cls
 
-if exist "Mods/@A3ThermalImprovement" (echo  1 - @A3ThermalImprovement		                                        STATUS: %@A3ThermalImprovement%) else echo  1 - @A3ThermalImprovement		                                        STATUS: NOT FOUND
+if exist "Mods/@A3ThermalImprovement" (echo  1 - @A3ThermalImprovement		                        STATUS: %@A3ThermalImprovement%) else echo  1 - @A3ThermalImprovement		                                        STATUS: NOT FOUND
 if exist "Mods/@ARM" (echo  2 - @ARM		                                        STATUS: %@ARM%) else echo  2 - @ARM		                                        STATUS: NOT FOUND
 if exist "Mods/@Athena" (echo  3 - @Athena		                                        STATUS: %@Athena%) else echo  3 - @Athena		                                        STATUS: NOT FOUND
 if exist "Mods/@AthenaWeb" (echo  4 - @AthenaWeb		                                        STATUS: %@AthenaWeb%) else echo  4 - @AthenaWeb		                                        STATUS: NOT FOUND
