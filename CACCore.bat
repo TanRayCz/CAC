@@ -358,7 +358,7 @@ if exist "Mods/@Blastcore " (echo  7 - @Blastcore 		                            
 if exist "Mods/@DiscordRichPresence" (echo  8 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  8 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 if exist "Mods/@DUI" (echo  9 - @DUI		                                        STATUS: %@DUI%) else echo  9 - @DUI		                                        STATUS: NOT FOUND
 if exist "Mods/@EnhancedMap" (echo  10 - @EnhancedMap	                                        STATUS: %@EnhancedMap%) else echo  10 - @EnhancedMap		                                STATUS: NOT FOUND
-if exist "Mods/@EnhancedMapAce" (echo  11 - @EnhancedMapAce - Blastcore required		STATUS: %@EnhancedMapAce%) else echo  11 - @EnhancedMapAce		                        STATUS: NOT FOUND
+if exist "Mods/@EnhancedMapAce" (echo  11 - @EnhancedMapAce  		        STATUS: %@EnhancedMapAce%) else echo  11 - @EnhancedMapAce		                        STATUS: NOT FOUND
 if exist "Mods/@JSRS_SOUNDMOD" (echo  12 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  12 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  13 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  13 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 
