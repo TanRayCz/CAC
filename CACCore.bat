@@ -126,6 +126,8 @@ if not exist CACCore\@BetterInventory.txt echo DISABLED > CACCore\@BetterInvento
 if not exist CACCore\@Blastcore.txt echo DISABLED > CACCore\@Blastcore.txt
 if not exist CACCore\@DiscordRichPresence.txt echo DISABLED > CACCore\@DiscordRichPresence.txt
 if not exist CACCore\@DUI.txt echo DISABLED > CACCore\@DUI.txt
+if not exist CACCore\@EnhancedMap.txt echo DISABLED > CACCore\@EnhancedMap.txt
+if not exist CACCore\@EnhancedMapAce.txt echo DISABLED > CACCore\@EnhancedMapAce.txt
 if not exist CACCore\@JSRS_SOUNDMOD.txt echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
 if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 
@@ -138,11 +140,13 @@ set /p @BetterInventory=<CACCore\@BetterInventory.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
 set /p @DUI=<CACCore\@DUI.txt
+set /p @EnhancedMap=<CACCore\@EnhancedMap.txt
+set /p @EnhancedMapAce=<CACCore\@EnhancedMapAce.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 
 if %@A3ThermalImprovement%==ENABLED set o1=;%ModPath%@A3ThermalImprovement
-if %@ARM%==DISABLED set o1=
+if %@A3ThermalImprovement%==DISABLED set o1=
 if %@ARM%==ENABLED set o2=;%ModPath%@ARM
 if %@ARM%==DISABLED set o2=
 if %@Athena%==ENABLED set o3=;%ModPath%@Athena
@@ -154,15 +158,19 @@ if %@AutomaticViewDistance%==DISABLED set o5=
 if %@BetterInventory%==ENABLED set o6=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o6=
 if %@Blastcore%==ENABLED set o7=;%ModPath%@Blastcore
-if %@Blastcore%==DISABLED set o7= & set o11=
+if %@Blastcore%==DISABLED set o7= & set o13=
 if %@DiscordRichPresence%==ENABLED set o8=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o8=
 if %@DUI%==ENABLED set o9=;%ModPath%@DUI
 if %@DUI%==DISABLED set o9=
-if %@JSRS_SOUNDMOD%==ENABLED set 10=;%ModPath%@JSRS_SOUNDMOD
-if %@JSRS_SOUNDMOD%==DISABLED set 10=
-if %@VanillaSmokeForBlastcore%==ENABLED set o11=;%ModPath%@VanillaSmokeForBlastcore
-if %@VanillaSmokeForBlastcore%==DISABLED set o11=
+if %@EnhancedMap%==ENABLED set o10=;%ModPath%@EnhancedMap
+if %@EnhancedMap%==DISABLED set o10=
+if %@EnhancedMapAce%==ENABLED set o11=;%ModPath%@EnhancedMapAce
+if %@EnhancedMapAce%==DISABLED set o11=
+if %@JSRS_SOUNDMOD%==ENABLED set o12=;%ModPath%@JSRS_SOUNDMOD
+if %@JSRS_SOUNDMOD%==DISABLED set o12=
+if %@VanillaSmokeForBlastcore%==ENABLED set o13=;%ModPath%@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==DISABLED set o13=
 
 :MODPRELOADERSKIP
 
@@ -211,7 +219,7 @@ if %Status%==ENABLED goto ExileTanoaEXTENDED
 %A2% -port=2402 -password="%Password%" "%ExileTanoa%"
 GOTO End
 :ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :Antistasi1
@@ -220,12 +228,12 @@ if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
 :Antistasi1EXTENDED
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A1_Compatibility
 :JSRS_RHS_A1_Compatibility
-set o10addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=3302 "%Antistasi1%%o1%%o2%%o10addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=3302 "%Antistasi1%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o12addon%%o13%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -235,12 +243,12 @@ if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
 :Antistasi2EXTENDED
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%"
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
-set o10addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=2702 "%Antistasi2%%o1%%o2%%o10addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2702 "%Antistasi2%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o12addon%%o13%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -250,12 +258,12 @@ if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
-set o10addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=2100 "%Liberation%%o1%%o2%%o10addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o12addon%%o13%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -265,12 +273,12 @@ if %Status%==ENABLED goto SpecOpsExtended
 %A5% -port=20100 "%SpecOps%"
 GOTO End
 :SpecOpsExtended
-%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A5% -port=20100 "%SpecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
-set o10addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A4% -port=20100 "%pecOps%%o1%%o2%%o10addon%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
+%A4% -port=20100 "%pecOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o12addon%%o13%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -280,7 +288,7 @@ if %Status%==ENABLED goto DynamicReconOpsEXTENDED
 %A1% -port=3502 "%DynamicReconOps%"
 GOTO End
 :DynamicReconOpsEXTENDED
-%A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A1% -port=3502 "%DynamicReconOps%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 GOTO End
 
 :ExileEscape
@@ -289,7 +297,7 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 %A2% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A2% -port=2372 "%ExileEscape%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A2% -port=2372 "%ExileEscape%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :KingofTheHill
@@ -298,7 +306,7 @@ if %Status%==ENABLED goto KOTHEXTENDED
 %A2% -port=2322 "%KOTH%" 
 GOTO End
 :KOTHEXTENDED
-%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o11%"
+%A2% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :StatusChanger
@@ -349,8 +357,11 @@ if exist "Mods/@BetterInventory" (echo  6 - @BetterInventory	                   
 if exist "Mods/@Blastcore " (echo  7 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  7 - @Blastcore 		                                STATUS: NOT FOUND
 if exist "Mods/@DiscordRichPresence" (echo  8 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  8 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 if exist "Mods/@DUI" (echo  9 - @DUI		                                        STATUS: %@DUI%) else echo  9 - @DUI		                                        STATUS: NOT FOUND
-if exist "Mods/@JSRS_SOUNDMOD" (echo  10 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  10 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
-if exist "Mods/@VanillaSmokeForBlastcore" (echo  11 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  11 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+if exist "Mods/@EnhancedMap" (echo  10 - @EnhancedMap	                                        STATUS: %@EnhancedMap%) else echo  10 - @EnhancedMap		                                STATUS: NOT FOUND
+if exist "Mods/@EnhancedMapAce" (echo  11 - @EnhancedMapAce - Blastcore required		STATUS: %@EnhancedMapAce%) else echo  11 - @EnhancedMapAce		                        STATUS: NOT FOUND
+if exist "Mods/@JSRS_SOUNDMOD" (echo  12 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  12 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  13 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  13 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
+
 
 echo.
 echo  b - Back
@@ -370,6 +381,8 @@ IF "%M%"=="8" GOTO DiscordRichPresence
 IF "%M%"=="9" GOTO DUI
 IF "%M%"=="10" GOTO JSRS_SOUNDMOD
 IF "%M%"=="11" GOTO VanillaSmokeForBlastcore
+IF "%M%"=="12" GOTO JSRS_SOUNDMOD
+IF "%M%"=="13" GOTO VanillaSmokeForBlastcore
 
 IF "%M%"=="b" GOTO CACSETTINGS
 IF "%M%"=="r" GOTO ModSettings
@@ -453,6 +466,20 @@ set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
+goto ModSettings
+
+:JSRS_SOUNDMOD
+set /p ModPath=<CACCore\@EnhancedMap.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMap.txt & echo ENABLED > CACCore\@EnhancedMap.txt
+if %ModPath%==ENABLED del CACCore\@EnhancedMap.txt & echo DISABLED > CACCore\@EnhancedMap.txt
+set /p @EnhancedMap=<CACCore\@EnhancedMap.txt
+goto ModSettings
+
+:VanillaSmokeForBlastcore
+set /p ModPath=<CACCore\@EnhancedMapAce.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMapAce.txt & echo ENABLED > CACCore\@EnhancedMapAce.txt
+if %ModPath%==ENABLED del CACCore\@EnhancedMapAce.txt & echo DISABLED > CACCore\@EnhancedMapAce.txt
+set /p @EnhancedMapAce=<CACCore\@EnhancedMapAce.txt
 goto ModSettings
 
 :UserCtl
