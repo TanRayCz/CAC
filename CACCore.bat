@@ -358,7 +358,7 @@ if exist "Mods/@Blastcore " (echo  7 - @Blastcore 		                            
 if exist "Mods/@DiscordRichPresence" (echo  8 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  8 - @DiscordRichPresence		                                        STATUS: NOT FOUND
 if exist "Mods/@DUI" (echo  9 - @DUI		                                        STATUS: %@DUI%) else echo  9 - @DUI		                                        STATUS: NOT FOUND
 if exist "Mods/@EnhancedMap" (echo  10 - @EnhancedMap	                                        STATUS: %@EnhancedMap%) else echo  10 - @EnhancedMap		                                STATUS: NOT FOUND
-if exist "Mods/@EnhancedMapAce" (echo  11 - @EnhancedMapAce  		        STATUS: %@EnhancedMapAce%) else echo  11 - @EnhancedMapAce		                        STATUS: NOT FOUND
+if exist "Mods/@EnhancedMapAce" (echo  11 - @EnhancedMapAce  		                                STATUS: %@EnhancedMapAce%) else echo  11 - @EnhancedMapAce		                        STATUS: NOT FOUND
 if exist "Mods/@JSRS_SOUNDMOD" (echo  12 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  12 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
 if exist "Mods/@VanillaSmokeForBlastcore" (echo  13 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  13 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
 
@@ -379,8 +379,8 @@ IF "%M%"=="6" GOTO BetterInventory
 IF "%M%"=="7" GOTO Blastcore
 IF "%M%"=="8" GOTO DiscordRichPresence
 IF "%M%"=="9" GOTO DUI
-IF "%M%"=="10" GOTO JSRS_SOUNDMOD
-IF "%M%"=="11" GOTO VanillaSmokeForBlastcore
+IF "%M%"=="10" GOTO EnhancedMap
+IF "%M%"=="11" GOTO EnhancedMapAce
 IF "%M%"=="12" GOTO JSRS_SOUNDMOD
 IF "%M%"=="13" GOTO VanillaSmokeForBlastcore
 
@@ -454,6 +454,20 @@ if %ModPath%==ENABLED del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
 set /p @DUI=<CACCore\@DUI.txt
 goto ModSettings
 
+:EnhancedMap
+set /p ModPath=<CACCore\@EnhancedMap.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMap.txt & echo ENABLED > CACCore\@EnhancedMap.txt
+if %ModPath%==ENABLED del CACCore\@EnhancedMap.txt & echo DISABLED > CACCore\@EnhancedMap.txt
+set /p @EnhancedMap=<CACCore\@EnhancedMap.txt
+goto ModSettings
+
+:EnhancedMapAce
+set /p ModPath=<CACCore\@EnhancedMapAce.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMapAce.txt & echo ENABLED > CACCore\@EnhancedMapAce.txt
+if %ModPath%==ENABLED del CACCore\@EnhancedMapAce.txt & echo DISABLED > CACCore\@EnhancedMapAce.txt
+set /p @EnhancedMapAce=<CACCore\@EnhancedMapAce.txt
+goto ModSettings
+
 :JSRS_SOUNDMOD
 set /p ModPath=<CACCore\@JSRS_SOUNDMOD.txt
 if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED > CACCore\@JSRS_SOUNDMOD.txt
@@ -466,20 +480,6 @@ set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
 if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
-goto ModSettings
-
-:JSRS_SOUNDMOD
-set /p ModPath=<CACCore\@EnhancedMap.txt
-if %ModPath%==DISABLED del CACCore\@EnhancedMap.txt & echo ENABLED > CACCore\@EnhancedMap.txt
-if %ModPath%==ENABLED del CACCore\@EnhancedMap.txt & echo DISABLED > CACCore\@EnhancedMap.txt
-set /p @EnhancedMap=<CACCore\@EnhancedMap.txt
-goto ModSettings
-
-:VanillaSmokeForBlastcore
-set /p ModPath=<CACCore\@EnhancedMapAce.txt
-if %ModPath%==DISABLED del CACCore\@EnhancedMapAce.txt & echo ENABLED > CACCore\@EnhancedMapAce.txt
-if %ModPath%==ENABLED del CACCore\@EnhancedMapAce.txt & echo DISABLED > CACCore\@EnhancedMapAce.txt
-set /p @EnhancedMapAce=<CACCore\@EnhancedMapAce.txt
 goto ModSettings
 
 :UserCtl
