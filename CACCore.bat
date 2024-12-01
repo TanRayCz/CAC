@@ -294,10 +294,10 @@ GOTO End
 :ExileEscape
 set ExileEscape=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@DualArms
 if %Status%==ENABLED goto ExileEscapeEXTENDED
-%A1% -port=2372 "%ExileEscape%"
+%A3% -port=2372 "%ExileEscape%"
 GOTO End
 :ExileEscapeEXTENDED
-%A1% -port=2372 "%ExileEscape%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
+%A3% -port=2372 "%ExileEscape%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :KingofTheHill
