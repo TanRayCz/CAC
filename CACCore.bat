@@ -253,7 +253,7 @@ set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Liberation
-set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSUSAF;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@USAF;%ModPath%@USAF_AC130_BETA;%ModPath%@CUPTerrainsCore;%ModPath%@AWR;%ModPath%@Yulakia;%ModPath%@KPRanks
+set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@CUPUnits;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@USAF;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@AWR;%ModPath%@FayshkhaburIraq;%ModPath%@KPRanks;%ModPath%@POOKCamonets;%ModPath%@POOKSAMPACK;%ModPath%@Suppress;%ModPath%@USAF_Mod_Fighters;%ModPath%@USAF_Mod_Utility;%ModPath%@Vehicle_Inventory_System;%ModPath%@CAC_Factions;%ModPath%@Align;%ModPath%@AdvancedTowing;%ModPath%@AdvancedSlingLoading
 if %Status%==ENABLED goto LiberationExtended
 %A5% -port=2100 "%Liberation%"
 GOTO End
