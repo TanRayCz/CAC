@@ -255,10 +255,10 @@ GOTO End
 :Liberation
 set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@CUPUnits;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@USAF;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@AWR;%ModPath%@FayshkhaburIraq;%ModPath%@KPRanks;%ModPath%@POOKCamonets;%ModPath%@POOKSAMPACK;%ModPath%@Suppress;%ModPath%@USAF_Mod_Fighters;%ModPath%@USAF_Mod_Utility;%ModPath%@Vehicle_Inventory_System;%ModPath%@CAC_Factions;%ModPath%@Align;%ModPath%@AdvancedTowing;%ModPath%@AdvancedSlingLoading
 if %Status%==ENABLED goto LiberationExtended
-%A5% -port=2100 "%Liberation%"
+%A5% -port=3302 "%Liberation%"
 GOTO End
 :LiberationExtended
-%A5% -port=2100 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
+%A5% -port=3302 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
