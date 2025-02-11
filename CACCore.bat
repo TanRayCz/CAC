@@ -238,7 +238,7 @@ set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=rf;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;;%ModPath%@NapfWinter;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@BWMod;%ModPath%@CUPWeapons;%ModPath%@CUPVehicles;%ModPath%@CUPUnits;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
+set Antistasi2=-mod=rf;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@NapfIslandA3;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@BWMod;%ModPath%@CUPWeapons;%ModPath%@CUPVehicles;%ModPath%@CUPUnits;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
