@@ -209,17 +209,17 @@ IF ERRORLEVEL 7 GOTO SpecOps
 IF ERRORLEVEL 6 GOTO Liberation
 IF ERRORLEVEL 5 GOTO ExileEscape
 IF ERRORLEVEL 4 GOTO KingofTheHill
-IF ERRORLEVEL 3 GOTO ExileTanoa
+IF ERRORLEVEL 3 GOTO Exile
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
 
-:ExileTanoa
-set ExileTanoa=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
-if %Status%==ENABLED goto ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%"
+:Exile
+set Exile=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+if %Status%==ENABLED goto ExileEXTENDED
+%A2% -port=2402 -password="%Password%" "%Exile%"
 GOTO End
-:ExileTanoaEXTENDED
-%A2% -port=2402 -password="%Password%" "%ExileTanoa%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
+:ExileEXTENDED
+%A2% -port=2402 -password="%Password%" "%Exile%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :Antistasi1
