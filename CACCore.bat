@@ -190,7 +190,7 @@ if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Antistasi 1
 echo  2 Antistasi 2 
-echo  3 Exile Tanoa
+echo  3 Exile Altis
 echo  4 King of The Hill 
 echo  5 Exile Escape [Variable Uptime/Event only]
 echo  6 Liberation 
