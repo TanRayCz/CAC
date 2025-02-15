@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 REM Set the names of the variables to be checked
 set "varname1=Antistasi1"
 set "varname2=Antistasi2"
-set "varname3=ExileTanoa"
+set "varname3=Exile"
 set "varname4=KOTH"
 set "varname5=Liberation"
 set "varname6=SpecOps"
