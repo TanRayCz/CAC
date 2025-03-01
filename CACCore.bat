@@ -208,7 +208,8 @@ REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO SpecOps
 IF ERRORLEVEL 6 GOTO Liberation
 IF ERRORLEVEL 5 GOTO ExileEscape
-IF ERRORLEVEL 4 GOTO KingofTheHill
+IF ERRORLEVEL 4 GOTO KingofTheHillEU
+::IF ERRORLEVEL 4 GOTO KingofTheHill
 IF ERRORLEVEL 3 GOTO Exile
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
@@ -220,6 +221,25 @@ if %Status%==ENABLED goto ExileEXTENDED
 GOTO End
 :ExileEXTENDED
 %A2% -port=2402 -password="%Password%" "%Exile%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
+GOTO End
+
+::Server SA
+:KingofTheHill
+set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+if %Status%==ENABLED goto KOTHEXTENDED
+%A2% -port=2322 "%KOTH%" 
+GOTO End
+:KOTHEXTENDED
+%A23% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
+
+:: Server EU
+:KingofTheHillEU
+set KOTHEU=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
+if %Status%==ENABLED goto KOTHEUEXTENDED
+%A3% -port=2322 "%KOTHEU%" 
+GOTO End
+:KOTHEUEXTENDED
+%A3% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :Antistasi1
@@ -298,15 +318,6 @@ if %Status%==ENABLED goto ExileEscapeEXTENDED
 GOTO End
 :ExileEscapeEXTENDED
 %A3% -port=2372 "%ExileEscape%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
-GOTO End
-
-:KingofTheHill
-set KOTH=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
-if %Status%==ENABLED goto KOTHEXTENDED
-%A3% -port=2322 "%KOTH%" 
-GOTO End
-:KOTHEXTENDED
-%A3% -port=2322 "%KOTH%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%"
 GOTO End
 
 :StatusChanger
