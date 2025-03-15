@@ -192,10 +192,10 @@ echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 Exile Altis
 echo  4 King of The Hill [Variable Uptime/Event only]
-echo  5 Exile Escape [Variable Uptime/Event only]
-echo  6 Liberation 
-echo  7 Special Ops [Variable Uptime/Event only]
-REM   8 Dynamic Recon Ops CUP
+REM echo  5 Exile Escape [Variable Uptime/Event only]
+REM echo  6 Liberation 
+REM echo  7 Special Ops [Variable Uptime/Event only]
+REM echo  8 Dynamic Recon Ops CUP
 echo.
 echo  9 CAC Settings
 echo.
