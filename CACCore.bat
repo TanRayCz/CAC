@@ -190,8 +190,8 @@ if %Status%==DISABLED echo OPTIONAL MODS: DISABLED
 echo.
 echo  1 Antistasi 1
 echo  2 Antistasi 2 
-echo  3 Exile Altis
-echo  4 King of The Hill [Variable Uptime/Event only]
+echo  3 King of The Hill [Variable Uptime/Event only]
+REM echo  4 Exile Altis
 REM echo  5 Exile Escape [Variable Uptime/Event only]
 REM echo  6 Liberation 
 REM echo  7 Special Ops [Variable Uptime/Event only]
@@ -207,9 +207,9 @@ IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO SpecOps
 IF ERRORLEVEL 6 GOTO Liberation
-IF ERRORLEVEL 5 GOTO ExileEscape
-IF ERRORLEVEL 4 GOTO KingofTheHillEU
-IF ERRORLEVEL 3 GOTO Exile
+REM IF ERRORLEVEL 5 GOTO ExileEscape
+REM IF ERRORLEVEL 4 GOTO Exile
+IF ERRORLEVEL 3 GOTO KingofTheHillEU
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
 
