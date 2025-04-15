@@ -191,9 +191,9 @@ echo.
 echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 King of The Hill [Variable Uptime/Event only]
-REM echo  4 Exile Altis
-REM echo  5 Exile Escape [Variable Uptime/Event only]
-REM echo  6 Liberation 
+REM echo  4 Liberation 
+REM echo  5 Exile Altis
+REM echo  6 Exile Escape [Variable Uptime/Event only]
 REM echo  7 Special Ops [Variable Uptime/Event only]
 REM echo  8 Dynamic Recon Ops CUP
 echo.
@@ -206,9 +206,9 @@ IF ERRORLEVEL 10 exit
 IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 IF ERRORLEVEL 7 GOTO SpecOps
-IF ERRORLEVEL 6 GOTO Liberation
-REM IF ERRORLEVEL 5 GOTO ExileEscape
-REM IF ERRORLEVEL 4 GOTO Exile
+IF ERRORLEVEL 6 GOTO ExileEscape
+REM IF ERRORLEVEL 5 GOTO Exile
+IF ERRORLEVEL 4 GOTO Liberation
 IF ERRORLEVEL 3 GOTO KingofTheHillEU
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
@@ -263,7 +263,7 @@ set o12addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Liberation
-set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@CUPUnits;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@USAF;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@AWR;%ModPath%@FayshkhaburIraq;%ModPath%@KPRanks;%ModPath%@POOKCamonets;%ModPath%@POOKSAMPACK;%ModPath%@Suppress;%ModPath%@USAF_Mod_Fighters;%ModPath%@USAF_Mod_Utility;%ModPath%@Vehicle_Inventory_System;%ModPath%@CFP;%ModPath%@Align;%ModPath%@AdvancedTowing;%ModPath%@AdvancedSlingLoading;%ModPath%@CAC_Liberation
+set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CBA_A3;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@KPRanks;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping;%ModPath%@CAC_Liberation
 if %Status%==ENABLED goto LiberationExtended
 %A5% -port=3302 "%Liberation%"
 GOTO End
