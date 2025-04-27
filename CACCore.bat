@@ -192,7 +192,7 @@ echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 King of The Hill [Variable Uptime/Event only]
 echo  4 Liberation 
-REM echo  5 Exile Altis
+echo  5 Exile Altis
 REM echo  6 Exile Escape [Variable Uptime/Event only]
 REM echo  7 Special Ops [Variable Uptime/Event only]
 REM echo  8 Dynamic Recon Ops CUP
@@ -207,7 +207,7 @@ IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 REM IF ERRORLEVEL 7 GOTO SpecOps
 REM IF ERRORLEVEL 6 GOTO ExileEscape
-REM IF ERRORLEVEL 5 GOTO Exile
+IF ERRORLEVEL 5 GOTO Exile
 IF ERRORLEVEL 4 GOTO Liberation
 IF ERRORLEVEL 3 GOTO KingofTheHillEU
 IF ERRORLEVEL 2 GOTO Antistasi2
