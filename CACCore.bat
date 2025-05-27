@@ -145,31 +145,31 @@ set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 set /p @WalkableMovingObjects=<CACCore\@WalkableMovingObjects.txt
 
-if %@A3ThermalImprovement%==ENABLED set o1=;%ModPath%@A3ThermalImprovement
+if %@A3ThermalImprovement%==ENABLED_ set o1=;%ModPath%@A3ThermalImprovement
 if %@A3ThermalImprovement%==DISABLED set o1=
-if %@Athena%==ENABLED set o2=;%ModPath%@Athena
+if %@Athena%==ENABLED_ set o2=;%ModPath%@Athena
 if %@Athena%==DISABLED set o2=
-if %@AthenaWeb%==ENABLED set o3=;%ModPath%@AthenaWeb
+if %@AthenaWeb%==ENABLED_ set o3=;%ModPath%@AthenaWeb
 if %@AthenaWeb%==DISABLED set o3=
-if %@AutomaticViewDistance%==ENABLED set o4=;%ModPath%@AutomaticViewDistance
+if %@AutomaticViewDistance%==ENABLED_ set o4=;%ModPath%@AutomaticViewDistance
 if %@AutomaticViewDistance%==DISABLED set o4=
-if %@BetterInventory%==ENABLED set o5=;%ModPath%@BetterInventory
+if %@BetterInventory%==ENABLED_ set o5=;%ModPath%@BetterInventory
 if %@BetterInventory%==DISABLED set o5=
-if %@Blastcore%==ENABLED set o6=;%ModPath%@Blastcore
+if %@Blastcore%==ENABLED_ set o6=;%ModPath%@Blastcore
 if %@Blastcore%==DISABLED set o6= & set o12=
-if %@DiscordRichPresence%==ENABLED set o7=;%ModPath%@DiscordRichPresence
+if %@DiscordRichPresence%==ENABLED_ set o7=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o7=
-if %@DUI%==ENABLED set o8=;%ModPath%@DUI
+if %@DUI%==ENABLED_ set o8=;%ModPath%@DUI
 if %@DUI%==DISABLED set o8=
-if %@EnhancedMap%==ENABLED set o9=;%ModPath%@EnhancedMap
+if %@EnhancedMap%==ENABLED_ set o9=;%ModPath%@EnhancedMap
 if %@EnhancedMap%==DISABLED set o9=
-if %@EnhancedMapAce%==ENABLED set o10=;%ModPath%@EnhancedMapAce
+if %@EnhancedMapAce%==ENABLED_ set o10=;%ModPath%@EnhancedMapAce
 if %@EnhancedMapAce%==DISABLED set o10=
-if %@JSRS_SOUNDMOD%==ENABLED set o11=;%ModPath%@JSRS_SOUNDMOD
+if %@JSRS_SOUNDMOD%==ENABLED_ set o11=;%ModPath%@JSRS_SOUNDMOD
 if %@JSRS_SOUNDMOD%==DISABLED set o11=
-if %@VanillaSmokeForBlastcore%==ENABLED set o12=;%ModPath%@VanillaSmokeForBlastcore
+if %@VanillaSmokeForBlastcore%==ENABLED_ set o12=;%ModPath%@VanillaSmokeForBlastcore
 if %@VanillaSmokeForBlastcore%==DISABLED set o12=
-if %@WalkableMovingObjects%==ENABLED set o13=;%ModPath%@WalkableMovingObjects
+if %@WalkableMovingObjects%==ENABLED_ set o13=;%ModPath%@WalkableMovingObjects
 if %@WalkableMovingObjects%==DISABLED set o13=
 
 :MODPRELOADERSKIP
@@ -349,36 +349,44 @@ goto StatusChanger
 color 2
 cls
 
-if exist "Mods/@A3ThermalImprovement" (echo  01 - @A3ThermalImprovement		                        STATUS: %@A3ThermalImprovement%) else echo  01 - @A3ThermalImprovement		                                        STATUS: NOT FOUND
-if exist "Mods/@Athena" (echo  02 - @Athena		                                        STATUS: %@Athena%) else echo  02 - @Athena		                                        STATUS: NOT FOUND
-if exist "Mods/@AthenaWeb" (echo  03 - @AthenaWeb		                                STATUS: %@AthenaWeb%) else echo  03 - @AthenaWeb		                                        STATUS: NOT FOUND
-if exist "Mods/@AutomaticViewDistance" (echo  04 - @AutomaticViewDistance		                        STATUS: %@AutomaticViewDistance%) else echo  04 - @AutomaticViewDistance		                                        STATUS: NOT FOUND
-if exist "Mods/@BetterInventory" (echo  05 - @BetterInventory	                                        STATUS: %@BetterInventory%) else echo  05 - @BetterInventory		                                STATUS: NOT FOUND
-if exist "Mods/@Blastcore " (echo  06 - @Blastcore 		                                STATUS: %@Blastcore%) else echo  06 - @Blastcore 		                                STATUS: NOT FOUND
-if exist "Mods/@DiscordRichPresence" (echo  07 - @DiscordRichPresence		                        STATUS: %@DiscordRichPresence%) else echo  07 - @DiscordRichPresence		                                        STATUS: NOT FOUND
-if exist "Mods/@DUI" (echo  08 - @DUI		                                        STATUS: %@DUI%) else echo  08 - @DUI		                                        STATUS: NOT FOUND
-if exist "Mods/@EnhancedMap" (echo  09 - @EnhancedMap	                                        STATUS: %@EnhancedMap%) else echo  09 - @EnhancedMap		                                STATUS: NOT FOUND
-if exist "Mods/@EnhancedMapAce" (echo  10 - @EnhancedMapAce  		                                STATUS: %@EnhancedMapAce%) else echo  10 - @EnhancedMapAce		                        STATUS: NOT FOUND
-if exist "Mods/@JSRS_SOUNDMOD" (echo  11 - @JSRS_SOUNDMOD	                                        STATUS: %@JSRS_SOUNDMOD%) else echo  11 - @JSRS_SOUNDMOD		                                STATUS: NOT FOUND
-if exist "Mods/@VanillaSmokeForBlastcore" (echo  12 - @VanillaSmokeForBlastcore - Blastcore required		STATUS: %@VanillaSmokeForBlastcore%) else echo  12 - @VanillaSmokeForBlastcore		                        STATUS: NOT FOUND
-if exist "Mods/@WalkableMovingObjects" (echo  13 - @WalkableMovingObjects		                        STATUS: %@WalkableMovingObjects%) else echo  13 - @WalkableMovingObjects		                                        STATUS: NOT FOUND
+if exist "Mods/@A3ThermalImprovement" (echo  01 %@A3ThermalImprovement%- @A3ThermalImprovement) else echo  01 NOT FOUND - @A3ThermalImprovement
+if exist "Mods/@Athena" (echo  02 %@Athena%- @Athena) else echo  02 NOT FOUND - @Athena
+if exist "Mods/@AthenaWeb" (echo  03 %@AthenaWeb%- @AthenaWeb) else echo  03 NOT FOUND - @AthenaWeb
+if exist "Mods/@AutomaticViewDistance" (echo  04 %@AutomaticViewDistance%- @AutomaticViewDistance) else echo  04 NOT FOUND - @AutomaticViewDistance
+if exist "Mods/@BetterInventory" (echo  05 %@BetterInventory%- @BetterInventory) else echo  05 NOT FOUND - @BetterInventory
+if exist "Mods/@Blastcore" (echo  06 %@Blastcore%- @Blastcore) else echo  06 NOT FOUND - @Blastcore
+if exist "Mods/@DiscordRichPresence" (echo  07 %@DiscordRichPresence%- @DiscordRichPresence) else echo  07 NOT FOUND - @DiscordRichPresence
+if exist "Mods/@DUI" (echo  08 %@DUI%- @DUI) else echo  08 NOT FOUND - @DUI
+if exist "Mods/@EnhancedMap" (echo  09 %@EnhancedMap%- @EnhancedMap) else echo  09 NOT FOUND - @EnhancedMap
+if exist "Mods/@EnhancedMapAce" (echo  10 %@EnhancedMapAce%- @EnhancedMapAce) else echo  10 NOT FOUND - @EnhancedMapAce
+if exist "Mods/@JSRS_SOUNDMOD" (echo  11 %@JSRS_SOUNDMOD%- @JSRS_SOUNDMOD) else echo  11 NOT FOUND - @JSRS_SOUNDMOD
+if exist "Mods/@VanillaSmokeForBlastcore" (echo  12 %@VanillaSmokeForBlastcore%- @VanillaSmokeForBlastcore - Blastcore required) else echo  12 NOT FOUND - @VanillaSmokeForBlastcore
+if exist "Mods/@WalkableMovingObjects" (echo  13 %@WalkableMovingObjects%- @WalkableMovingObjects) else echo  13 NOT FOUND - @WalkableMovingObjects
 
 echo.
 echo  b - Back
 echo.
 echo  r - Refresh
 echo.
-echo Confirm with enter
-SET /P "M=Switch optional mod:"
+SET /P "M=Switch optional mod (Type mod number and confirm with Enter):"
 IF "%M%"=="1" GOTO A3ThermalImprovement
+IF "%M%"=="01" GOTO A3ThermalImprovement
 IF "%M%"=="2" GOTO Athena
+IF "%M%"=="02" GOTO Athena
 IF "%M%"=="3" GOTO AthenaWeb
+IF "%M%"=="03" GOTO AthenaWeb
 IF "%M%"=="4" GOTO AutomaticViewDistance
+IF "%M%"=="04" GOTO AutomaticViewDistance
 IF "%M%"=="5" GOTO BetterInventory
+IF "%M%"=="05" GOTO BetterInventory
 IF "%M%"=="6" GOTO Blastcore
+IF "%M%"=="06" GOTO Blastcore
 IF "%M%"=="7" GOTO DiscordRichPresence
+IF "%M%"=="07" GOTO DiscordRichPresence
 IF "%M%"=="8" GOTO DUI
+IF "%M%"=="08" GOTO DUI
 IF "%M%"=="9" GOTO EnhancedMap
+IF "%M%"=="09" GOTO EnhancedMap
 IF "%M%"=="10" GOTO EnhancedMapAce
 IF "%M%"=="11" GOTO JSRS_SOUNDMOD
 IF "%M%"=="12" GOTO VanillaSmokeForBlastcore
@@ -393,92 +401,92 @@ GOTO ModSettings
 
 :A3ThermalImprovement
 set /p ModPath=<CACCore\@A3ThermalImprovement.txt
-if %ModPath%==DISABLED del CACCore\@A3ThermalImprovement.txt & echo ENABLED > CACCore\@A3ThermalImprovement.txt
-if %ModPath%==ENABLED del CACCore\@A3ThermalImprovement.txt & echo DISABLED > CACCore\@A3ThermalImprovement.txt
+if %ModPath%==DISABLED del CACCore\@A3ThermalImprovement.txt & echo ENABLED_ > CACCore\@A3ThermalImprovement.txt
+if %ModPath%==ENABLED_ del CACCore\@A3ThermalImprovement.txt & echo DISABLED > CACCore\@A3ThermalImprovement.txt
 set /p @A3ThermalImprovement=<CACCore\@A3ThermalImprovement.txt
 goto ModSettings
 
 :Athena
 set /p ModPath=<CACCore\@Athena.txt
-if %ModPath%==DISABLED del CACCore\@Athena.txt & echo ENABLED > CACCore\@Athena.txt
-if %ModPath%==ENABLED del CACCore\@Athena.txt & echo DISABLED > CACCore\@Athena.txt
+if %ModPath%==DISABLED del CACCore\@Athena.txt & echo ENABLED_ > CACCore\@Athena.txt
+if %ModPath%==ENABLED_ del CACCore\@Athena.txt & echo DISABLED > CACCore\@Athena.txt
 set /p @Athena=<CACCore\@Athena.txt
 goto ModSettings
 
 :AthenaWeb
 set /p ModPath=<CACCore\@AthenaWeb.txt
-if %ModPath%==DISABLED del CACCore\@AthenaWeb.txt & echo ENABLED > CACCore\@AthenaWeb.txt
-if %ModPath%==ENABLED del CACCore\@AthenaWeb.txt & echo DISABLED > CACCore\@AthenaWeb.txt
+if %ModPath%==DISABLED del CACCore\@AthenaWeb.txt & echo ENABLED_ > CACCore\@AthenaWeb.txt
+if %ModPath%==ENABLED_ del CACCore\@AthenaWeb.txt & echo DISABLED > CACCore\@AthenaWeb.txt
 set /p @AthenaWeb=<CACCore\@AthenaWeb.txt
 goto ModSettings
 
 :AutomaticViewDistance
 set /p ModPath=<CACCore\@AutomaticViewDistance.txt
-if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED > CACCore\@AutomaticViewDistance.txt
-if %ModPath%==ENABLED del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
+if %ModPath%==DISABLED del CACCore\@AutomaticViewDistance.txt & echo ENABLED_ > CACCore\@AutomaticViewDistance.txt
+if %ModPath%==ENABLED_ del CACCore\@AutomaticViewDistance.txt & echo DISABLED > CACCore\@AutomaticViewDistance.txt
 set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
 goto ModSettings
 
 :BetterInventory
 set /p ModPath=<CACCore\@BetterInventory.txt
-if %ModPath%==DISABLED del CACCore\@BetterInventory.txt & echo ENABLED > CACCore\@BetterInventory.txt
-if %ModPath%==ENABLED del CACCore\@BetterInventory.txt & echo DISABLED > CACCore\@BetterInventory.txt
+if %ModPath%==DISABLED del CACCore\@BetterInventory.txt & echo ENABLED_ > CACCore\@BetterInventory.txt
+if %ModPath%==ENABLED_ del CACCore\@BetterInventory.txt & echo DISABLED > CACCore\@BetterInventory.txt
 set /p @BetterInventory=<CACCore\@BetterInventory.txt
 goto ModSettings
 
 :Blastcore
 set /p ModPath=<CACCore\@Blastcore.txt
-if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED > CACCore\@Blastcore.txt
-if %ModPath%==ENABLED del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
+if %ModPath%==DISABLED del CACCore\@Blastcore.txt & echo ENABLED_ > CACCore\@Blastcore.txt
+if %ModPath%==ENABLED_ del CACCore\@Blastcore.txt & echo DISABLED > CACCore\@Blastcore.txt
 set /p @Blastcore=<CACCore\@Blastcore.txt
 goto ModSettings
 
 :DiscordRichPresence
 set /p ModPath=<CACCore\@DiscordRichPresence.txt
-if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED > CACCore\@DiscordRichPresence.txt
-if %ModPath%==ENABLED del CACCore\@DiscordRichPresence.txt & echo DISABLED > CACCore\@DiscordRichPresence.txt
+if %ModPath%==DISABLED del CACCore\@DiscordRichPresence.txt & echo ENABLED_ > CACCore\@DiscordRichPresence.txt
+if %ModPath%==ENABLED_ del CACCore\@DiscordRichPresence.txt & echo DISABLED > CACCore\@DiscordRichPresence.txt
 set /p @DiscordRichPresence=<CACCore\@DiscordRichPresence.txt
 goto ModSettings
 
 :DUI
 set /p ModPath=<CACCore\@DUI.txt
-if %ModPath%==DISABLED del CACCore\@DUI.txt & echo ENABLED > CACCore\@DUI.txt
-if %ModPath%==ENABLED del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
+if %ModPath%==DISABLED del CACCore\@DUI.txt & echo ENABLED_ > CACCore\@DUI.txt
+if %ModPath%==ENABLED_ del CACCore\@DUI.txt & echo DISABLED > CACCore\@DUI.txt
 set /p @DUI=<CACCore\@DUI.txt
 goto ModSettings
 
 :EnhancedMap
 set /p ModPath=<CACCore\@EnhancedMap.txt
-if %ModPath%==DISABLED del CACCore\@EnhancedMap.txt & echo ENABLED > CACCore\@EnhancedMap.txt
-if %ModPath%==ENABLED del CACCore\@EnhancedMap.txt & echo DISABLED > CACCore\@EnhancedMap.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMap.txt & echo ENABLED_ > CACCore\@EnhancedMap.txt
+if %ModPath%==ENABLED_ del CACCore\@EnhancedMap.txt & echo DISABLED > CACCore\@EnhancedMap.txt
 set /p @EnhancedMap=<CACCore\@EnhancedMap.txt
 goto ModSettings
 
 :EnhancedMapAce
 set /p ModPath=<CACCore\@EnhancedMapAce.txt
-if %ModPath%==DISABLED del CACCore\@EnhancedMapAce.txt & echo ENABLED > CACCore\@EnhancedMapAce.txt
-if %ModPath%==ENABLED del CACCore\@EnhancedMapAce.txt & echo DISABLED > CACCore\@EnhancedMapAce.txt
+if %ModPath%==DISABLED del CACCore\@EnhancedMapAce.txt & echo ENABLED_ > CACCore\@EnhancedMapAce.txt
+if %ModPath%==ENABLED_ del CACCore\@EnhancedMapAce.txt & echo DISABLED > CACCore\@EnhancedMapAce.txt
 set /p @EnhancedMapAce=<CACCore\@EnhancedMapAce.txt
 goto ModSettings
 
 :JSRS_SOUNDMOD
 set /p ModPath=<CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED > CACCore\@JSRS_SOUNDMOD.txt
-if %ModPath%==ENABLED del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
+if %ModPath%==DISABLED del CACCore\@JSRS_SOUNDMOD.txt & echo ENABLED_ > CACCore\@JSRS_SOUNDMOD.txt
+if %ModPath%==ENABLED_ del CACCore\@JSRS_SOUNDMOD.txt & echo DISABLED > CACCore\@JSRS_SOUNDMOD.txt
 set /p @JSRS_SOUNDMOD=<CACCore\@JSRS_SOUNDMOD.txt
 goto ModSettings
 
 :VanillaSmokeForBlastcore
 set /p ModPath=<CACCore\@VanillaSmokeForBlastcore.txt
-if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED > CACCore\@VanillaSmokeForBlastcore.txt
-if %ModPath%==ENABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==DISABLED del CACCore\@VanillaSmokeForBlastcore.txt & echo ENABLED_ > CACCore\@VanillaSmokeForBlastcore.txt
+if %ModPath%==ENABLED_ del CACCore\@VanillaSmokeForBlastcore.txt & echo DISABLED > CACCore\@VanillaSmokeForBlastcore.txt
 set /p @VanillaSmokeForBlastcore=<CACCore\@VanillaSmokeForBlastcore.txt
 goto ModSettings
 
 :WalkableMovingObjects
 set /p ModPath=<CACCore\@WalkableMovingObjects.txt
-if %ModPath%==DISABLED del CACCore\@WalkableMovingObjects.txt & echo ENABLED > CACCore\@WalkableMovingObjects.txt
-if %ModPath%==ENABLED del CACCore\@WalkableMovingObjects.txt & echo DISABLED > CACCore\@WalkableMovingObjects.txt
+if %ModPath%==DISABLED del CACCore\@WalkableMovingObjects.txt & echo ENABLED_ > CACCore\@WalkableMovingObjects.txt
+if %ModPath%==ENABLED_ del CACCore\@WalkableMovingObjects.txt & echo DISABLED > CACCore\@WalkableMovingObjects.txt
 set /p @WalkableMovingObjects=<CACCore\@WalkableMovingObjects.txt
 goto ModSettings
 
