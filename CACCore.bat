@@ -175,7 +175,7 @@ if %@WalkableMovingObjects%==DISABLED set o13=
 :MODPRELOADERSKIP
 
 set launcherversion=1.8.1
-set gameversion=2.18.152302
+set gameversion=2.20.152939
 
 color 2
 title Arma 3 CAC Launcher
