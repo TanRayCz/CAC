@@ -263,7 +263,7 @@ set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Liberation
-set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CBA_A3;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@KPRanks;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping;%ModPath%@CAC_Liberation;%ModPath%@RealEngine
+set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CBA_A3;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@KPRanks;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping;%ModPath%@CAC_Liberation;%ModPath%@RealEngine;%ModPath%@HideAmongTheGrass
 if %Status%==ENABLED goto LiberationExtended
 %A5% -port=3302 "%Liberation%"
 GOTO End
