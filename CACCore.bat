@@ -229,7 +229,7 @@ if %Status%==ENABLED goto KOTHEUEXTENDED
 %A4% -port=2322 "%KOTHEU%" 
 GOTO End
 :KOTHEUEXTENDED
-%A3% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
+%A4% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 GOTO End
 
 :Antistasi1
@@ -617,4 +617,5 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
