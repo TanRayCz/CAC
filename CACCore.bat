@@ -109,7 +109,7 @@ set ip1=brenner.servebeer.com
 set ip2=rkb1.home.ro
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
-set ip5=theghost.ddns.net
+set ip5=ge1.server.jishnukarri.me
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip3% -name="%ArmaUserName%"
@@ -263,7 +263,7 @@ set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Liberation
-set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CBA_A3;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@KPRanks;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping;%ModPath%@CAC_Liberation;%ModPath%@RealEngine;%ModPath%@HideAmongTheGrass
+set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CAC_Liberation;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@HideAmongTheGrass;%ModPath%@KPRanks;%ModPath%@ProjectOPFOR;%ModPath%@RealEngine;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping
 if %Status%==ENABLED goto LiberationExtended
 %A5% -port=3302 "%Liberation%"
 GOTO End
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
