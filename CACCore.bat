@@ -191,8 +191,8 @@ echo.
 echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 King of The Hill [Variable Uptime/Event only]
-echo  4 Liberation 
-echo  5 Exile Altis
+REM echo  4 Liberation 
+echo  4 Exile Altis
 REM echo  6 Exile Escape [Variable Uptime/Event only]
 REM echo  7 Special Ops [Variable Uptime/Event only]
 REM echo  8 Dynamic Recon Ops CUP
@@ -207,8 +207,8 @@ IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 REM IF ERRORLEVEL 7 GOTO SpecOps
 REM IF ERRORLEVEL 6 GOTO ExileEscape
-IF ERRORLEVEL 5 GOTO Exile
-IF ERRORLEVEL 4 GOTO Liberation
+IF ERRORLEVEL 4 GOTO Exile
+REM IF ERRORLEVEL 4 GOTO Liberation
 IF ERRORLEVEL 3 GOTO KingofTheHillEU
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
@@ -248,7 +248,7 @@ set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=rf;%ModPath%@CBA_A3;%ModPath%@GreenSea;%ModPath%@CUPTerrainsCore;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@BWMod;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass
+set Antistasi2=-mod=rf;%ModPath%@CBA_A3;%ModPath%@Mehland;%ModPath%@CUPTerrainsCore;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@Really_Useless_Objects_Pack;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
