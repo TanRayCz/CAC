@@ -207,8 +207,8 @@ IF ERRORLEVEL 9 GOTO CACSETTINGS
 REM IF ERRORLEVEL 8 GOTO DynamicReconOps
 REM IF ERRORLEVEL 7 GOTO SpecOps
 REM IF ERRORLEVEL 6 GOTO ExileEscape
+IF ERRORLEVEL 5 GOTO Alive
 IF ERRORLEVEL 4 GOTO Exile
-REM IF ERRORLEVEL 4 GOTO Liberation
 IF ERRORLEVEL 3 GOTO KingofTheHillEU
 IF ERRORLEVEL 2 GOTO Antistasi2
 IF ERRORLEVEL 1 GOTO Antistasi1
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
