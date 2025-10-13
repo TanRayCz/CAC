@@ -263,7 +263,7 @@ set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 GOTO End
 
 :Alive
-set Alive=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CAC_Liberation;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@HideAmongTheGrass;%ModPath%@KPRanks;%ModPath%@ProjectOPFOR;%ModPath%@RealEngine;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping
+set Alive=-mod=ws;%ModPath%@ace;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@ALiVE;%ModPath%@Drongos_AI_Fire_Support;%ModPath%@Drongos_Air_Operations;%ModPath%@Simplex_Support_Services_[DB];%ModPath%@Spyder_Addons;%ModPath%@Arma_3_Aegis;%ModPath%@Arma_3_Atlas;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades
 if %Status%==ENABLED goto AliveExtended
 %A5% -port=2502 "%Alive%"
 GOTO End
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
