@@ -192,7 +192,7 @@ echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 King of The Hill [Variable Uptime/Event only]
 echo  4 Exile Altis
-echo  4 Alive 
+echo  5 Alive 
 REM echo  6 Exile Escape [Variable Uptime/Event only]
 REM echo  7 Special Ops [Variable Uptime/Event only]
 REM echo  8 Dynamic Recon Ops CUP
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
