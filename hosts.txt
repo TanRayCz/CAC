@@ -8,5 +8,6 @@ unladencoconut.ddns.net:3302
 theghost.ddns.net:2602
 theghost.ddns.net:2702
 theghost.ddns.net:3302
-theghost.ddns.net:20100
+theghost.ddns.net:2502
+
 
