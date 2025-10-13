@@ -109,7 +109,7 @@ set ip1=brenner.servebeer.com
 set ip2=rkb1.home.ro
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
-set ip5=ge1.server.jishnukarri.me
+set ip5=theghost.ddns.net
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip3% -name="%ArmaUserName%"
@@ -191,8 +191,8 @@ echo.
 echo  1 Antistasi 1
 echo  2 Antistasi 2 
 echo  3 King of The Hill [Variable Uptime/Event only]
-REM echo  4 Liberation 
 echo  4 Exile Altis
+echo  4 Alive 
 REM echo  6 Exile Escape [Variable Uptime/Event only]
 REM echo  7 Special Ops [Variable Uptime/Event only]
 REM echo  8 Dynamic Recon Ops CUP
@@ -262,18 +262,18 @@ set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPa
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
-:Liberation
-set Liberation=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CAC_Liberation;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@HideAmongTheGrass;%ModPath%@KPRanks;%ModPath%@ProjectOPFOR;%ModPath%@RealEngine;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping
-if %Status%==ENABLED goto LiberationExtended
-%A5% -port=3302 "%Liberation%"
+:Alive
+set Alive=-mod=%ModPath%@ace;%ModPath%@ACEGrenades;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedSlingLoading;%ModPath%@AdvancedTowing;%ModPath%@AdvancedUrbanRappelling;%ModPath%@Align;%ModPath%@CAC_Liberation;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@CUPTerrainsMaps;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@HideAmongTheGrass;%ModPath%@KPRanks;%ModPath%@ProjectOPFOR;%ModPath%@RealEngine;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@Suppress;%ModPath%@Vehicle_Inventory_System;%ModPath%@VET_Unflipping
+if %Status%==ENABLED goto AliveExtended
+%A5% -port=2502 "%Alive%"
 GOTO End
-:LiberationExtended
-%A5% -port=3302 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o10%%o11%%o12%%o13%"
+:AliveExtended
+%A5% -port=2502 "%Alive%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o10%%o11%%o12%%o13%"
 ::JSRS_RHS_Compatibility::
 if %@JSRS_SOUNDMOD%==ENABLED if %@RHSUSAF%==ENABLED goto JSRS_RHS_A2_Compatibility
 :JSRS_RHS_A2_Compatibility
 set o11addon=;%ModPath%@JSRS_AFRF;%ModPath%@JSRS_GREF;%ModPath%@JSRS_USAF;%ModPath%@JSRS_SAF
-%A5% -port=3302 "%Liberation%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o10%%o11%%o11addon%%o12%%o13%"
+%A5% -port=2502 "%Alive%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o10%%o11%%o11addon%%o12%%o13%"
 ::JSRS_RHS_Compatibility_End::
 GOTO End
 
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
