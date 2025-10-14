@@ -6,8 +6,8 @@ REM Set the names of the variables to be checked
 set "varname1=Antistasi1"
 set "varname2=Antistasi2"
 set "varname3=KOTHEU"
-set "varname4=Liberation"
-set "varname5=Exile"
+set "varname4=Exile"
+set "varname5=Alive"
 
 
 REM Get the current directory where modcheck.bat is located
@@ -56,3 +56,4 @@ endlocal
 
 pause
 call CACCore.bat
+
