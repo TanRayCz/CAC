@@ -107,7 +107,7 @@ set ModPath=%ModPath%\
 set /p ArmaUserName=<CACCore\username.txt
 set ip1=brenner.servebeer.com
 set ip2=rkb1.home.ro
-set ip3=unladencoconut.ddns.net
+set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
 set ip5=theghost.ddns.net
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
@@ -226,10 +226,10 @@ GOTO End
 :KingofTheHillEU
 set KOTHEU=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@GrenadesIntoHatches
 if %Status%==ENABLED goto KOTHEUEXTENDED
-%A1% -port=2322 "%KOTHEU%" 
+%A3% -port=2322 "%KOTHEU%" 
 GOTO End
 :KOTHEUEXTENDED
-%A1% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
+%A3% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o11%%o12%%o13%"
 GOTO End
 
 :Antistasi1
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
