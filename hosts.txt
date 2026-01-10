@@ -3,13 +3,13 @@ cackoth.servebeer.com:2322
 cacservers.servebeer.com:2372
 rkb1.home.ro:2402
 unladencoconut.ddns.net:2702
-cackoth.servebeer.com:2322
 unladencoconut.ddns.net:3302
 unladencoconut.ddns.net:2322
 theghost.ddns.net:2602
 theghost.ddns.net:2702
 theghost.ddns.net:3302
 theghost.ddns.net:2502
+
 
 
 
