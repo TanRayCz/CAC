@@ -5,10 +5,8 @@ rkb1.home.ro:2402
 unladencoconut.ddns.net:2702
 unladencoconut.ddns.net:3302
 unladencoconut.ddns.net:2322
-theghost.ddns.net:2602
-theghost.ddns.net:2702
-theghost.ddns.net:3302
-theghost.ddns.net:2502
+cac-uk.servegame.com:2502
+
 
 
 
