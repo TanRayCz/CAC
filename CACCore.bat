@@ -109,7 +109,7 @@ set ip1=brenner.servebeer.com
 set ip2=rkb1.home.ro
 set ip3=cackoth.servebeer.com
 set ip4=unladencoconut.ddns.net
-set ip5=theghost.ddns.net
+set ip5=cac-uk.servegame.com
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
 set A3=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip3% -name="%ArmaUserName%"
@@ -617,6 +617,7 @@ curl --ssl-no-revoke https://raw.githubusercontent.com/TanRayCz/CAC/master/logo.
 type CACCore\logo.txt
 timeout 3 > nul
 exit
+
 
 
 
