@@ -118,6 +118,7 @@ set A5=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCh
 
 :MODPRELOADER
 if not exist CACCore\@A3ThermalImprovement.txt echo DISABLED > CACCore\@A3ThermalImprovement.txt
+if not exist CACCore\@AarensBlastEffects.txt echo DISABLED > CACCore\@AarensBlastEffects.txt
 if not exist CACCore\@Athena.txt echo DISABLED > CACCore\@Athena.txt
 if not exist CACCore\@AthenaWeb.txt echo DISABLED > CACCore\@AthenaWeb.txt
 if not exist CACCore\@AutomaticViewDistance.txt echo DISABLED > CACCore\@AutomaticViewDistance.txt
@@ -132,6 +133,7 @@ if not exist CACCore\@VanillaSmokeForBlastcore.txt echo DISABLED > CACCore\@Vani
 if not exist CACCore\@WalkableMovingObjects.txt echo DISABLED > CACCore\@WalkableMovingObjects.txt
 
 set /p @A3ThermalImprovement=<CACCore\@A3ThermalImprovement.txt
+set /p @AarensBlastEffects=<CACCore\@AarensBlastEffects.txt
 set /p @Athena=<CACCore\@Athena.txt
 set /p @AthenaWeb=<CACCore\@AthenaWeb.txt
 set /p @AutomaticViewDistance=<CACCore\@AutomaticViewDistance.txt
@@ -163,8 +165,8 @@ if %@DiscordRichPresence%==ENABLED_ set o8=;%ModPath%@DiscordRichPresence
 if %@DiscordRichPresence%==DISABLED set o8=
 if %@DUI%==ENABLED_ set o9=;%ModPath%@DUI
 if %@DUI%==DISABLED set o9=
-if %@EnhancedMap%==ENABLED_ set 10=;%ModPath%@EnhancedMap
-if %@EnhancedMap%==DISABLED set 10=
+if %@EnhancedMap%==ENABLED_ set o10=;%ModPath%@EnhancedMap
+if %@EnhancedMap%==DISABLED set o10=
 if %@EnhancedMapAce%==ENABLED_ set o11=;%ModPath%@EnhancedMapAce
 if %@EnhancedMapAce%==DISABLED set o11=
 if %@JSRS_2025%==ENABLED_ set o12=;%ModPath%@JSRS_2025
@@ -368,7 +370,7 @@ IF "%M%"=="9" GOTO DUI
 IF "%M%"=="09" GOTO DUI
 IF "%M%"=="10" GOTO EnhancedMap
 IF "%M%"=="11" GOTO EnhancedMapAce
-IF "%M%"=="12" GOTO JSRS_SOUNDMOD
+IF "%M%"=="12" GOTO JSRS_2025
 IF "%M%"=="13" GOTO VanillaSmokeForBlastcore
 IF "%M%"=="14" GOTO WalkableMovingObjects
 
