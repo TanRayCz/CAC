@@ -226,7 +226,7 @@ GOTO End
 %A2% -port=2402 -password="%Password%" "%Exile%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%%o14%"
 GOTO End
 
-:: Server EU
+:: KoTH Server EU
 :KingofTheHillEU
 set KOTHEU=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@GrenadesIntoHatches
 if %Status%==ENABLED goto KOTHEUEXTENDED
@@ -237,7 +237,7 @@ GOTO End
 GOTO End
 
 :Antistasi1
-set Antistasi1=-mod=%ModPath%@ace;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@CUPTerrainsCore;%ModPath%@Kujari;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass
+set Antistasi1=-mod=gm;%ModPath%@ace;%ModPath%@ace_nouniformrestrictions;%ModPath%@CBA_A3;%ModPath%@Antistasi;%ModPath%@CAC_AE;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass
 if %Status%==ENABLED goto Antistasi1EXTENDED
 %A4% -port=3302 "%Antistasi1%"
 GOTO End
