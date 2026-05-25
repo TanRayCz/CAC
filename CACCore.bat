@@ -246,7 +246,7 @@ GOTO End
 GOTO End
 
 :Antistasi2
-set Antistasi2=-mod=rf;%ModPath%@CBA_A3;%ModPath%@Mehland;%ModPath%@CUPTerrainsCore;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@CUPUnits;%ModPath%@CUPVehicles;%ModPath%@CUPWeapons;%ModPath%@Really_Useless_Objects_Pack;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass
+set Antistasi2=-mod=vn;%ModPath%@CBA_A3;%ModPath%@Stubbhult;%ModPath%@AntistasiUltimate;%ModPath%@cac_aue;%ModPath%@AWR;%ModPath%@RealEngine;%ModPath%@ace;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@VET_Unflipping;%ModPath%@ace_nouniformrestrictions;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@ACEGrenades;%ModPath%@HideAmongTheGrass;%ModPath%@RHSAFRF;%ModPath%@RHSGREF;%ModPath%@RHSSAF;%ModPath%@RHSUSAF
 if %Status%==ENABLED goto Antistasi2EXTENDED
 %A4% -port=2702 "%Antistasi2%"
 GOTO End
