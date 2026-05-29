@@ -230,10 +230,10 @@ GOTO End
 :KingofTheHillEU
 set KOTHEU=-mod=%ModPath%@CBA_A3;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@MfHealAbort;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling;%ModPath%@GrenadesIntoHatches
 if %Status%==ENABLED goto KOTHEUEXTENDED
-%A3% -port=2322 "%KOTHEU%" 
+%A4% -port=2322 "%KOTHEU%" 
 GOTO End
 :KOTHEUEXTENDED
-%A3% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%%o14%"
+%A4% -port=2322 "%KOTHEU%%o1%%o2%%o3%%o4%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%%o14%"
 GOTO End
 
 :Antistasi1
