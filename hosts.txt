@@ -1,5 +1,6 @@
 brenner.servebeer.com:2332
 cackoth.servebeer.com:2322
+cackoth.servebeer.com:2402
 cacservers.servebeer.com:2372
 rkb1.home.ro:2402
 unladencoconut.ddns.net:2702
