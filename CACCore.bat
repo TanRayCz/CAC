@@ -220,10 +220,10 @@ IF ERRORLEVEL 1 GOTO Antistasi1
 :Exile
 set Exile=-mod=%ModPath%@Exile;%ModPath%@CBA_A3;%ModPath%@DualArms;%ModPath%@EnhancedMovement;%ModPath%@EnhancedMovementRework;%ModPath%@Extended_Base_Mod;%ModPath%@X66-MammothTank;%ModPath%@AdvancedRappelling;%ModPath%@AdvancedUrbanRappelling
 if %Status%==ENABLED goto ExileEXTENDED
-%A2% -port=2402 -password="%Password%" "%Exile%"
+%A3% -port=2402 -password="%Password%" "%Exile%"
 GOTO End
 :ExileEXTENDED
-%A2% -port=2402 -password="%Password%" "%Exile%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%%o14%"
+%A3% -port=2402 -password="%Password%" "%Exile%%o1%%o2%%o5%%o6%%o7%%o8%%o9%%o10%%o12%%o13%%o14%"
 GOTO End
 
 :: KoTH Server EU
