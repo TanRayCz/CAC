@@ -108,7 +108,8 @@ set /p ArmaUserName=<CACCore\username.txt
 set ip1=brenner.servebeer.com
 set ip2=rkb1.home.ro
 set ip3=cackoth.servebeer.com
-set ip4=unladencoconut.ddns.net
+::set ip4=unladencoconut.ddns.net
+set ip4=26.150.186.106
 set ip5=cac-uk.servegame.com
 set A1=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip1% -name="%ArmaUserName%"
 set A2=start "" /normal arma3_x64 -skipIntro -noSplash -world=empty -setThreadCharacteristics -connect=%ip2% -name="%ArmaUserName%"
